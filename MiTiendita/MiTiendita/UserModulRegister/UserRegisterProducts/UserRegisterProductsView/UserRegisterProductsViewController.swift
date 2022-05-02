@@ -15,12 +15,62 @@ import UIKit
 
 class UserRegisterProductsViewController: UIViewController,  UserRegisterProductsViewControllerProtocol {
     
+    @IBOutlet weak var tableDatos: UITableView!
+    @IBOutlet weak var txtBusqueda: UITextField!
+    
     var presenter: UserRegisterProductsPresenterProtocol?
+
+    var listProducts: [Product]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter?.getListProduct()
+    }
 
+    func receivedlistProduct(data: [Product]) {
+        listProducts = data
+        DispatchQueue.main.async { [weak self] in
+            self?.tableDatos.reloadData()
+        }
+     
+    }
+    func faillureData() {
+        print("Error al mostar")
     }
     
-
+    @IBAction func btnBack(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func btnBuscar(_ sender: Any) {
+    }
+    
 }
+
+extension UserRegisterProductsViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listProducts?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UserRegisterProductsTableView
+        
+        
+        let data = listProducts?[indexPath.row]
+        //cell.imgProduct.image = data?.images
+        
+        cell.nameProduct.text = data?.title
+        cell.nameDescription.text = data?.description
+        //cell.priceProduct.text = "\(data?.price)"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+}
+
+

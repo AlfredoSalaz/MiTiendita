@@ -9,6 +9,7 @@ import UIKit
 
 
 class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProtocol{
+
     
     var view: UserRegisterProductsViewControllerProtocol?
     
@@ -16,9 +17,20 @@ class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProt
     
     var router: UserRegisterProductsRouterProtocol?
     
+    func getListProduct() {
+        interactor?.getListProduct()
+    }
     
 }
 
 extension UserRegisterProductsPresenter: UserRegisterProductsOutputProtocol{
+    func onRecivedproducts(data: [Product]) {
+        view?.receivedlistProduct(data: data)
+    }
+    
+    func onRecivedFaillureData() {
+        view?.faillureData()
+    }
+    
     
 }

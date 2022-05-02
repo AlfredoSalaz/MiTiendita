@@ -20,6 +20,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     var router: MainAdminRouterProtocol? {get set}
     func openEditUser()
     func openRegisterCategory()
+    func openListProduct()
     func getCategories()
     func getProduct()
 }

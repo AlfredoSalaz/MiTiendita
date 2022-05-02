@@ -32,6 +32,7 @@ class MenuMainAdminViewController: UIViewController {
         delegate?.hideMenuHamburguesa()
     }
     @IBAction func productsAdmin(_ sender: Any) {
+        presenter?.openListProduct()
     }
     @IBAction func userAdmin(_ sender: Any) {
     }
