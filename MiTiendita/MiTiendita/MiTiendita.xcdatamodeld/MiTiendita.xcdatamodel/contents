@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Compras" representedClassName="Compras" syncable="YES" codeGenerationType="class">
+        <attribute name="user" optional="YES" attributeType="String"/>
+        <relationship name="userId" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuarios"/>
+    </entity>
+    <entity name="Usuarios" representedClassName="Usuarios" syncable="YES" codeGenerationType="class">
+        <attribute name="apellido" optional="YES" attributeType="String"/>
+        <attribute name="correo" optional="YES" attributeType="String"/>
+        <attribute name="direccion" optional="YES" attributeType="String"/>
+        <attribute name="nombre" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="tarjeta" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="compras" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Compras"/>
+    </entity>
+    <elements>
+        <element name="Usuarios" positionX="-45" positionY="0" width="128" height="134"/>
+        <element name="Compras" positionX="-18" positionY="72" width="128" height="59"/>
+    </elements>
 </model>
