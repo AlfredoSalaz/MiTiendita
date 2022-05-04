@@ -10,29 +10,48 @@ import UIKit
 
 class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol , MenuHamburguesaViewControllerDelegate {
     var presenter: MainAdminPresenterProtocol?
-    
+    var user: User?
     var listCategory: [CategoryProduct]?
     var listProducts: [Product]?
-    var productsCategory = [Product]()
-    
+    var productsCategory: [Product]?
+    var isOn = true
     @IBOutlet weak var leadinViewMenuHamburguesa: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnAddCategory: UIButton?
+    @IBOutlet weak var btnCar: UIButton?
     
     var menuHamburguesa: MenuMainAdminViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        validationView()
         tableView.delegate = self
         presenter?.getCategories()
         presenter?.getProduct()
+        
+    }
+    func validationView(){
+        if user?.role == "admin"{
+            btnAddCategory?.isHidden = false
+            btnCar?.isHidden = true
+        }else {
+           btnAddCategory?.isHidden = true
+            btnCar?.isHidden = false
+        }
     }
     
     @IBAction func menuHamburguessa(_ sender: Any) {
-        leadinViewMenuHamburguesa.constant = 0
+        if isOn{
+            leadinViewMenuHamburguesa.constant = 0
+            isOn = false
+        }else{
+            hideMenuHamburguesa()
+            isOn = true
+        }
+        
     }
     func hideMenuHamburguesa() {
-        self.leadinViewMenuHamburguesa.constant = -300
+        self.leadinViewMenuHamburguesa.constant = -250
     }
     
     func onReceivedCategoryProduct(data: [CategoryProduct]){
@@ -54,6 +73,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
                 self.menuHamburguesa = controller
                 self.menuHamburguesa?.delegate = self
                 self.menuHamburguesa?.presenter = presenter
+                self.menuHamburguesa?.user = self.user
             }
         }
     }
@@ -70,17 +90,12 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainAdminTableViewCell
-        print("Resusar celda Tabla")
+        
         let data = listCategory?[indexPath.row]
-        productsCategory.removeAll()
         cell.nameCategory?.text = data?.name
-        cell.collectionView?.delegate = self
-        for category in listProducts!{
-            if category.category?.name == data?.name{
-                productsCategory.append(category)
-            }
-        }
-        cell.collectionView?.reloadData()
+        //cell.collectionView?.delegate = self
+        
+        //cell.collectionView?.reloadData()
         return cell
     }
     
@@ -90,20 +105,16 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension MainAdminViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Count value \(productsCategory.count)")
-        for lista in productsCategory{
-            print("nameProduct: \(lista.title)")
-        }
-        return productsCategory.count
+        
+        return productsCategory?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MainAdminCollectionViewCell
         
-        print("Resusar celda colection")
-        let data = productsCategory[indexPath.row]
+        let data = productsCategory?[indexPath.row]
         
-        cell.nameProduct?.text = data.title
+        cell.nameProduct?.text = data?.title
         return cell
     }
     

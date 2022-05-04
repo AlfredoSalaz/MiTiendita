@@ -16,14 +16,19 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
     @IBOutlet weak var descriptionProduct: UITextField?
     @IBOutlet weak var idCategory: UITextField?
     @IBOutlet weak var viewLoadImage: UIView?
-    
+    var product: [String: Any]?
     var isEdit: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         validateView()
         viewLoadImage?.isHidden = true
-        
+        nameProduct?.layer.borderWidth = 1
+        price?.layer.borderWidth = 1
+        descriptionProduct?.layer .borderWidth = 1
+        nameProduct?.layer.borderColor = UIColor.magenta.cgColor
+        price?.layer.borderColor = UIColor.magenta.cgColor
+        descriptionProduct?.layer.borderColor = UIColor.magenta.cgColor
     }
     private func validateView(){
         if isEdit {
@@ -37,10 +42,29 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
         viewLoadImage?.isHidden = !viewLoadImage!.isHidden
     }
     @IBAction func backView(_ sender: Any){
-        
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func saveData(_ sender: Any){
+        loADdATA()
+        //print("product: \(product?.title)")
+        presenter?.saveNewProduct(data: product!)
+    }
+    func loADdATA(){
         
+        let titulo = nameProduct?.text ?? "vACIO"
+        let catId = Int(idCategory?.text ?? "0") ?? 0
+       let desc = descriptionProduct?.text ?? "vACIO1"
+        let prices = Int(price?.text ?? "0") ?? 0
+        let url = "https://api.lorem.space/image/furniture?w=640&h=480&r=3085"
+        product = [
+            "title": titulo,
+            "price": prices,
+            "description": desc,
+            "categoryId": catId,
+            "images": [
+                url
+              ]
+        ]
     }
     @IBAction func galeryProduct(_ sender: Any){
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){

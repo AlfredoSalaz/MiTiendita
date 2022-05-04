@@ -10,19 +10,32 @@ import UIKit
 class RegisterCategoryInteractor: NSObject, RegisterCategoryInteractorProtocol {
     var output: RegisterCategoryInteractorOutputProtocol?
     
-    var test: [String: Any] = [
-        "name": "Lacteos",
-        "image": "https://api.escuelajs.co/api/v1/files/14ba.jpeg"
-    ]
     
-    func savedCategory() {
-        RequestManager.generic(url: ExternalData().urlAddCategory, metodo: "POST", contenido: test, delegate: self, tag: 0)
+    
+    func savedCategory(data: [String: Any] ) {
+        RequestManager.generic(url: ExternalData().urlAddCategory, metodo: "POST", contenido: data, delegate: self, tag: 0)
+        
+    }
+    func savedImage(type: String, nameFile: String, image: UIImage) {
+        //guard let imagen = image else {return}
+        RequestManager().subirImagen(nombreParametro: type, nombreArchivo: "\(nameFile).jpg", imagen: image, delegate: self, tag: 1)
+        //guard let image = UIImage(named: "versa.jpg") else {return}
+                //subirImagen(nombreParametro: "file", nombreArchivo: "versa.jpg", imagen: image)
     }
     
 }
 extension RegisterCategoryInteractor: RequestManagerDelegate{
     func onResponseSuccess(data: Decodable?, tag: Int) {
-        print("Success")
+        switch tag {
+        case 0:
+            output?.onRecivedMesageSuccesfulCategory()
+        case 1:
+            if let data = data as? RespuestaSubirImagen {
+                output?.onRecivedUrlImage(url: data.location)
+            }
+        default:
+            output?.onRecivedMessageFaillure()
+        }
         
     }
     func onResponseFailure(error: CodeResponse, tag: Int) {

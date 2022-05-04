@@ -45,7 +45,9 @@ class UserRegisterProductsViewController: UIViewController,  UserRegisterProduct
     
     @IBAction func btnBuscar(_ sender: Any) {
     }
-    
+    @IBAction func addNewProduct(_ sender: Any){
+        presenter?.openRegisterProduct(isEdit: false)
+    }
 }
 
 extension UserRegisterProductsViewController: UITableViewDelegate, UITableViewDataSource{

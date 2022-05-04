@@ -9,6 +9,7 @@ import UIKit
 
 protocol RegisterCategoryViewControllerProtocol: UIViewController {
     var presenter: RegisterCategoryPresenterProtocol? {get set}
+    func recivedUrl(url: String)
 }
 
 protocol RegisterCategoryPresenterProtocol: NSObject {
@@ -16,16 +17,20 @@ protocol RegisterCategoryPresenterProtocol: NSObject {
     var interactor: RegisterCategoryInteractorProtocol? {get set}
     var router: RegisterCategoryRouterProtocol? {get set}
     
-    func saveCategory()
+    func saveCategory(data: [String: Any] )
+    func saveImage(type: String, nameFile: String, image: UIImage)
 }
 
 protocol RegisterCategoryInteractorProtocol: NSObject {
     var output: RegisterCategoryInteractorOutputProtocol? {get set}
-    func savedCategory()
+    func savedCategory(data: [String: Any] )
+    func savedImage(type: String, nameFile: String, image: UIImage)
 }
 
 protocol RegisterCategoryInteractorOutputProtocol {
-    
+    func onRecivedUrlImage(url: String)
+    func onRecivedMesageSuccesfulCategory()
+    func onRecivedMessageFaillure()
 }
 
 protocol RegisterCategoryRouterProtocol {

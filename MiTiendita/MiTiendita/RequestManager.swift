@@ -5,7 +5,7 @@
 //  Created by Alfredo Salazar on 27/04/22.
 //
 
-import Foundation
+import UIKit
 
 class RequestManager {
     
@@ -119,4 +119,47 @@ class ErrorEntity: Codable {
     var code: Int?
     var type: String?
     var message: String?
+}
+ 
+extension RequestManager {
+    func subirImagen(nombreParametro: String, nombreArchivo: String, imagen: UIImage, delegate: RequestManagerDelegate, tag: Int = 0) {
+            //Genera y válida URL
+            guard let url = URL(string: "https://api.escuelajs.co/api/v1/files/upload") else {return}
+            //Para entidades de tipo multipart la directiva boundary es obligatoria. Ella consiste en una secuencia de 1 a 70 caracteres de un conjunto conocido por su robustez en pasarelas de correo electrónico, y no pueden terminar con espacios en blanco. Es usada para encapsular los limites de los mensajes de múltiples partes.
+            let boundary = UUID().uuidString
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "POST"
+            urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            var data = Data()
+            data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+            data.append("Content-Disposition: form-data; name=\"\(nombreParametro)\"; filename=\"\(nombreArchivo)\"\r\n".data(using: .utf8)!)
+            data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
+            data.append(imagen.pngData()!)
+            data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+            print(String(decoding: data, as: UTF8.self))
+            URLSession.shared.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    print("statusCode debería ser 200 y es \(httpStatus.statusCode)")
+                    print("response = \(response)")
+                }
+                if error == nil {
+                    let jsonData = try? JSONDecoder().decode(RespuestaSubirImagen.self, from: responseData!)
+                    print(jsonData!)
+                    delegate.onResponseSuccess(data: jsonData, tag: tag)
+                    //let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
+                    /*if let json = jsonData as? [String: Any] {
+                        print(json)
+                    }*/
+                }else{
+                    delegate.onResponseFailure(error: .BAD_DECODABLE, tag: tag)
+                }
+            }).resume()
+        }
+}
+
+struct RespuestaSubirImagen: Codable{
+    var originalname: String
+    var filename: String
+    var location: String
+    
 }

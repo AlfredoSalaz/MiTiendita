@@ -12,12 +12,10 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     var interactor: MainAdminInteractorProtocol?
     var router: MainAdminRouterProtocol?
     
-    func openEditUser(){
-        print("here")
-        let vc = MainTiendaRouter.createModuleMainTienda(typeUser: "hola")
+    func openEditUser(user: User, isEdditing: Bool){
+        let vc = PerfilUserRegisterRouter.createModulePerfilUserRegister(user: user, isEdditing: isEdditing)
         view?.present(vc, animated: true)
         
-        //view?.navigationController?.pushViewController(vc, animated: true)
     }
     func getCategories() {
         interactor?.getCategoriesProduct()

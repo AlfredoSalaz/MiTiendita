@@ -12,9 +12,8 @@ class IndexPresenter: NSObject, IndexPresenterProtocol{
     var interactor: IndexInteractorProtocol?
     var view: IndexViewControllerProtocol?
     
-    func openMainTienda(tipeUser: String) {
-        let viewController = MainAdminRouter.createModuleMainAdmin()
-        //view?.navigationController?.pushViewController(viewController, animated: true)
+    func openMainTienda(user: User) {
+        let viewController = MainAdminRouter.createModuleMainAdmin(user: user)
         view?.present(viewController, animated: true)
     }
     func openViewRegister(){
@@ -22,8 +21,14 @@ class IndexPresenter: NSObject, IndexPresenterProtocol{
         view?.present(viewController, animated: true)
     }
     
+    func getAllUser() {
+        interactor?.getAllUsers()
+    }
+    
 }
 
 extension IndexPresenter: IndexInteractorOutputProtocol{
-    
+    func onRecivedUser(data: [User]) {
+        view?.recivedAllUser(data: data)
+    }
 }

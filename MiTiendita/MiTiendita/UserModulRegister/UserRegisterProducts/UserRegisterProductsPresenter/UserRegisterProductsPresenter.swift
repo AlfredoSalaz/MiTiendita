@@ -20,7 +20,10 @@ class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProt
     func getListProduct() {
         interactor?.getListProduct()
     }
-    
+    func openRegisterProduct(isEdit: Bool) {
+        let vc = RegisterProductsRouter.createModuleRegisterProduct()
+        view?.present(vc, animated: true)
+    }
 }
 
 extension UserRegisterProductsPresenter: UserRegisterProductsOutputProtocol{

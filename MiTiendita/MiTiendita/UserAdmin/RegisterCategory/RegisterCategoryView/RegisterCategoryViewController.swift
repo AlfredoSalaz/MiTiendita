@@ -13,7 +13,9 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
     @IBOutlet weak var imageCategory: UIImageView?
     @IBOutlet weak var nameCategory: UITextField?
     @IBOutlet weak var viewPiker: UIView?
-
+    
+    var imgCategoria: UIImage?
+    var nameImage: String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,17 +53,28 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
         dismiss(animated: true)
     }
     @IBAction func savedData(_ sender: Any){
-        presenter?.saveCategory()
+        presenter?.saveImage(type: "file", nameFile: nameImage ?? "defaultImg", image: imgCategoria ?? UIImage())
+    }
+    func recivedUrl(url: String){
+        DispatchQueue.main.sync {
+            guard let nameCategory = nameCategory?.text else {return}
+            let data: [String: Any] = [
+                "name": "\(nameCategory)",
+                "image": "\(url)"
+            ]
+            self.presenter?.saveCategory(data: data)
+        }
+        
     }
 }
 extension RegisterCategoryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true, completion: nil)
         let imagen = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        
-        print("image Ide \(UUID().uuidString)")
         imageCategory?.image = imagen
         self.viewPiker?.isHidden = true
+        self.nameImage = UUID().uuidString
+        self.imgCategoria = imagen
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("-----")

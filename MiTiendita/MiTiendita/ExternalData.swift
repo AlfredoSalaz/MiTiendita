@@ -9,6 +9,8 @@ import Foundation
 
 class ExternalData {
     var categoriesProduct = "https://api.escuelajs.co/api/v1/categories"
-    var listProduct = "https://api.escuelajs.co/api/v1/products?limit=10&offset=0"
+    var listProduct = "https://api.escuelajs.co/api/v1/products"
     var urlAddCategory = "https://api.escuelajs.co/api/v1/categories/"
+    var urlAddProduct = "https://api.escuelajs.co/api/v1/products/"
+    var urlGetUser = "https://api.escuelajs.co/api/v1/users"
 }

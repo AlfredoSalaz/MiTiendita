@@ -13,6 +13,7 @@ class UserRegisterProductsInteractor: NSObject, UserRegisterProductsInteractorPr
     
     func getListProduct() {
         RequestManager.generic(url: ExternalData().listProduct, metodo: "GET", tipoResultado: [Product].self, delegate: self, tag: 1)
+        //RequestManager.generic(url: ExternalData().listProduct, metodo: "GET",  tipoResultado: [Product].self, delegate: self)
     }
     
     func onResponseSuccess(data: Decodable?, tag: Int) {

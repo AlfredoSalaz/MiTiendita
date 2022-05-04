@@ -20,7 +20,7 @@ protocol UserRegisterProductsPresenterProtocol: NSObject {
     var interactor: UserRegisterProductsInteractorProtocol? {get set}
     var router: UserRegisterProductsRouterProtocol? {get set}
     func getListProduct()
-    
+    func openRegisterProduct(isEdit: Bool)
 }
 
 //Interactor

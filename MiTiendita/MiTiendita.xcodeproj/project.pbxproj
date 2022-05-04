@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,17 @@
 		506897F82820771800566000 /* UserRegisterProductsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506897EE2820771800566000 /* UserRegisterProductsPresenter.swift */; };
 		506897F92820771800566000 /* UserRegisterProductsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506897F02820771800566000 /* UserRegisterProductsEntity.swift */; };
 		506897FA2820771800566000 /* UserRegisterProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506897F22820771800566000 /* UserRegisterProductsInteractor.swift */; };
+		506898062820808E00566000 /* RequestManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506898052820808E00566000 /* RequestManagers.swift */; };
+		5068980B282082F300566000 /* RegisterProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068980A282082F300566000 /* RegisterProductEntity.swift */; };
+		50F1C7142822D48200E6B85C /* DetailProductRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C70B2822D48200E6B85C /* DetailProductRouter.swift */; };
+		50F1C7152822D48200E6B85C /* DetailProductStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F1C70C2822D48200E6B85C /* DetailProductStoryboard.storyboard */; };
+		50F1C7162822D48200E6B85C /* DetailProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C70D2822D48200E6B85C /* DetailProductCollectionViewController.swift */; };
+		50F1C7172822D48200E6B85C /* DetailProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C70E2822D48200E6B85C /* DetailProductCollectionViewCell.swift */; };
+		50F1C7182822D48200E6B85C /* DetailProductProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C70F2822D48200E6B85C /* DetailProductProtocol.swift */; };
+		50F1C7192822D48200E6B85C /* DetailProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C7102822D48200E6B85C /* DetailProductEntity.swift */; };
+		50F1C71A2822D48200E6B85C /* DetailProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C7112822D48200E6B85C /* DetailProductInteractor.swift */; };
+		50F1C71B2822D48200E6B85C /* DetailProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C7122822D48200E6B85C /* DetailProductPresenter.swift */; };
+		50F1C71C2822D48200E6B85C /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C7132822D48200E6B85C /* DetailProductViewController.swift */; };
 		50F349AF2819DEDF0065D37E /* MainAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349AE2819DEDF0065D37E /* MainAdminViewController.swift */; };
 		50F349B72819DEF40065D37E /* MainAdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F349B62819DEF40065D37E /* MainAdminStoryboard.storyboard */; };
 		50F349BC2819DF650065D37E /* MainAdminInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349BB2819DF650065D37E /* MainAdminInteractor.swift */; };
@@ -75,6 +86,9 @@
 		50FFA096281C9EC4009A0528 /* RegisterCategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFA095281C9EC4009A0528 /* RegisterCategoryEntity.swift */; };
 		50FFA09B281C9ED4009A0528 /* RegisterCategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFA09A281C9ED4009A0528 /* RegisterCategoryRouter.swift */; };
 		50FFA0A0281C9EFA009A0528 /* RegisterCategoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FFA09F281C9EFA009A0528 /* RegisterCategoryProtocols.swift */; };
+		5F97757E94CF948DD628C992 /* Pods_MiTiendita.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 896BECA8637AC48B968F16B8 /* Pods_MiTiendita.framework */; };
+		A0FDC96B361E03CF83FA093F /* Pods_MiTienditaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E435C321CB2EDB8EA7A40AC5 /* Pods_MiTienditaTests.framework */; };
+		DA1D76EE2B05895EFBCA409A /* Pods_MiTiendita_MiTienditaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879371D82A5D3511F56ED2F3 /* Pods_MiTiendita_MiTienditaUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +109,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15DC502285ECF0FA649C4CC7 /* Pods-MiTienditaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiTienditaTests.debug.xcconfig"; path = "Target Support Files/Pods-MiTienditaTests/Pods-MiTienditaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1B73D9F1216576B6146CDFC5 /* Pods-MiTiendita.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiTiendita.release.xcconfig"; path = "Target Support Files/Pods-MiTiendita/Pods-MiTiendita.release.xcconfig"; sourceTree = "<group>"; };
+		42A7CBF2A57C307D695F07E9 /* Pods-MiTiendita-MiTienditaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiTiendita-MiTienditaUITests.debug.xcconfig"; path = "Target Support Files/Pods-MiTiendita-MiTienditaUITests/Pods-MiTiendita-MiTienditaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5011ED392817625D00831C83 /* MiTiendita.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiTiendita.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5011ED3C2817625D00831C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5011ED3E2817625D00831C83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +160,17 @@
 		506897EE2820771800566000 /* UserRegisterProductsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterProductsPresenter.swift; sourceTree = "<group>"; };
 		506897F02820771800566000 /* UserRegisterProductsEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterProductsEntity.swift; sourceTree = "<group>"; };
 		506897F22820771800566000 /* UserRegisterProductsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterProductsInteractor.swift; sourceTree = "<group>"; };
+		506898052820808E00566000 /* RequestManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagers.swift; sourceTree = "<group>"; };
+		5068980A282082F300566000 /* RegisterProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductEntity.swift; sourceTree = "<group>"; };
+		50F1C70B2822D48200E6B85C /* DetailProductRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductRouter.swift; sourceTree = "<group>"; };
+		50F1C70C2822D48200E6B85C /* DetailProductStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailProductStoryboard.storyboard; sourceTree = "<group>"; };
+		50F1C70D2822D48200E6B85C /* DetailProductCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductCollectionViewController.swift; sourceTree = "<group>"; };
+		50F1C70E2822D48200E6B85C /* DetailProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		50F1C70F2822D48200E6B85C /* DetailProductProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductProtocol.swift; sourceTree = "<group>"; };
+		50F1C7102822D48200E6B85C /* DetailProductEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductEntity.swift; sourceTree = "<group>"; };
+		50F1C7112822D48200E6B85C /* DetailProductInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductInteractor.swift; sourceTree = "<group>"; };
+		50F1C7122822D48200E6B85C /* DetailProductPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductPresenter.swift; sourceTree = "<group>"; };
+		50F1C7132822D48200E6B85C /* DetailProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
 		50F349AE2819DEDF0065D37E /* MainAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminViewController.swift; sourceTree = "<group>"; };
 		50F349B62819DEF40065D37E /* MainAdminStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainAdminStoryboard.storyboard; sourceTree = "<group>"; };
 		50F349BB2819DF650065D37E /* MainAdminInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminInteractor.swift; sourceTree = "<group>"; };
@@ -169,6 +197,12 @@
 		50FFA095281C9EC4009A0528 /* RegisterCategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryEntity.swift; sourceTree = "<group>"; };
 		50FFA09A281C9ED4009A0528 /* RegisterCategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryRouter.swift; sourceTree = "<group>"; };
 		50FFA09F281C9EFA009A0528 /* RegisterCategoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCategoryProtocols.swift; sourceTree = "<group>"; };
+		70E883DE066DBA78A3332F48 /* Pods-MiTienditaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiTienditaTests.release.xcconfig"; path = "Target Support Files/Pods-MiTienditaTests/Pods-MiTienditaTests.release.xcconfig"; sourceTree = "<group>"; };
+		879371D82A5D3511F56ED2F3 /* Pods_MiTiendita_MiTienditaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiTiendita_MiTienditaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		896BECA8637AC48B968F16B8 /* Pods_MiTiendita.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiTiendita.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFCD2829391DADAC97814985 /* Pods-MiTiendita-MiTienditaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiTiendita-MiTienditaUITests.release.xcconfig"; path = "Target Support Files/Pods-MiTiendita-MiTienditaUITests/Pods-MiTiendita-MiTienditaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DBF52DD215CAA431BF59B4A0 /* Pods-MiTiendita.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiTiendita.debug.xcconfig"; path = "Target Support Files/Pods-MiTiendita/Pods-MiTiendita.debug.xcconfig"; sourceTree = "<group>"; };
+		E435C321CB2EDB8EA7A40AC5 /* Pods_MiTienditaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiTienditaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F97757E94CF948DD628C992 /* Pods_MiTiendita.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0FDC96B361E03CF83FA093F /* Pods_MiTienditaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1D76EE2B05895EFBCA409A /* Pods_MiTiendita_MiTienditaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +240,8 @@
 				5011ED552817626200831C83 /* MiTienditaTests */,
 				5011ED602817626200831C83 /* MiTienditaUITests */,
 				5011ED3A2817625D00831C83 /* Products */,
+				66D810E31E9F110693538236 /* Pods */,
+				65B30538EF5EA10E4B3B2590 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,6 +270,7 @@
 				5011ED452817625D00831C83 /* MiTiendita.xcdatamodeld */,
 				50F349F42819F7840065D37E /* ExternalData.swift */,
 				50F34A03281A024E0065D37E /* RequestManager.swift */,
+				506898052820808E00566000 /* RequestManagers.swift */,
 			);
 			path = MiTiendita;
 			sourceTree = "<group>";
@@ -272,6 +312,7 @@
 		501A6FE9282043B400636F7F /* RegisterProductsEntity */ = {
 			isa = PBXGroup;
 			children = (
+				5068980A282082F300566000 /* RegisterProductEntity.swift */,
 			);
 			path = RegisterProductsEntity;
 			sourceTree = "<group>";
@@ -558,6 +599,22 @@
 			path = UserRegisterProductsInteractor;
 			sourceTree = "<group>";
 		};
+		50F1C70A2822D48200E6B85C /* DetailProductView */ = {
+			isa = PBXGroup;
+			children = (
+				50F1C70B2822D48200E6B85C /* DetailProductRouter.swift */,
+				50F1C70C2822D48200E6B85C /* DetailProductStoryboard.storyboard */,
+				50F1C70D2822D48200E6B85C /* DetailProductCollectionViewController.swift */,
+				50F1C70E2822D48200E6B85C /* DetailProductCollectionViewCell.swift */,
+				50F1C70F2822D48200E6B85C /* DetailProductProtocol.swift */,
+				50F1C7102822D48200E6B85C /* DetailProductEntity.swift */,
+				50F1C7112822D48200E6B85C /* DetailProductInteractor.swift */,
+				50F1C7122822D48200E6B85C /* DetailProductPresenter.swift */,
+				50F1C7132822D48200E6B85C /* DetailProductViewController.swift */,
+			);
+			path = DetailProductView;
+			sourceTree = "<group>";
+		};
 		50F349A62819DE6D0065D37E /* UserAdmin */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,6 +710,7 @@
 		50FFA047281C96F9009A0528 /* UserModulRegister */ = {
 			isa = PBXGroup;
 			children = (
+				50F1C70A2822D48200E6B85C /* DetailProductView */,
 				506897E32820771800566000 /* UserRegisterProducts */,
 				50FFA048281C96F9009A0528 /* PerfilUserRegister */,
 				50FFA056281C96F9009A0528 /* MainUserRegister */,
@@ -804,6 +862,29 @@
 			path = RegisterCategoryView;
 			sourceTree = "<group>";
 		};
+		65B30538EF5EA10E4B3B2590 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				896BECA8637AC48B968F16B8 /* Pods_MiTiendita.framework */,
+				879371D82A5D3511F56ED2F3 /* Pods_MiTiendita_MiTienditaUITests.framework */,
+				E435C321CB2EDB8EA7A40AC5 /* Pods_MiTienditaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66D810E31E9F110693538236 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBF52DD215CAA431BF59B4A0 /* Pods-MiTiendita.debug.xcconfig */,
+				1B73D9F1216576B6146CDFC5 /* Pods-MiTiendita.release.xcconfig */,
+				42A7CBF2A57C307D695F07E9 /* Pods-MiTiendita-MiTienditaUITests.debug.xcconfig */,
+				BFCD2829391DADAC97814985 /* Pods-MiTiendita-MiTienditaUITests.release.xcconfig */,
+				15DC502285ECF0FA649C4CC7 /* Pods-MiTienditaTests.debug.xcconfig */,
+				70E883DE066DBA78A3332F48 /* Pods-MiTienditaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -811,9 +892,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5011ED662817626200831C83 /* Build configuration list for PBXNativeTarget "MiTiendita" */;
 			buildPhases = (
+				485C4F48A0EBEE18A8BAA124 /* [CP] Check Pods Manifest.lock */,
 				5011ED352817625D00831C83 /* Sources */,
 				5011ED362817625D00831C83 /* Frameworks */,
 				5011ED372817625D00831C83 /* Resources */,
+				9C6FDAB4F23085F3A3776D2F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -828,6 +911,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5011ED692817626200831C83 /* Build configuration list for PBXNativeTarget "MiTienditaTests" */;
 			buildPhases = (
+				16329F825AC67DEE3437C3F8 /* [CP] Check Pods Manifest.lock */,
 				5011ED4E2817626200831C83 /* Sources */,
 				5011ED4F2817626200831C83 /* Frameworks */,
 				5011ED502817626200831C83 /* Resources */,
@@ -846,9 +930,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5011ED6C2817626200831C83 /* Build configuration list for PBXNativeTarget "MiTienditaUITests" */;
 			buildPhases = (
+				8F73635643A5400029ABF7C1 /* [CP] Check Pods Manifest.lock */,
 				5011ED592817626200831C83 /* Sources */,
 				5011ED5A2817626200831C83 /* Frameworks */,
 				5011ED5B2817626200831C83 /* Resources */,
+				87B09D235CE8C0C576B41541 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -913,6 +999,7 @@
 				506897F42820771800566000 /* UserRegisterProductsStoryboard.storyboard in Resources */,
 				50FFA087281C9E5E009A0528 /* RegisterCategoryStoryboard.storyboard in Resources */,
 				50577C082818641000EEC7B7 /* MainTiendaStoryboard.storyboard in Resources */,
+				50F1C7152822D48200E6B85C /* DetailProductStoryboard.storyboard in Resources */,
 				5011ED492817626100831C83 /* Assets.xcassets in Resources */,
 				50577C4228186DDC00EEC7B7 /* UserStoryboard.storyboard in Resources */,
 				50FFA065281C96FA009A0528 /* PerfilUserRegisterStoryboard.storyboard in Resources */,
@@ -936,25 +1023,133 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16329F825AC67DEE3437C3F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiTienditaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		485C4F48A0EBEE18A8BAA124 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiTiendita-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87B09D235CE8C0C576B41541 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MiTiendita-MiTienditaUITests/Pods-MiTiendita-MiTienditaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MiTiendita-MiTienditaUITests/Pods-MiTiendita-MiTienditaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiTiendita-MiTienditaUITests/Pods-MiTiendita-MiTienditaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F73635643A5400029ABF7C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiTiendita-MiTienditaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C6FDAB4F23085F3A3776D2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MiTiendita/Pods-MiTiendita-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MiTiendita/Pods-MiTiendita-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiTiendita/Pods-MiTiendita-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5011ED352817625D00831C83 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				50F349F52819F7850065D37E /* ExternalData.swift in Sources */,
+				506898062820808E00566000 /* RequestManagers.swift in Sources */,
 				506897F92820771800566000 /* UserRegisterProductsEntity.swift in Sources */,
 				50577C002818640100EEC7B7 /* MainTiendaViewController.swift in Sources */,
 				50FFA068281C96FA009A0528 /* PerfilUserRegisterPresenter.swift in Sources */,
 				50577C4328186DDC00EEC7B7 /* UserViewController.swift in Sources */,
 				50F349C42819DF750065D37E /* MainAdminPresenter.swift in Sources */,
+				50F1C71A2822D48200E6B85C /* DetailProductInteractor.swift in Sources */,
 				506897F72820771800566000 /* UserRegisterProductsProtocol.swift in Sources */,
+				50F1C71C2822D48200E6B85C /* DetailProductViewController.swift in Sources */,
 				50577BE12818402700EEC7B7 /* IndexPresenter.swift in Sources */,
+				5068980B282082F300566000 /* RegisterProductEntity.swift in Sources */,
 				50F349D32819DFBE0065D37E /* MenuMainAdminViewController.swift in Sources */,
 				50FFA066281C96FA009A0528 /* PerfilUserRegisterViewController.swift in Sources */,
 				50577C4428186DDC00EEC7B7 /* UserInteractor.swift in Sources */,
 				501A6FF82820440C00636F7F /* RegisterProductsInteractor.swift in Sources */,
 				50577C4628186DDC00EEC7B7 /* UserRouter.swift in Sources */,
 				50577C252818648600EEC7B7 /* MainTiendaProtocol.swift in Sources */,
+				50F1C7142822D48200E6B85C /* DetailProductRouter.swift in Sources */,
 				50F349FF2819FB810065D37E /* MainAdminEntity.swift in Sources */,
 				50577C1D2818647400EEC7B7 /* MainTiendaRouter.swift in Sources */,
 				506897F32820771800566000 /* UserRegisterProductsViewController.swift in Sources */,
@@ -963,6 +1158,7 @@
 				501A6FEE282043EB00636F7F /* RegisterProductsViewController.swift in Sources */,
 				50F349C92819DF890065D37E /* MainAdminRouter.swift in Sources */,
 				50577BE62818403600EEC7B7 /* IndexInteractor.swift in Sources */,
+				50F1C7162822D48200E6B85C /* DetailProductCollectionViewController.swift in Sources */,
 				50577C172818645600EEC7B7 /* MainTiendaEntity.swift in Sources */,
 				50577C4028186DDC00EEC7B7 /* UserEntity.swift in Sources */,
 				50FFA096281C9EC4009A0528 /* RegisterCategoryEntity.swift in Sources */,
@@ -981,6 +1177,7 @@
 				50F34A04281A024E0065D37E /* RequestManager.swift in Sources */,
 				50577C0D2818642C00EEC7B7 /* MainTiendaInteractor.swift in Sources */,
 				50FFA08C281C9E73009A0528 /* RegisterCategoryInteractor.swift in Sources */,
+				50F1C7192822D48200E6B85C /* DetailProductEntity.swift in Sources */,
 				50F349BC2819DF650065D37E /* MainAdminInteractor.swift in Sources */,
 				5011ED3F2817625D00831C83 /* SceneDelegate.swift in Sources */,
 				50FFA067281C96FA009A0528 /* PerfilUserRegisterRouter.swift in Sources */,
@@ -988,6 +1185,9 @@
 				50FFA0A0281C9EFA009A0528 /* RegisterCategoryProtocols.swift in Sources */,
 				5011ED472817625D00831C83 /* MiTiendita.xcdatamodeld in Sources */,
 				50577BC828183FDE00EEC7B7 /* IndexViewController.swift in Sources */,
+				50F1C7172822D48200E6B85C /* DetailProductCollectionViewCell.swift in Sources */,
+				50F1C71B2822D48200E6B85C /* DetailProductPresenter.swift in Sources */,
+				50F1C7182822D48200E6B85C /* DetailProductProtocol.swift in Sources */,
 				501A70022820442900636F7F /* RegisterProductsRouter.swift in Sources */,
 				506897F62820771800566000 /* UserRegisterProductsRouter.swift in Sources */,
 				506897F52820771800566000 /* UserRegisterProductsTableView.swift in Sources */,
@@ -1161,6 +1361,7 @@
 		};
 		5011ED672817626200831C83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBF52DD215CAA431BF59B4A0 /* Pods-MiTiendita.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1180,6 +1381,7 @@
 		};
 		5011ED682817626200831C83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B73D9F1216576B6146CDFC5 /* Pods-MiTiendita.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1199,6 +1401,7 @@
 		};
 		5011ED6A2817626200831C83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15DC502285ECF0FA649C4CC7 /* Pods-MiTienditaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1221,6 +1424,7 @@
 		};
 		5011ED6B2817626200831C83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70E883DE066DBA78A3332F48 /* Pods-MiTienditaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1243,6 +1447,7 @@
 		};
 		5011ED6D2817626200831C83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42A7CBF2A57C307D695F07E9 /* Pods-MiTiendita-MiTienditaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1263,6 +1468,7 @@
 		};
 		5011ED6E2817626200831C83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFCD2829391DADAC97814985 /* Pods-MiTiendita-MiTienditaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

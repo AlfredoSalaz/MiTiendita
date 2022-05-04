@@ -12,7 +12,9 @@ class RegisterProductsPresenter: NSObject, RegisterProductsPresenterProtocol {
     var interactor: RegisterProductsInteractorProtocol?
     var router: RegisterProductsRouterProtocol?
     
-    
+    func saveNewProduct(data: [String: Any]){
+        interactor?.saveNewProducts(data: data)
+    }
 }
 
 extension RegisterProductsPresenter: RegisterProductsInteractorOutputProtocol {

@@ -13,19 +13,28 @@ class MenuMainAdminViewController: UIViewController {
 
     @IBOutlet weak var photoUser: UIImageView!
     @IBOutlet weak var nameUser: UILabel!
-    var presenter: MainAdminPresenterProtocol?
+    @IBOutlet weak var stackUsuarios: UIStackView?
     
+    var presenter: MainAdminPresenterProtocol?
+    var user: User?
     var delegate: MenuHamburguesaViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        validateView()
+        nameUser.text = user?.name
+    }
+    func validateView(){
+        if user?.role == "admin" {
+            stackUsuarios?.isHidden = false
+        }else{
+            stackUsuarios?.isHidden = true
+        }
     }
     
     @IBAction func editUser(_ sender: Any) {
         delegate?.hideMenuHamburguesa()
-        presenter?.openEditUser()
+        presenter?.openEditUser(user: user!, isEdditing: true)
     }
     
     @IBAction func categoryProduct(_ sender: Any) {
@@ -34,10 +43,14 @@ class MenuMainAdminViewController: UIViewController {
     @IBAction func productsAdmin(_ sender: Any) {
         presenter?.openListProduct()
     }
-    @IBAction func userAdmin(_ sender: Any) {
-    }
     @IBAction func registerUserAdmin(_ sender: Any) {
+        
+        presenter?.openEditUser(user: user!, isEdditing: false)
     }
 
+    @IBAction func cerrarSession(_ sender: Any){
+        dismiss(animated: true)
+    }
+    
 
 }

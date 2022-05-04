@@ -9,6 +9,7 @@ import UIKit
 
 protocol PerfilUserRegisterViewControllerProtocol: UIViewController {
     var presenter: PerfilUserRegisterPresenterProtocol? {get set}
+    var user: User? {get set}
 }
 
 protocol PerfilUserRegisterPresenterProtocol : NSObject {
@@ -27,4 +28,5 @@ protocol PerfilUserRegisterInteractorOutPutProtocol : NSObject {
 
 protocol PerfilUserRegisterRouterProtocol {
     var presenter: PerfilUserRegisterPresenterProtocol? {get set}
+    static func createModulePerfilUserRegister(user: User, isEdditing: Bool) -> UIViewController
 }

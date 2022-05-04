@@ -13,7 +13,11 @@ class IndexViewController: UIViewController, IndexViewControllerProtocol {
     @IBOutlet weak var email: UITextField?
     @IBOutlet weak var password: UITextField?
     
+    var users: [User]?
     let myColor : UIColor = UIColor.magenta
+    var user: User?
+    
+    var role: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +25,8 @@ class IndexViewController: UIViewController, IndexViewControllerProtocol {
         password?.layer.borderWidth = 2
         email?.layer.borderColor = myColor.cgColor
         password?.layer.borderColor = myColor.cgColor
+        
+        presenter?.getAllUser()
     }
     private func validateUser(){
         guard let email = email?.text, let password = password?.text else{
@@ -33,19 +39,35 @@ class IndexViewController: UIViewController, IndexViewControllerProtocol {
             self.present(alert, animated: true, completion: nil)
         }
         if email.isEmail && password.count >= 5{
-            print("is email")
+            users?.forEach{
+                if email == $0.email && password == $0.password{
+                    role = $0.role
+                    let us = User(id: $0.id, email: $0.email, password: $0.password, name: $0.name, role: $0.role)
+                    self.user = us
+                }else {
+                    print("No existe")
+                }
+            }
         }
     }
     
     @IBAction func login(_ sender: Any){
         validateUser()
+        guard let user = self.user else {
+            print("Usuario o contraseña invalido")
+            return
+        }
+        presenter?.openMainTienda(user: user)
+        print("Exitoso")
+        self.role = nil
+        
     }
     
     @IBAction func registerUser(_ sender: Any){
         presenter?.openViewRegister()
     }
     @IBAction func loginGuest(_ sender: Any){
-        presenter?.openMainTienda(tipeUser: "Admin")
+        //presenter?.openMainTienda(tipeUser: "Admin")
     }
 
     func showAlert(){
@@ -57,6 +79,9 @@ class IndexViewController: UIViewController, IndexViewControllerProtocol {
 
         // show the alert
         self.present(alert, animated: true, completion: nil)
+    }
+    func recivedAllUser(data: [User]) {
+        self.users = data
     }
 }
 

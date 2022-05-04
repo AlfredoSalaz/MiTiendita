@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CategoryRegister: Encodable {
+    var name: String
+    var image: URL
+    
+}
