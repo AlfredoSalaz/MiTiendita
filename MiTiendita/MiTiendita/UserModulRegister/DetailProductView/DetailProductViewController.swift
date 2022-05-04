@@ -33,9 +33,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
         lblDescripcion.text = product?.description
         lblCategory.text = product?.category.name
         lblPrecio.text = String("$ \(product!.price)")
-        
-        //imgProduct.image = UIImage.init(pro)
-        //detailImage.image = UIImage.init(named: detailName!)
+
 
     }
 

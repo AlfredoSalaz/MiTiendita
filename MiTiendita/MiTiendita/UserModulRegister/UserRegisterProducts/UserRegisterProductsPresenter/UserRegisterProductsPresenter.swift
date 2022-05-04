@@ -10,9 +10,6 @@ import UIKit
 
 class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProtocol{
     
-    
-
-    
     var view: UserRegisterProductsViewControllerProtocol?
     
     var interactor: UserRegisterProductsInteractorProtocol?
@@ -27,7 +24,8 @@ class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProt
         view?.present(vc, animated: true)
     }
     func openDetailProducts(product: ProductDetail) {
-        
+        let vc = DetailProductRouter.createModule(data: product)
+        view?.present(vc, animated: true)
     }
 }
 
@@ -39,8 +37,5 @@ extension UserRegisterProductsPresenter: UserRegisterProductsOutputProtocol{
     func onRecivedFaillureData() {
         view?.faillureData()
     }
-    
-    
-    
     
 }
