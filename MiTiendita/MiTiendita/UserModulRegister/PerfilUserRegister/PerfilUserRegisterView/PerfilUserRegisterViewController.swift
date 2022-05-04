@@ -9,7 +9,6 @@ import UIKit
 
 class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterViewControllerProtocol {
     
-    
     @IBOutlet weak var imgUserPerfil: UIImageView!
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtApellido: UITextField!
@@ -20,6 +19,9 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
     
     var presenter: PerfilUserRegisterPresenterProtocol?
     var user: User?
+    
+    var userCore: UsuarioCore?
+    
     var isEditiing: Bool?
     
     override func viewDidLoad() {
@@ -37,6 +39,7 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
         txtDireccion.layer.borderColor = UIColor.magenta.cgColor
         txtTarjetaCredito.layer.borderWidth = 1
         txtTarjetaCredito.layer.borderColor = UIColor.magenta.cgColor
+        
     }
 
     func validateData(){
@@ -47,7 +50,12 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
             txtCorreo.text = user.email
         }
     }
+    
     @IBAction func btnGuardarDatos(_ sender: Any) {
+
+        var usuario = UsuarioCore(nombre: txtNombre.text ?? "", apellido: txtApellido.text ?? "", correo: txtCorreo.text ?? "", password: txtPassword.text ?? "", direccion: txtDireccion.text ?? "", tarjeta: Int(txtTarjetaCredito.text ?? "") ?? 0)
+            
+            presenter?.saveUserInfo(user: usuario)
         
     }
     @IBAction func btnBack(_ sender: Any){

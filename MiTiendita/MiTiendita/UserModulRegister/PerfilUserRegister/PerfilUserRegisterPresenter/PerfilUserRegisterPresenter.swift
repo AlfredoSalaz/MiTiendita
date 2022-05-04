@@ -8,16 +8,20 @@
 import UIKit
 
 class PerfilUserRegisterPresenter: NSObject, PerfilUserRegisterPresenterProtocol{
-    
+
     var view: PerfilUserRegisterViewControllerProtocol?
 
     var interactor: PerfilUserRegisterInteractorProtocol?
 
     var router: PerfilUserRegisterRouterProtocol?
     
+    func saveUserInfo(user: UsuarioCore) {
+        interactor?.saveUserInfo(user: user)
+    }
 }
 
 
 extension  PerfilUserRegisterPresenter: PerfilUserRegisterInteractorOutPutProtocol{
+    
     
 }
