@@ -60,6 +60,13 @@
 		50F1C71A2822D48200E6B85C /* DetailProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C7112822D48200E6B85C /* DetailProductInteractor.swift */; };
 		50F1C71B2822D48200E6B85C /* DetailProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C7122822D48200E6B85C /* DetailProductPresenter.swift */; };
 		50F1C71C2822D48200E6B85C /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C7132822D48200E6B85C /* DetailProductViewController.swift */; };
+		50F1C72E2823397700E6B85C /* MainUserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C72D2823397700E6B85C /* MainUserRegisterViewController.swift */; };
+		50F1C7362823398600E6B85C /* MainUserRegisterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F1C7352823398600E6B85C /* MainUserRegisterStoryboard.storyboard */; };
+		50F1C738282339A100E6B85C /* MainUserRegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C737282339A100E6B85C /* MainUserRegisterInteractor.swift */; };
+		50F1C740282339B200E6B85C /* MainUserRegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C73F282339B200E6B85C /* MainUserRegisterPresenter.swift */; };
+		50F1C745282339C300E6B85C /* MainUserRegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C744282339C300E6B85C /* MainUserRegisterEntity.swift */; };
+		50F1C74A282339D300E6B85C /* MainUserRegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C749282339D300E6B85C /* MainUserRegisterRouter.swift */; };
+		50F1C74F282339E500E6B85C /* MainUserRegisterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C74E282339E500E6B85C /* MainUserRegisterProtocol.swift */; };
 		50F349AF2819DEDF0065D37E /* MainAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349AE2819DEDF0065D37E /* MainAdminViewController.swift */; };
 		50F349B72819DEF40065D37E /* MainAdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F349B62819DEF40065D37E /* MainAdminStoryboard.storyboard */; };
 		50F349BC2819DF650065D37E /* MainAdminInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349BB2819DF650065D37E /* MainAdminInteractor.swift */; };
@@ -171,6 +178,13 @@
 		50F1C7112822D48200E6B85C /* DetailProductInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductInteractor.swift; sourceTree = "<group>"; };
 		50F1C7122822D48200E6B85C /* DetailProductPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductPresenter.swift; sourceTree = "<group>"; };
 		50F1C7132822D48200E6B85C /* DetailProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
+		50F1C72D2823397700E6B85C /* MainUserRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserRegisterViewController.swift; sourceTree = "<group>"; };
+		50F1C7352823398600E6B85C /* MainUserRegisterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainUserRegisterStoryboard.storyboard; sourceTree = "<group>"; };
+		50F1C737282339A100E6B85C /* MainUserRegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserRegisterInteractor.swift; sourceTree = "<group>"; };
+		50F1C73F282339B200E6B85C /* MainUserRegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserRegisterPresenter.swift; sourceTree = "<group>"; };
+		50F1C744282339C300E6B85C /* MainUserRegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserRegisterEntity.swift; sourceTree = "<group>"; };
+		50F1C749282339D300E6B85C /* MainUserRegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserRegisterRouter.swift; sourceTree = "<group>"; };
+		50F1C74E282339E500E6B85C /* MainUserRegisterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserRegisterProtocol.swift; sourceTree = "<group>"; };
 		50F349AE2819DEDF0065D37E /* MainAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminViewController.swift; sourceTree = "<group>"; };
 		50F349B62819DEF40065D37E /* MainAdminStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainAdminStoryboard.storyboard; sourceTree = "<group>"; };
 		50F349BB2819DF650065D37E /* MainAdminInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminInteractor.swift; sourceTree = "<group>"; };
@@ -615,6 +629,55 @@
 			path = DetailProductView;
 			sourceTree = "<group>";
 		};
+		50F1C727282338FB00E6B85C /* MainUserRegisterProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				50F1C74E282339E500E6B85C /* MainUserRegisterProtocol.swift */,
+			);
+			path = MainUserRegisterProtocol;
+			sourceTree = "<group>";
+		};
+		50F1C7282823391600E6B85C /* MainUserRegisterRouter */ = {
+			isa = PBXGroup;
+			children = (
+				50F1C749282339D300E6B85C /* MainUserRegisterRouter.swift */,
+			);
+			path = MainUserRegisterRouter;
+			sourceTree = "<group>";
+		};
+		50F1C7292823392100E6B85C /* MainUserRegisterEntity */ = {
+			isa = PBXGroup;
+			children = (
+				50F1C744282339C300E6B85C /* MainUserRegisterEntity.swift */,
+			);
+			path = MainUserRegisterEntity;
+			sourceTree = "<group>";
+		};
+		50F1C72A2823392D00E6B85C /* MainUserRegisterPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				50F1C73F282339B200E6B85C /* MainUserRegisterPresenter.swift */,
+			);
+			path = MainUserRegisterPresenter;
+			sourceTree = "<group>";
+		};
+		50F1C72B2823393600E6B85C /* MainUserRegisterInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				50F1C737282339A100E6B85C /* MainUserRegisterInteractor.swift */,
+			);
+			path = MainUserRegisterInteractor;
+			sourceTree = "<group>";
+		};
+		50F1C72C2823394300E6B85C /* MainUserRegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				50F1C72D2823397700E6B85C /* MainUserRegisterViewController.swift */,
+				50F1C7352823398600E6B85C /* MainUserRegisterStoryboard.storyboard */,
+			);
+			path = MainUserRegisterView;
+			sourceTree = "<group>";
+		};
 		50F349A62819DE6D0065D37E /* UserAdmin */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +846,12 @@
 		50FFA056281C96F9009A0528 /* MainUserRegister */ = {
 			isa = PBXGroup;
 			children = (
+				50F1C72C2823394300E6B85C /* MainUserRegisterView */,
+				50F1C72B2823393600E6B85C /* MainUserRegisterInteractor */,
+				50F1C72A2823392D00E6B85C /* MainUserRegisterPresenter */,
+				50F1C7292823392100E6B85C /* MainUserRegisterEntity */,
+				50F1C7282823391600E6B85C /* MainUserRegisterRouter */,
+				50F1C727282338FB00E6B85C /* MainUserRegisterProtocol */,
 			);
 			path = MainUserRegister;
 			sourceTree = "<group>";
@@ -995,6 +1064,7 @@
 			files = (
 				5011ED4C2817626100831C83 /* LaunchScreen.storyboard in Resources */,
 				501A6FF3282043FB00636F7F /* RegisterProductsStoryboard.storyboard in Resources */,
+				50F1C7362823398600E6B85C /* MainUserRegisterStoryboard.storyboard in Resources */,
 				50F349B72819DEF40065D37E /* MainAdminStoryboard.storyboard in Resources */,
 				506897F42820771800566000 /* UserRegisterProductsStoryboard.storyboard in Resources */,
 				50FFA087281C9E5E009A0528 /* RegisterCategoryStoryboard.storyboard in Resources */,
@@ -1136,12 +1206,14 @@
 				506897F92820771800566000 /* UserRegisterProductsEntity.swift in Sources */,
 				50577C002818640100EEC7B7 /* MainTiendaViewController.swift in Sources */,
 				50FFA068281C96FA009A0528 /* PerfilUserRegisterPresenter.swift in Sources */,
+				50F1C740282339B200E6B85C /* MainUserRegisterPresenter.swift in Sources */,
 				50577C4328186DDC00EEC7B7 /* UserViewController.swift in Sources */,
 				50F349C42819DF750065D37E /* MainAdminPresenter.swift in Sources */,
 				50F1C71A2822D48200E6B85C /* DetailProductInteractor.swift in Sources */,
 				506897F72820771800566000 /* UserRegisterProductsProtocol.swift in Sources */,
 				50F1C71C2822D48200E6B85C /* DetailProductViewController.swift in Sources */,
 				50577BE12818402700EEC7B7 /* IndexPresenter.swift in Sources */,
+				50F1C74A282339D300E6B85C /* MainUserRegisterRouter.swift in Sources */,
 				5068980B282082F300566000 /* RegisterProductEntity.swift in Sources */,
 				50F349D32819DFBE0065D37E /* MenuMainAdminViewController.swift in Sources */,
 				50FFA066281C96FA009A0528 /* PerfilUserRegisterViewController.swift in Sources */,
@@ -1151,11 +1223,13 @@
 				50577C252818648600EEC7B7 /* MainTiendaProtocol.swift in Sources */,
 				50F1C7142822D48200E6B85C /* DetailProductRouter.swift in Sources */,
 				50F349FF2819FB810065D37E /* MainAdminEntity.swift in Sources */,
+				50F1C745282339C300E6B85C /* MainUserRegisterEntity.swift in Sources */,
 				50577C1D2818647400EEC7B7 /* MainTiendaRouter.swift in Sources */,
 				506897F32820771800566000 /* UserRegisterProductsViewController.swift in Sources */,
 				50F349AF2819DEDF0065D37E /* MainAdminViewController.swift in Sources */,
 				50577BDC2818401A00EEC7B7 /* IndexEntity.swift in Sources */,
 				501A6FEE282043EB00636F7F /* RegisterProductsViewController.swift in Sources */,
+				50F1C74F282339E500E6B85C /* MainUserRegisterProtocol.swift in Sources */,
 				50F349C92819DF890065D37E /* MainAdminRouter.swift in Sources */,
 				50577BE62818403600EEC7B7 /* IndexInteractor.swift in Sources */,
 				50F1C7162822D48200E6B85C /* DetailProductCollectionViewController.swift in Sources */,
@@ -1165,6 +1239,7 @@
 				50FFA09B281C9ED4009A0528 /* RegisterCategoryRouter.swift in Sources */,
 				506897FA2820771800566000 /* UserRegisterProductsInteractor.swift in Sources */,
 				50FFA06B281C96FA009A0528 /* PerfilUserRegisterProtocol.swift in Sources */,
+				50F1C738282339A100E6B85C /* MainUserRegisterInteractor.swift in Sources */,
 				50577C4128186DDC00EEC7B7 /* UserPresenter.swift in Sources */,
 				5011ED3D2817625D00831C83 /* AppDelegate.swift in Sources */,
 				50F349CE2819DF980065D37E /* MainAdminProtocol.swift in Sources */,
@@ -1190,6 +1265,7 @@
 				50F1C7182822D48200E6B85C /* DetailProductProtocol.swift in Sources */,
 				501A70022820442900636F7F /* RegisterProductsRouter.swift in Sources */,
 				506897F62820771800566000 /* UserRegisterProductsRouter.swift in Sources */,
+				50F1C72E2823397700E6B85C /* MainUserRegisterViewController.swift in Sources */,
 				506897F52820771800566000 /* UserRegisterProductsTableView.swift in Sources */,
 				501A6FFD2820441700636F7F /* RegisterProductsPresenter.swift in Sources */,
 				50FFA069281C96FA009A0528 /* PerfilUserRegisterEntity.swift in Sources */,
