@@ -21,6 +21,7 @@ protocol UserRegisterProductsPresenterProtocol: NSObject {
     var router: UserRegisterProductsRouterProtocol? {get set}
     func getListProduct()
     func openRegisterProduct(isEdit: Bool)
+    func openDetailProducts(product: ProductDetail)
 }
 
 //Interactor
