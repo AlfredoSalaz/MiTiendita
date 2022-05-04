@@ -9,6 +9,8 @@ import UIKit
 
 
 class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProtocol{
+    
+    
 
     
     var view: UserRegisterProductsViewControllerProtocol?
@@ -24,6 +26,9 @@ class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProt
         let vc = RegisterProductsRouter.createModuleRegisterProduct()
         view?.present(vc, animated: true)
     }
+    func openDetailProducts(product: ProductDetail) {
+        
+    }
 }
 
 extension UserRegisterProductsPresenter: UserRegisterProductsOutputProtocol{
@@ -34,6 +39,8 @@ extension UserRegisterProductsPresenter: UserRegisterProductsOutputProtocol{
     func onRecivedFaillureData() {
         view?.faillureData()
     }
+    
+    
     
     
 }

@@ -71,6 +71,12 @@ extension UserRegisterProductsViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let data = listProducts?[indexPath.row]
+        
+        let pro = ProductDetail(id: data!.id , title: (data?.title)!, price: (data?.price)!, description: (data?.description)!, category: (data?.category!)!, images: data?.images ?? [])
+        
+        presenter?.openDetailProducts(product: pro)
+        
     }
     
 }
