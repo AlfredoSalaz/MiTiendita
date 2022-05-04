@@ -24,6 +24,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     func openListProduct()
     func getCategories()
     func getProduct()
+    
 }
 //INTERACTOR
 protocol MainAdminInteractorProtocol: NSObject {
@@ -34,7 +35,7 @@ protocol MainAdminInteractorProtocol: NSObject {
 //OUTPUT INTERACTOR - PRESENTER
 protocol MainAdminInteractorOutputProtocol: NSObject {
     func onRecivedCategory(data: [CategoryProduct])
-    func onRecivedproducts(data: [Product])
+    func onRecibiProducto(data: [Product])
     func onRecivedFaillureData()
 }
 //ROUTER

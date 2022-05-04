@@ -14,11 +14,15 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     var listCategory: [CategoryProduct]?
     var listProducts: [Product]?
     var productsCategory: [Product]?
+    
+    //var productByCategory: [Int: [Product]]?
+    var productByCategory: Dictionary = [Int: [Product]]()
     var isOn = true
     @IBOutlet weak var leadinViewMenuHamburguesa: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddCategory: UIButton?
     @IBOutlet weak var btnCar: UIButton?
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView?
     
     var menuHamburguesa: MenuMainAdminViewController?
     
@@ -26,6 +30,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         super.viewDidLoad()
         validationView()
         tableView.delegate = self
+        indicatorView?.startAnimating()
         presenter?.getCategories()
         presenter?.getProduct()
         
@@ -58,11 +63,28 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     
     func onReceivedCategoryProduct(data: [CategoryProduct]){
         listCategory = data
+        print("get todo")
     }
     func onReceivedlistProduct(data: [Product]) {
         listProducts = data
+        print("cargue todoooo")
+        var list: [Product] = []
+        for listCat  in listCategory! {
+            for listPro in listProducts!{
+                print("listCat \(listCat.id)")
+                if listCat.id == listPro.category?.id{
+                    list.append(listPro)
+                }
+            }
+            productByCategory[listCat.id] = list
+            print("id: \(listCat.id) tiene \(list.count)")
+            list.removeAll()
+        }
+        
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
+            self?.indicatorView?.stopAnimating()
+            self?.indicatorView?.isHidden = true
         }
     }
     func faillureData() {
@@ -95,30 +117,14 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
         
         let data = listCategory?[indexPath.row]
         cell.nameCategory?.text = data?.name
-        //cell.collectionView?.delegate = self
+        cell.collectionView?.tag = indexPath.row + 1
+        productsCategory = productByCategory[indexPath.row + 1]
+        cell.listPr = productsCategory
+        cell.collectionView?.reloadData()
+        print("EL numero \(indexPath.row + 1) tiene \(productsCategory?.count)")
         
-        //cell.collectionView?.reloadData()
         return cell
     }
-    
-   
     
 }
 
-extension MainAdminViewController: UICollectionViewDelegate, UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return productsCategory?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MainAdminCollectionViewCell
-        
-        let data = productsCategory?[indexPath.row]
-        
-        cell.nameProduct?.text = data?.title
-        return cell
-    }
-    
-    
-}

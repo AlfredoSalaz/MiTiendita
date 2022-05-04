@@ -91,7 +91,7 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuB-2u-49l">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="178"/>
                                                                                                 <subviews>
-                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="Pma-G9-eWr">
+                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="Pma-G9-eWr">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="height" constant="150" id="jG3-kD-bCS"/>
@@ -103,15 +103,25 @@
                                                                                                         <nil key="textColor"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
+                                                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="iM0-yX-CPx">
+                                                                                                        <rect key="frame" x="75" y="64" width="50" height="50"/>
+                                                                                                        <constraints>
+                                                                                                            <constraint firstAttribute="height" constant="50" id="OKo-cI-3Ns"/>
+                                                                                                            <constraint firstAttribute="width" constant="50" id="nAz-oK-cqy"/>
+                                                                                                        </constraints>
+                                                                                                        <color key="color" red="0.3746567964553833" green="0.16563212871551514" blue="0.92774271965026855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                    </activityIndicatorView>
                                                                                                 </subviews>
                                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstItem="Pma-G9-eWr" firstAttribute="leading" secondItem="uuB-2u-49l" secondAttribute="leading" id="4LU-s7-y54"/>
                                                                                                     <constraint firstAttribute="trailing" secondItem="Pma-G9-eWr" secondAttribute="trailing" id="52P-ea-Xfn"/>
                                                                                                     <constraint firstItem="Pma-G9-eWr" firstAttribute="top" secondItem="uuB-2u-49l" secondAttribute="top" id="AAW-De-jTR"/>
+                                                                                                    <constraint firstItem="iM0-yX-CPx" firstAttribute="centerX" secondItem="uuB-2u-49l" secondAttribute="centerX" id="Ans-O8-cFJ"/>
                                                                                                     <constraint firstItem="bK5-vL-iaM" firstAttribute="top" secondItem="Pma-G9-eWr" secondAttribute="bottom" id="Dz7-fm-Sjb"/>
                                                                                                     <constraint firstAttribute="trailing" secondItem="bK5-vL-iaM" secondAttribute="trailing" id="G0T-bf-Ij1"/>
                                                                                                     <constraint firstItem="bK5-vL-iaM" firstAttribute="leading" secondItem="uuB-2u-49l" secondAttribute="leading" id="I7H-eT-p8b"/>
+                                                                                                    <constraint firstItem="iM0-yX-CPx" firstAttribute="centerY" secondItem="uuB-2u-49l" secondAttribute="centerY" id="Js0-Q7-epA"/>
                                                                                                     <constraint firstAttribute="width" constant="200" id="LaQ-3E-Nnv"/>
                                                                                                     <constraint firstAttribute="height" constant="178" id="S4a-uD-pol"/>
                                                                                                     <constraint firstAttribute="bottom" secondItem="bK5-vL-iaM" secondAttribute="bottom" id="jkf-HA-ge7"/>
@@ -134,13 +144,14 @@
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <connections>
                                                                                         <outlet property="imageProduct" destination="Pma-G9-eWr" id="CUC-fm-IMw"/>
+                                                                                        <outlet property="indicatorView" destination="iM0-yX-CPx" id="gnt-5j-2iv"/>
                                                                                         <outlet property="nameProduct" destination="bK5-vL-iaM" id="Avc-Ya-g6F"/>
                                                                                     </connections>
                                                                                 </collectionViewCell>
                                                                             </cells>
                                                                             <connections>
-                                                                                <outlet property="dataSource" destination="Zs1-Pz-teS" id="fxd-cf-Qd1"/>
-                                                                                <outlet property="delegate" destination="Zs1-Pz-teS" id="qen-Xh-fqy"/>
+                                                                                <outlet property="dataSource" destination="sC7-RQ-sZO" id="H1C-ng-5gn"/>
+                                                                                <outlet property="delegate" destination="sC7-RQ-sZO" id="yyD-V5-gwd"/>
                                                                             </connections>
                                                                         </collectionView>
                                                                     </subviews>
@@ -177,6 +188,14 @@
                                                     <outlet property="delegate" destination="Zs1-Pz-teS" id="8z4-GH-ZM1"/>
                                                 </connections>
                                             </tableView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-mv-Agx">
+                                                <rect key="frame" x="157" y="359" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="Voe-YZ-KHN"/>
+                                                    <constraint firstAttribute="width" constant="100" id="nvU-j5-ZkU"/>
+                                                </constraints>
+                                                <color key="color" red="0.3746567964553833" green="0.16563212871551514" blue="0.92774271965026855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-3a-0T2">
                                                 <rect key="frame" x="244" y="30" width="150" height="40"/>
                                                 <constraints>
@@ -203,6 +222,8 @@
                                             <constraint firstItem="PQb-Sh-wRl" firstAttribute="top" secondItem="sJ3-Dy-eWq" secondAttribute="bottom" constant="20" id="6HZ-DX-pat"/>
                                             <constraint firstAttribute="trailing" secondItem="PQb-Sh-wRl" secondAttribute="trailing" id="DcN-a6-uPM"/>
                                             <constraint firstItem="sJ3-Dy-eWq" firstAttribute="top" secondItem="5DP-IH-Iii" secondAttribute="top" constant="30" id="PBY-ag-ikx"/>
+                                            <constraint firstItem="L8q-mv-Agx" firstAttribute="centerY" secondItem="5DP-IH-Iii" secondAttribute="centerY" id="dJH-cA-gl7"/>
+                                            <constraint firstItem="L8q-mv-Agx" firstAttribute="centerX" secondItem="5DP-IH-Iii" secondAttribute="centerX" id="fWI-oA-cR2"/>
                                             <constraint firstAttribute="trailing" secondItem="4AR-Q1-KW9" secondAttribute="trailing" constant="30" id="hjf-3s-OW0"/>
                                             <constraint firstAttribute="trailing" secondItem="MOa-3a-0T2" secondAttribute="trailing" constant="20" id="kg7-Rz-P25"/>
                                             <constraint firstItem="sJ3-Dy-eWq" firstAttribute="leading" secondItem="5DP-IH-Iii" secondAttribute="leading" constant="20" id="lE7-H7-7b9"/>
@@ -272,6 +293,7 @@
                     <connections>
                         <outlet property="btnAddCategory" destination="MOa-3a-0T2" id="nlD-Vc-fV1"/>
                         <outlet property="btnCar" destination="4AR-Q1-KW9" id="dGS-up-etT"/>
+                        <outlet property="indicatorView" destination="L8q-mv-Agx" id="XQA-ek-q7k"/>
                         <outlet property="leadinViewMenuHamburguesa" destination="WBq-ig-5n3" id="jBI-Jc-rai"/>
                         <outlet property="tableView" destination="PQb-Sh-wRl" id="2xR-Te-AuC"/>
                     </connections>
@@ -506,6 +528,7 @@
     <resources>
         <image name="catalog" width="512" height="512"/>
         <image name="delivery-box" width="512" height="512"/>
+        <image name="error" width="512" height="512"/>
         <image name="fondo" width="1400" height="2100"/>
         <image name="list" width="512" height="512"/>
         <image name="photo" width="800" height="800"/>

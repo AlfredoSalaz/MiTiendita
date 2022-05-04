@@ -37,7 +37,7 @@ extension MainAdminPresenter: MainAdminInteractorOutputProtocol{
     func onRecivedCategory(data: [CategoryProduct]) {
         view?.onReceivedCategoryProduct(data: data)
     }
-    func onRecivedproducts(data: [Product]) {
+    func onRecibiProducto(data: [Product]) {
         view?.onReceivedlistProduct(data: data)
     }
     func onRecivedFaillureData() {

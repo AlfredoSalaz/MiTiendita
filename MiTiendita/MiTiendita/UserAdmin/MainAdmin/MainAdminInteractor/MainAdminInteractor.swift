@@ -28,7 +28,7 @@ extension MainAdminInteractor: RequestManagerDelegate{
             }
         case 1:
             if let dato = data as? [Product] {
-                output?.onRecivedproducts(data: dato)
+                output?.onRecibiProducto(data: dato)
             }
         default:
             output?.onRecivedFaillureData()
