@@ -30,6 +30,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         presenter?.getProduct()
         
     }
+    
     func validationView(){
         if user?.role == "admin"{
             btnAddCategory?.isHidden = false
@@ -50,6 +51,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         }
         
     }
+    
     func hideMenuHamburguesa() {
         self.leadinViewMenuHamburguesa.constant = -250
     }

@@ -31,7 +31,7 @@ protocol MainAdminInteractorProtocol: NSObject {
     func getCategoriesProduct()
     func getProducts()
 }
-
+//OUTPUT INTERACTOR - PRESENTER
 protocol MainAdminInteractorOutputProtocol: NSObject {
     func onRecivedCategory(data: [CategoryProduct])
     func onRecivedproducts(data: [Product])
