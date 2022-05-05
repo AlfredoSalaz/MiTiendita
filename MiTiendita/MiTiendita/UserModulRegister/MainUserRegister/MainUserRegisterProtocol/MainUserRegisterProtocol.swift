@@ -5,4 +5,42 @@
 //  Created by Alfredo Salazar on 04/05/22.
 //
 
-import Foundation
+import UIKit
+
+//View
+protocol MainUserRegisterViewControllerProtocol: UIViewController{
+    var presenter: MainUserRegisterPresentProtocol? {get set}
+    func datosRecibidosUsuario(data: [UsuarioCore])
+    func getUsuarios()
+    
+    
+}
+
+//Interactor
+protocol MainUserRegisterInteractorProtocol: NSObject{
+    var output: MainUserRegisterOutputProtocol? {get set}
+    
+    func getUsuarios()
+}
+
+//Presenter
+protocol MainUserRegisterPresentProtocol: NSObject{
+    var view: MainUserRegisterViewControllerProtocol? {get set}
+    var interactor: MainUserRegisterInteractorProtocol? {get set}
+    var router: MainUserRegisterRouterProtocol? {get set}
+    
+    func getUsuarios()
+    
+}
+
+//Entity
+protocol MainUserRegisterOutputProtocol: NSObject{
+    func datosObtenidosUser(data: [UsuarioCore])
+}
+
+//Router
+protocol MainUserRegisterRouterProtocol {
+    var presenter: MainUserRegisterPresentProtocol? {get set}
+    
+    static func createModule() -> UIViewController
+}

@@ -7,23 +7,53 @@
 
 import UIKit
 
-class MainUserRegisterViewController: UIViewController {
+class MainUserRegisterViewController: UIViewController, MainUserRegisterViewControllerProtocol {
+    
+    @IBOutlet weak var tableUsuarios: UITableView!
+    
+    var presenter: MainUserRegisterPresentProtocol?
+    
+    var listUsuarios: [UsuarioCore]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    //Funcion que pide los datos almacenados en core
+    func getUsuarios() {
+        presenter?.getUsuarios()
+    }
+    
+    func datosRecibidosUsuario(data: [UsuarioCore]) {
+        listUsuarios = data
 
-        // Do any additional setup after loading the view.
+            //Recargamos la tabla
+            tableUsuarios.reloadData()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addUser(_ sender: Any) {
     }
-    */
-
 }
+
+extension MainUserRegisterViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return listUsuarios?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainUserRegisterTableViewCell
+        
+        let data = listUsuarios?[indexPath.row]
+        
+        cell.nameUser.text = data?.nombre
+        cell.apeUser.text = data?.apellido
+        
+        return cell
+        
+    }
+    
+}
+
