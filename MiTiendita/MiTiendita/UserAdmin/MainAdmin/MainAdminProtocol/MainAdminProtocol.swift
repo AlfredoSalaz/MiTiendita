@@ -24,6 +24,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     func openListProduct()
     func getCategories()
     func getProduct()
+    func openDetailProduct(data: ProductDetail)
     
 }
 //INTERACTOR

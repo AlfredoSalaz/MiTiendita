@@ -18,6 +18,9 @@ class RegisterCategoryPresenter: NSObject, RegisterCategoryPresenterProtocol{
     func saveImage(type: String, nameFile: String, image: UIImage) {
         interactor?.savedImage(type: type, nameFile: nameFile, image: image)
     }
+    func saveInCoreData(data: CategoryRegister){
+        interactor?.savedInCoreData(data: data)
+    }
 }
 
 extension RegisterCategoryPresenter: RegisterCategoryInteractorOutputProtocol{
@@ -25,7 +28,7 @@ extension RegisterCategoryPresenter: RegisterCategoryInteractorOutputProtocol{
         view?.recivedUrl(url: url)
     }
     func onRecivedMesageSuccesfulCategory(){
-        print("Se guardo la categoria")
+        view?.savedCategory()
     }
     func onRecivedMessageFaillure(){
         

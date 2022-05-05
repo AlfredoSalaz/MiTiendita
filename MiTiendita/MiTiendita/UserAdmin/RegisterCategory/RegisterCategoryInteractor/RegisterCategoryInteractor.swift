@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 class RegisterCategoryInteractor: NSObject, RegisterCategoryInteractorProtocol {
     var output: RegisterCategoryInteractorOutputProtocol?
     
@@ -19,8 +19,9 @@ class RegisterCategoryInteractor: NSObject, RegisterCategoryInteractorProtocol {
     func savedImage(type: String, nameFile: String, image: UIImage) {
         //guard let imagen = image else {return}
         RequestManager().subirImagen(nombreParametro: type, nombreArchivo: "\(nameFile).jpg", imagen: image, delegate: self, tag: 1)
-        //guard let image = UIImage(named: "versa.jpg") else {return}
-                //subirImagen(nombreParametro: "file", nombreArchivo: "versa.jpg", imagen: image)
+    }
+    func savedInCoreData(data: CategoryRegister){
+        InternalData().saveCategoryInCoreData(data: data, delegate: self)
     }
     
 }
@@ -40,5 +41,14 @@ extension RegisterCategoryInteractor: RequestManagerDelegate{
     }
     func onResponseFailure(error: CodeResponse, tag: Int) {
         print("Faullure")
+    }
+}
+
+extension RegisterCategoryInteractor: InternalDataDelegate {
+    func saveCategorySuccess(data: NSManagedObject) {
+        print("se guardo")
+    }
+    func saveCategoryFaillure(error: NSError) {
+        print("no se guardo")
     }
 }

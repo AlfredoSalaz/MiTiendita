@@ -14,6 +14,7 @@ class MainAdminTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     @IBOutlet weak var nameCategory: UILabel?
     @IBOutlet weak var collectionView: UICollectionView?
     var listPr: [Product]?
+    var delegate : MainAdminTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,17 +33,31 @@ class MainAdminTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
             return cell
         }
         DispatchQueue.main.async {
-            cell.imageProduct?.load(url: URL(string: url)!)
+            if let url = URL(string: url){
+                cell.imageProduct?.load(url: url)
+            }else{
+                cell.imageProduct?.image = UIImage(named: "error")
+            }
+            
             cell.indicatorView?.stopAnimating()
             cell.indicatorView?.isHidden = true
         }
         
         return cell
     }
- 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = listPr![indexPath.row]
+        print("Voy a \(data.title)")
+        
+        let detail = ProductDetail(id: data.id , title: (data.title)!, price: (data.price)!, description: (data.description)!, category: (data.category!), images: data.images ?? [])
+        
+        presenter?.openDetailProduct(data: detail)
+    }
     
 }
-
+protocol  MainAdminTableViewCellDelegate{
+    func openProduct(data: Product)
+}
 extension UIImageView {
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in

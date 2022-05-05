@@ -56,15 +56,23 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
         presenter?.saveImage(type: "file", nameFile: nameImage ?? "defaultImg", image: imgCategoria ?? UIImage())
     }
     func recivedUrl(url: String){
+        
         DispatchQueue.main.sync {
+            let catInfo = CategoryRegister(name: nameCategory?.text ?? "Default", image: url)
             guard let nameCategory = nameCategory?.text else {return}
             let data: [String: Any] = [
                 "name": "\(nameCategory)",
                 "image": "\(url)"
             ]
             self.presenter?.saveCategory(data: data)
+            self.presenter?.saveInCoreData(data: catInfo)
         }
         
+    }
+    func savedCategory(){
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 extension RegisterCategoryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{

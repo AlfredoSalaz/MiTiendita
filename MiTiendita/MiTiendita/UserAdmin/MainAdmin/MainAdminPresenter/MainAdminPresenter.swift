@@ -31,6 +31,11 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
         let vc = UserRegisterProductsRouter.createModuleUserRegisterProducts()
         view?.present(vc, animated: true, completion: nil)
     }
+    func openDetailProduct(data: ProductDetail){
+        print("data \(data.title)")
+        let vc = DetailProductRouter.createModule(data: data)
+        view?.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension MainAdminPresenter: MainAdminInteractorOutputProtocol{

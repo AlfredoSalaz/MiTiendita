@@ -12,4 +12,5 @@ class MainAdminCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameProduct: UILabel?
     @IBOutlet weak var indicatorView: UIActivityIndicatorView?
     
+    
 }

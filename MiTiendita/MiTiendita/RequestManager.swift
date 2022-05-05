@@ -23,7 +23,6 @@ class RequestManager {
                 do{
                     let obj = tipoDato == nil ? nil : try JSONDecoder().decode(tipoDato!.self, from: data)
                     if tipoDato != nil && obj == nil && !data.isEmpty {
-                        print( "Posible bad decodable \((String(data: data, encoding: .utf8)) ?? "not_string")")
                         delegate.onResponseFailure(data: nil, error: .BAD_DECODABLE, tag: tag)
                     } else {
                         delegate.onResponseSuccess(data: obj, tag: tag)
@@ -40,7 +39,6 @@ class RequestManager {
             var peticion = URLRequest(url: url)
             peticion.httpMethod = "POST"
             peticion.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            print("COntenido \(contenido)")
             let datos: [String: Any] = contenido!
             peticion.httpBody = try? JSONSerialization.data(withJSONObject: datos, options: .fragmentsAllowed)
             let tarea = URLSession.shared.dataTask(with: peticion){
@@ -57,7 +55,6 @@ class RequestManager {
                     }
                 }catch{
                     delegate.onResponseFailure(data: nil, error: .BAD_DECODABLE, tag: tag)
-                    print(error)
                 }
             }
             tarea.resume()
@@ -136,15 +133,12 @@ extension RequestManager {
             data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
             data.append(imagen.pngData()!)
             data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
-            print(String(decoding: data, as: UTF8.self))
             URLSession.shared.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                     print("statusCode debería ser 200 y es \(httpStatus.statusCode)")
-                    print("response = \(response)")
                 }
                 if error == nil {
                     let jsonData = try? JSONDecoder().decode(RespuestaSubirImagen.self, from: responseData!)
-                    print(jsonData!)
                     delegate.onResponseSuccess(data: jsonData, tag: tag)
                     //let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
                     /*if let json = jsonData as? [String: Any] {

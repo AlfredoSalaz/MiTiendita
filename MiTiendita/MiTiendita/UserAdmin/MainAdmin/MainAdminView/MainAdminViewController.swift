@@ -120,11 +120,11 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
         cell.collectionView?.tag = indexPath.row + 1
         productsCategory = productByCategory[indexPath.row + 1]
         cell.listPr = productsCategory
+        cell.presenter = presenter
         cell.collectionView?.reloadData()
         print("EL numero \(indexPath.row + 1) tiene \(productsCategory?.count)")
         
         return cell
     }
-    
 }
 
