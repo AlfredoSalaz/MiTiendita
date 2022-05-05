@@ -25,17 +25,23 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     @IBOutlet weak var indicatorView: UIActivityIndicatorView?
     
     var menuHamburguesa: MenuMainAdminViewController?
-    
+    override func loadView() {
+        presenter?.recivedDataFromIndex()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         validationView()
         tableView.delegate = self
         indicatorView?.startAnimating()
-        presenter?.getCategories()
-        presenter?.getProduct()
+        //presenter?.getCategories()
+        //presenter?.getProduct()
         
     }
-    
+    func recivedDataFromPresenter(data: User){
+        print("-as.a-, \(data.name)")
+        self.user = data
+    }
     func validationView(){
         if user?.role == "admin"{
             btnAddCategory?.isHidden = false
@@ -93,7 +99,9 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "menuHamburguesa"){
-            if let controller = segue.destination as? MenuMainAdminViewController {
+            if let controller = segue.destination as?
+                MenuMainAdminViewController {
+                print("Voy en el segue \(user?.name)")
                 self.menuHamburguesa = controller
                 self.menuHamburguesa?.delegate = self
                 self.menuHamburguesa?.presenter = presenter

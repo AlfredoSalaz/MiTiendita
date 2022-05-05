@@ -26,7 +26,8 @@ protocol DetailProductPresenterProtocol: NSObject {
     var view: DetailProductViewControllerProtocol? {get set}
     var interactor: DetailProductInteractorProtocol? {get set}
     var router: DetailProductRouterProtocol? {get set}
-
+    var product: ProductDetail? {get set}
+    func recivedProductFromListProduct()
 }
 
 //Output
@@ -36,7 +37,6 @@ protocol DetailProductOutputProtocol: NSObject {
 
 //Router
 protocol DetailProductRouterProtocol{
-    var presenter: DetailProductPresenterProtocol? {get set}
     
     static func createModule(data: ProductDetail) -> UIViewController
     

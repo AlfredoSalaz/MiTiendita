@@ -8,23 +8,29 @@
 import UIKit
 
 class IndexRouter: IndexRouterProtocol{
-    var presenter: IndexPresenterProtocol?
 
     static func createModule() -> UIViewController {
         let main = storyboard
         let view = main.instantiateViewController(withIdentifier: "index") as! IndexViewController
         let presenter: IndexPresenterProtocol & IndexInteractorOutputProtocol = IndexPresenter()
         let interactor: IndexInteractorProtocol = IndexInteractor()
-        var router: IndexRouterProtocol = IndexRouter()
+        let router: IndexRouterProtocol = IndexRouter()
         
         view.presenter = presenter
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
         interactor.output = presenter
-        router.presenter = presenter
         
         return view
+    }
+    func openViewRegisters(view: IndexViewControllerProtocol){
+        let viewController = UserRouter.createModuleUserRegister()
+        view.present(viewController, animated: true)
+    }
+    func openMainTiendaRouter(view:IndexViewControllerProtocol, user: User){
+        let viewController = MainAdminRouter.createModuleMainAdmin(user: user)
+        view.present(viewController, animated: true)
     }
     
     static var storyboard: UIStoryboard {

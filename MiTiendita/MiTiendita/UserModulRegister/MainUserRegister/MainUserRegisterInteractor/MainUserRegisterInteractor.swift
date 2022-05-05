@@ -19,7 +19,7 @@ class MainUserRegisterInteractor: NSObject, MainUserRegisterInteractorProtocol {
     func getUsuarios() {
         
         let manageContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest : NSFetchRequest <Usuarios> = Usuarios.fetchRequest()
+        let fetchRequest : NSFetchRequest <UsuariosCD> = UsuariosCD.fetchRequest()
         do{
             let resultados = try manageContext.fetch(fetchRequest)
             

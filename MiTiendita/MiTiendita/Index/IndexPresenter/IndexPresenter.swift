@@ -13,12 +13,10 @@ class IndexPresenter: NSObject, IndexPresenterProtocol{
     var view: IndexViewControllerProtocol?
     
     func openMainTienda(user: User) {
-        let viewController = MainAdminRouter.createModuleMainAdmin(user: user)
-        view?.present(viewController, animated: true)
+        router?.openMainTiendaRouter(view: view!, user: user)
     }
     func openViewRegister(){
-        let viewController = UserRouter.createModuleUserRegister()
-        view?.present(viewController, animated: true)
+        router?.openViewRegisters(view: view!)
     }
     
     func getAllUser() {

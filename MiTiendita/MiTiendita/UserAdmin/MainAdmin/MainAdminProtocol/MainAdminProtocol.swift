@@ -12,7 +12,8 @@ protocol MainAdminViewControllerProtocol: UIViewController{
     func onReceivedCategoryProduct(data: [CategoryProduct])
     func onReceivedlistProduct(data: [Product])
     func faillureData()
-    var user: User? {get set}
+    func recivedDataFromPresenter(data: User)
+    
 }
 //pRESNTER
 protocol MainAdminPresenterProtocol: NSObject{
@@ -25,7 +26,8 @@ protocol MainAdminPresenterProtocol: NSObject{
     func getCategories()
     func getProduct()
     func openDetailProduct(data: ProductDetail)
-    
+    var recivedUser: User? {get set}
+    func recivedDataFromIndex()
 }
 //INTERACTOR
 protocol MainAdminInteractorProtocol: NSObject {
@@ -41,6 +43,8 @@ protocol MainAdminInteractorOutputProtocol: NSObject {
 }
 //ROUTER
 protocol MainAdminRouterProtocol {
-    var presenter: MainAdminPresenterProtocol? {get set}
+    func openRegisterCategoryRouter(view: MainAdminViewControllerProtocol)
+    func openListProduct(view: MainAdminViewControllerProtocol)
+    func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail)
     static func createModuleMainAdmin(user: User) -> UIViewController
 }

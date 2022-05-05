@@ -10,11 +10,13 @@ import UIKit
 class DetailProductPresenter: NSObject, DetailProductPresenterProtocol {
     
     var view: DetailProductViewControllerProtocol?
-    
     var interactor: DetailProductInteractorProtocol?
-    
     var router: DetailProductRouterProtocol?
-
+    var product: ProductDetail?
+    
+    func recivedProductFromListProduct(){
+        view?.product = product
+    }
 }
 extension DetailProductPresenter: DetailProductOutputProtocol{
     

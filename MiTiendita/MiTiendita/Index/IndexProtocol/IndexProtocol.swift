@@ -31,6 +31,7 @@ protocol IndexInteractorOutputProtocol {
 }
 
 protocol IndexRouterProtocol {
-    var presenter: IndexPresenterProtocol? {get set}
+    func openViewRegisters(view: IndexViewControllerProtocol)
+    func openMainTiendaRouter(view:IndexViewControllerProtocol, user: User)
     static func createModule() -> UIViewController
 }

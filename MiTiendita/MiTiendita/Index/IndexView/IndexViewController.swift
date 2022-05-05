@@ -58,7 +58,7 @@ class IndexViewController: UIViewController, IndexViewControllerProtocol {
             return
         }
         presenter?.openMainTienda(user: user)
-        print("Exitoso")
+        print("Exitoso \(user.name)")
         self.role = nil
         
     }

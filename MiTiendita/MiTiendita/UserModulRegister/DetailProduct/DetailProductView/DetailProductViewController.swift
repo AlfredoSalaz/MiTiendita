@@ -32,8 +32,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
         lblTitle.text = product?.title
         lblDescripcion.text = product?.description
         lblCategory.text = product?.category.name
-        lblPrecio.text = String("$ \(product!.price)")
-
+        lblPrecio.text = String("$ \(product?.price ?? 0)")
 
     }
 
