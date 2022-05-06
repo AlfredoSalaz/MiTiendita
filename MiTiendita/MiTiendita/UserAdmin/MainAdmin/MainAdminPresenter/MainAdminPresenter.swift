@@ -4,7 +4,7 @@
 //
 //  Created by Alfredo Salazar on 27/04/22.
 //
-
+import  CoreData
 import UIKit
 
 class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
@@ -35,6 +35,15 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func recivedDataFromIndex(){
         view?.recivedDataFromPresenter(data: recivedUser!)
     }
+    func getCategoryCoreD() {
+        interactor?.getCategoryCoreData()
+    }
+    func resetEntityCoreData(name: String) {
+        interactor?.resetDataEntityCoreData(name: name)
+    }
+    func saveCategoryInCoreData(data: CategoryRegister) {
+        interactor?.saveCategoryCoreData(data: data)
+    }
 }
 
 extension MainAdminPresenter: MainAdminInteractorOutputProtocol{
@@ -46,5 +55,11 @@ extension MainAdminPresenter: MainAdminInteractorOutputProtocol{
     }
     func onRecivedFaillureData() {
         view?.faillureData()
+    }
+    func onRecivedCategoryCoreData(data: [NSManagedObject]) {
+        view?.recivedCategoryfromCoreData(data: data)
+    }
+    func resetDataInCD() {
+        view?.resetDataInCoreData()
     }
 }

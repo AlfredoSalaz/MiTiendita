@@ -58,14 +58,14 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
     func recivedUrl(url: String){
         
         DispatchQueue.main.sync {
-            let catInfo = CategoryRegister(name: nameCategory?.text ?? "Default", image: url)
+            let catInfo = CategoryRegister(name: nameCategory?.text ?? "Default", image: url, id: 0)
             guard let nameCategory = nameCategory?.text else {return}
             let data: [String: Any] = [
                 "name": "\(nameCategory)",
                 "image": "\(url)"
             ]
             self.presenter?.saveCategory(data: data)
-            self.presenter?.saveInCoreData(data: catInfo)
+            //self.presenter?.saveInCoreData(data: catInfo)
         }
         
     }

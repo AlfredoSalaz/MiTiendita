@@ -10,9 +10,11 @@ import Foundation
 struct CategoryRegister: Encodable {
     var name: String
     var image: String
+    var id: Int
     
-    init(name: String, image:  String) {
+    init(name: String, image:  String, id: Int) {
         self.image = image
         self.name = name
+        self.id = id
     }
 }

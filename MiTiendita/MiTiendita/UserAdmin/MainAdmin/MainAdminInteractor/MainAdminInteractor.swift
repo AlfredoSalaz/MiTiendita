@@ -4,7 +4,7 @@
 //
 //  Created by Alfredo Salazar on 27/04/22.
 //
-
+import CoreData
 import UIKit
 
 class MainAdminInteractor: NSObject, MainAdminInteractorProtocol {
@@ -17,7 +17,15 @@ class MainAdminInteractor: NSObject, MainAdminInteractorProtocol {
         print("Antes del request")
         RequestManager.generic(url: ExternalData().listProduct, metodo: "GET", tipoResultado: [Product].self, delegate: self, tag: 1)
     }
-    
+    func getCategoryCoreData() {
+        InternalData().getCategoryCoreData(delegate: self)
+    }
+    func resetDataEntityCoreData(name: String) {
+        InternalData().resetAllRecords(in: name, delegate: self)
+    }
+    func saveCategoryCoreData(data: CategoryRegister) {
+        InternalData().saveCategoryInCoreData(data: data, delegate: self)
+    }
 }
 extension MainAdminInteractor: RequestManagerDelegate{
     func onResponseSuccess(data: Decodable?, tag: Int) {
@@ -35,7 +43,24 @@ extension MainAdminInteractor: RequestManagerDelegate{
         }
         
     }
-    func onResponseFailure(error: CodeResponse, tag: Int) {
+    func requestFaillure(error: CodeResponse, tag: Int) {
         print("Faillure..")
+        output?.onRecivedFaillureData()
+    }
+}
+
+extension MainAdminInteractor: InternalDataDelegate{
+    func onRecivedCategorySuccess(data: [NSManagedObject]) {
+        output?.onRecivedCategoryCoreData(data: data)
+    }
+    func resetSuccess() {
+        output?.resetDataInCD()
+    }
+    func saveCategorySuccess(data: NSManagedObject) {
+        print("Guarde la info")
+    }
+    func requestFaillure(error: NSError) {
+        print("fallo")
+        output?.onRecivedFaillureData()
     }
 }

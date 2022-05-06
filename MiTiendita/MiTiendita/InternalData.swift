@@ -11,25 +11,21 @@ import CoreData
 class InternalData {
     
     func saveCategoryInCoreData(data: CategoryRegister, delegate: InternalDataDelegate){
-        print("llego -----")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let manageContext = appDelegate.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "Categories", in: manageContext) else {
             print("No se encontro la entidad")
             return
         }
-        print("Antes de Category----")
         let category = NSManagedObject(entity: entity, insertInto: manageContext)
-        print("------sssss----")
+        category.setValue(data.id, forKey: "id")
         category.setValue(data.name, forKey: "name")
         category.setValue(getImageDataFromUrl(url: data.image), forKey: "image")
         do {
             try manageContext.save()
-            print("--se guardo--")
             delegate.saveCategorySuccess(data: category)
         }catch (let error as NSError) {
-            print("error al guardar: \(error)")
-            delegate.saveCategoryFaillure(error: error)
+            delegate.requestFaillure(error: error)
         }
     }
     func getImageDataFromUrl(url: String) -> Data{
@@ -39,22 +35,58 @@ class InternalData {
         var dataImage = Data()
         if let data = try? Data(contentsOf: url){
             dataImage = data
-            print("Se inicializo bien")
         }
         return dataImage
     }
+    func getCategoryCoreData( delegate: InternalDataDelegate) {
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appdelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest <Categories> = Categories.fetchRequest()
+        do{
+            let resultado = try managedContext.fetch(fetchRequest)
+            let data = resultado as [NSManagedObject]
+            print("dataAAAAAA: \(data.count)")
+            delegate.onRecivedCategorySuccess(data: data)
+        }catch(let error as NSError){
+            delegate.requestFaillure(error: error)
+        }
+    }
+    
+    func resetAllRecords(in entity : String, delegate: InternalDataDelegate) // entity = Your_Entity_Name
+            {
+                let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+                let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+                let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+                do{
+                    try context.execute(deleteRequest)
+                    try context.save()
+                    delegate.resetSuccess()
+                }
+                catch(let error as NSError)
+                {
+                    delegate.requestFaillure(error: error)
+                }
+            }
 }
 
 protocol InternalDataDelegate {
     func saveCategorySuccess(data: NSManagedObject)
-    func saveCategoryFaillure(error: NSError)
+    func onRecivedCategorySuccess(data: [NSManagedObject])
+    func requestFaillure(error: NSError)
+    func resetSuccess()
 }
 
 extension InternalDataDelegate{
     func saveCategorySuccess(data: NSManagedObject){
         
     }
-    func saveCategoryFaillure(error: NSError){
+    func onRecivedCategorySuccess(data: [NSManagedObject]){
+        
+    }
+    func requestFaillure(error: NSError){
+        
+    }
+    func resetSuccess(){
         
     }
 }

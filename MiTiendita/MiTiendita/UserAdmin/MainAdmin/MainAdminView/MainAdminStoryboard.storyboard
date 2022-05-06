@@ -197,10 +197,10 @@
                                                 <color key="color" red="0.3746567964553833" green="0.16563212871551514" blue="0.92774271965026855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-3a-0T2">
-                                                <rect key="frame" x="244" y="30" width="150" height="40"/>
+                                                <rect key="frame" x="244" y="10" width="150" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="FDF-rg-Kk9"/>
-                                                    <constraint firstAttribute="height" constant="40" id="iJl-O7-wGb"/>
+                                                    <constraint firstAttribute="height" constant="30" id="iJl-O7-wGb"/>
                                                 </constraints>
                                                 <state key="normal" title="Add Category"/>
                                                 <connections>
@@ -215,21 +215,47 @@
                                                 </constraints>
                                                 <state key="normal" image="shopping-cart"/>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uin-w5-WW5">
+                                                <rect key="frame" x="364" y="50" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Fcy-6v-A72"/>
+                                                    <constraint firstAttribute="width" constant="30" id="xPV-Al-wZt"/>
+                                                </constraints>
+                                                <state key="normal" image="reload"/>
+                                                <connections>
+                                                    <action selector="reloadDataInViewAndCoreData:" destination="Zs1-Pz-teS" eventType="touchUpInside" id="V0l-bw-cHj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99H-2H-O0g">
+                                                <rect key="frame" x="238" y="55" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="8Rc-kl-tgP"/>
+                                                    <constraint firstAttribute="width" constant="100" id="sbi-KS-HMx"/>
+                                                </constraints>
+                                                <state key="normal" title="CoreD Load"/>
+                                                <connections>
+                                                    <action selector="loadDataFromCD:" destination="Zs1-Pz-teS" eventType="touchUpInside" id="tYu-IA-pbo"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="99H-2H-O0g" firstAttribute="top" secondItem="MOa-3a-0T2" secondAttribute="bottom" constant="15" id="2AS-m2-aRX"/>
+                                            <constraint firstAttribute="trailing" secondItem="uin-w5-WW5" secondAttribute="trailing" constant="20" id="2cO-sA-Yfx"/>
                                             <constraint firstItem="4AR-Q1-KW9" firstAttribute="top" secondItem="5DP-IH-Iii" secondAttribute="top" constant="30" id="4gX-Z0-myL"/>
                                             <constraint firstItem="PQb-Sh-wRl" firstAttribute="top" secondItem="sJ3-Dy-eWq" secondAttribute="bottom" constant="20" id="6HZ-DX-pat"/>
                                             <constraint firstAttribute="trailing" secondItem="PQb-Sh-wRl" secondAttribute="trailing" id="DcN-a6-uPM"/>
+                                            <constraint firstItem="uin-w5-WW5" firstAttribute="top" secondItem="MOa-3a-0T2" secondAttribute="bottom" constant="10" id="GIb-XF-LgY"/>
                                             <constraint firstItem="sJ3-Dy-eWq" firstAttribute="top" secondItem="5DP-IH-Iii" secondAttribute="top" constant="30" id="PBY-ag-ikx"/>
                                             <constraint firstItem="L8q-mv-Agx" firstAttribute="centerY" secondItem="5DP-IH-Iii" secondAttribute="centerY" id="dJH-cA-gl7"/>
                                             <constraint firstItem="L8q-mv-Agx" firstAttribute="centerX" secondItem="5DP-IH-Iii" secondAttribute="centerX" id="fWI-oA-cR2"/>
+                                            <constraint firstItem="4AR-Q1-KW9" firstAttribute="leading" secondItem="99H-2H-O0g" secondAttribute="trailing" constant="6" id="h6S-ms-KHZ"/>
                                             <constraint firstAttribute="trailing" secondItem="4AR-Q1-KW9" secondAttribute="trailing" constant="30" id="hjf-3s-OW0"/>
                                             <constraint firstAttribute="trailing" secondItem="MOa-3a-0T2" secondAttribute="trailing" constant="20" id="kg7-Rz-P25"/>
                                             <constraint firstItem="sJ3-Dy-eWq" firstAttribute="leading" secondItem="5DP-IH-Iii" secondAttribute="leading" constant="20" id="lE7-H7-7b9"/>
                                             <constraint firstAttribute="bottom" secondItem="PQb-Sh-wRl" secondAttribute="bottom" constant="10" id="mUR-RS-1HP"/>
                                             <constraint firstItem="PQb-Sh-wRl" firstAttribute="leading" secondItem="5DP-IH-Iii" secondAttribute="leading" id="oaS-et-Wtn"/>
-                                            <constraint firstItem="MOa-3a-0T2" firstAttribute="top" secondItem="5DP-IH-Iii" secondAttribute="top" constant="30" id="zAN-ff-Rnx"/>
+                                            <constraint firstItem="MOa-3a-0T2" firstAttribute="top" secondItem="5DP-IH-Iii" secondAttribute="top" constant="10" id="zAN-ff-Rnx"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -477,6 +503,7 @@
                     <connections>
                         <outlet property="btnAddCategory" destination="MOa-3a-0T2" id="nlD-Vc-fV1"/>
                         <outlet property="btnCar" destination="4AR-Q1-KW9" id="dGS-up-etT"/>
+                        <outlet property="btnReload" destination="uin-w5-WW5" id="V2N-Jh-5aa"/>
                         <outlet property="indicatorView" destination="L8q-mv-Agx" id="XQA-ek-q7k"/>
                         <outlet property="leadinViewMenuHamburguesa" destination="WBq-ig-5n3" id="jBI-Jc-rai"/>
                         <outlet property="nameUser" destination="z2G-od-Kb1" id="QUJ-30-kwQ"/>
@@ -498,6 +525,7 @@
         <image name="list" width="512" height="512"/>
         <image name="photo" width="800" height="800"/>
         <image name="profile" width="512" height="512"/>
+        <image name="reload" width="512" height="512"/>
         <image name="shopping-cart" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

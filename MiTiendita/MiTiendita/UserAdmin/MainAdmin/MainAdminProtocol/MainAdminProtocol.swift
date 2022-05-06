@@ -4,7 +4,7 @@
 //
 //  Created by Alfredo Salazar on 27/04/22.
 //
-
+import CoreData
 import UIKit
 //VIEW
 protocol MainAdminViewControllerProtocol: UIViewController{
@@ -13,7 +13,8 @@ protocol MainAdminViewControllerProtocol: UIViewController{
     func onReceivedlistProduct(data: [Product])
     func faillureData()
     func recivedDataFromPresenter(data: User)
-    
+    func recivedCategoryfromCoreData(data: [NSManagedObject])
+    func resetDataInCoreData()
 }
 //pRESNTER
 protocol MainAdminPresenterProtocol: NSObject{
@@ -28,18 +29,29 @@ protocol MainAdminPresenterProtocol: NSObject{
     func openDetailProduct(data: ProductDetail)
     var recivedUser: User? {get set}
     func recivedDataFromIndex()
+    //Coredata
+    func saveCategoryInCoreData(data: CategoryRegister)
+    func getCategoryCoreD()
+    func resetEntityCoreData(name: String)
 }
 //INTERACTOR
 protocol MainAdminInteractorProtocol: NSObject {
     var output: MainAdminInteractorOutputProtocol? {get set}
     func getCategoriesProduct()
     func getProducts()
+    //Coredata
+    func getCategoryCoreData()
+    func resetDataEntityCoreData(name: String)
+    func saveCategoryCoreData(data: CategoryRegister)
 }
 //OUTPUT INTERACTOR - PRESENTER
 protocol MainAdminInteractorOutputProtocol: NSObject {
     func onRecivedCategory(data: [CategoryProduct])
     func onRecibiProducto(data: [Product])
     func onRecivedFaillureData()
+    //Coredata
+    func onRecivedCategoryCoreData(data: [NSManagedObject])
+    func resetDataInCD()
 }
 //ROUTER
 protocol MainAdminRouterProtocol {
