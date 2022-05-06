@@ -10,7 +10,7 @@ import CoreData
 
 class MainUserRegisterInteractor: NSObject, MainUserRegisterInteractorProtocol {
     
-    var users = [NSManagedObject]()
+    var users: [NSManagedObject]?
     var manageContext: NSManagedObjectContext!
     let appDelegate =  UIApplication.shared.delegate as! AppDelegate
     
@@ -18,21 +18,22 @@ class MainUserRegisterInteractor: NSObject, MainUserRegisterInteractorProtocol {
     
     func getUsuarios() {
         
+        print("valorrrrrrrr")
+        
         let manageContext = appDelegate.persistentContainer.viewContext
         let fetchRequest : NSFetchRequest <UsuariosCD> = UsuariosCD.fetchRequest()
+        
         do{
             let resultados = try manageContext.fetch(fetchRequest)
             
             users = resultados as [NSManagedObject]
             
-            print(users)
-            
-            func onResponseSuccess(data: Decodable?, tag: Int) {
+            for res in resultados{
                 
-                if let dato = data as? [UsuarioCore] {
-                    output?.datosObtenidosUser(data: dato)
-                }
+                print("Datos------\(res.nombre)")
+                print(res.apellido)
             }
+            output?.datosObtenidosUser(data: resultados)
             
         }catch(let error as NSError){
             print(error)

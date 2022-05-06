@@ -10,6 +10,7 @@ import Alamofire
 
 class MainUserRegisterRouter: MainUserRegisterRouterProtocol {
     
+    
     var presenter: MainUserRegisterPresentProtocol?
     
     
@@ -33,6 +34,6 @@ class MainUserRegisterRouter: MainUserRegisterRouterProtocol {
     }
     
     static var storyboard:UIStoryboard{
-        return UIStoryboard(name: "MainUserRegisterViewController", bundle: nil)
+        return UIStoryboard(name: "MainUserRegisterStoryboard", bundle: nil)
     }
 }

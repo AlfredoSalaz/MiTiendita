@@ -6,10 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
 class MainUserRegisterPresenter: NSObject, MainUserRegisterPresentProtocol{
-    
-    
     
     var view: MainUserRegisterViewControllerProtocol?
     
@@ -25,8 +24,10 @@ class MainUserRegisterPresenter: NSObject, MainUserRegisterPresentProtocol{
 
 
 extension MainUserRegisterPresenter: MainUserRegisterOutputProtocol{
-    func datosObtenidosUser(data: [UsuarioCore]) {
-        view?.datosRecibidosUsuario(data: data)
+    func datosObtenidosUser(data: [NSManagedObject]) {
+        view?.datosObtenidosUser(data: data)
+        print("Aqui va la info")
+        print(data)
     }
     
     

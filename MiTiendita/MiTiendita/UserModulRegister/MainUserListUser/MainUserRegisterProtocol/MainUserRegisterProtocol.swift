@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 //View
 protocol MainUserRegisterViewControllerProtocol: UIViewController{
     var presenter: MainUserRegisterPresentProtocol? {get set}
-    func datosRecibidosUsuario(data: [UsuarioCore])
+    
+    func datosObtenidosUser(data: [NSManagedObject])
     func getUsuarios()
     
     
@@ -35,7 +37,8 @@ protocol MainUserRegisterPresentProtocol: NSObject{
 
 //Entity
 protocol MainUserRegisterOutputProtocol: NSObject{
-    func datosObtenidosUser(data: [UsuarioCore])
+    
+    func datosObtenidosUser(data: [NSManagedObject])
 }
 
 //Router
