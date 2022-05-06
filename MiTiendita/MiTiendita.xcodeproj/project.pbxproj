@@ -27,13 +27,6 @@
 		50577BDC2818401A00EEC7B7 /* IndexEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577BDB2818401A00EEC7B7 /* IndexEntity.swift */; };
 		50577BE12818402700EEC7B7 /* IndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577BE02818402700EEC7B7 /* IndexPresenter.swift */; };
 		50577BE62818403600EEC7B7 /* IndexInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577BE52818403600EEC7B7 /* IndexInteractor.swift */; };
-		50577C002818640100EEC7B7 /* MainTiendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577BFF2818640100EEC7B7 /* MainTiendaViewController.swift */; };
-		50577C082818641000EEC7B7 /* MainTiendaStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50577C072818641000EEC7B7 /* MainTiendaStoryboard.storyboard */; };
-		50577C0D2818642C00EEC7B7 /* MainTiendaInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577C0C2818642C00EEC7B7 /* MainTiendaInteractor.swift */; };
-		50577C122818643F00EEC7B7 /* MainTiendaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577C112818643F00EEC7B7 /* MainTiendaPresenter.swift */; };
-		50577C172818645600EEC7B7 /* MainTiendaEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577C162818645600EEC7B7 /* MainTiendaEntity.swift */; };
-		50577C1D2818647400EEC7B7 /* MainTiendaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577C1C2818647400EEC7B7 /* MainTiendaRouter.swift */; };
-		50577C252818648600EEC7B7 /* MainTiendaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577C242818648600EEC7B7 /* MainTiendaProtocol.swift */; };
 		50577C4028186DDC00EEC7B7 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577C3428186DDC00EEC7B7 /* UserEntity.swift */; };
 		50577C4128186DDC00EEC7B7 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50577C3628186DDC00EEC7B7 /* UserPresenter.swift */; };
 		50577C4228186DDC00EEC7B7 /* UserStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50577C3828186DDC00EEC7B7 /* UserStoryboard.storyboard */; };
@@ -75,7 +68,6 @@
 		50F349C42819DF750065D37E /* MainAdminPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349C32819DF750065D37E /* MainAdminPresenter.swift */; };
 		50F349C92819DF890065D37E /* MainAdminRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349C82819DF890065D37E /* MainAdminRouter.swift */; };
 		50F349CE2819DF980065D37E /* MainAdminProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349CD2819DF980065D37E /* MainAdminProtocol.swift */; };
-		50F349D32819DFBE0065D37E /* MenuMainAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349D22819DFBE0065D37E /* MenuMainAdminViewController.swift */; };
 		50F349EA2819F3500065D37E /* MainAdminCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349E92819F3500065D37E /* MainAdminCollectionViewCell.swift */; };
 		50F349F52819F7850065D37E /* ExternalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349F42819F7840065D37E /* ExternalData.swift */; };
 		50F349FF2819FB810065D37E /* MainAdminEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F349FE2819FB810065D37E /* MainAdminEntity.swift */; };
@@ -147,13 +139,6 @@
 		50577BDB2818401A00EEC7B7 /* IndexEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexEntity.swift; sourceTree = "<group>"; };
 		50577BE02818402700EEC7B7 /* IndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPresenter.swift; sourceTree = "<group>"; };
 		50577BE52818403600EEC7B7 /* IndexInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexInteractor.swift; sourceTree = "<group>"; };
-		50577BFF2818640100EEC7B7 /* MainTiendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTiendaViewController.swift; sourceTree = "<group>"; };
-		50577C072818641000EEC7B7 /* MainTiendaStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTiendaStoryboard.storyboard; sourceTree = "<group>"; };
-		50577C0C2818642C00EEC7B7 /* MainTiendaInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTiendaInteractor.swift; sourceTree = "<group>"; };
-		50577C112818643F00EEC7B7 /* MainTiendaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTiendaPresenter.swift; sourceTree = "<group>"; };
-		50577C162818645600EEC7B7 /* MainTiendaEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTiendaEntity.swift; sourceTree = "<group>"; };
-		50577C1C2818647400EEC7B7 /* MainTiendaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTiendaRouter.swift; sourceTree = "<group>"; };
-		50577C242818648600EEC7B7 /* MainTiendaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTiendaProtocol.swift; sourceTree = "<group>"; };
 		50577C3428186DDC00EEC7B7 /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		50577C3628186DDC00EEC7B7 /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		50577C3828186DDC00EEC7B7 /* UserStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserStoryboard.storyboard; sourceTree = "<group>"; };
@@ -195,7 +180,6 @@
 		50F349C32819DF750065D37E /* MainAdminPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminPresenter.swift; sourceTree = "<group>"; };
 		50F349C82819DF890065D37E /* MainAdminRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminRouter.swift; sourceTree = "<group>"; };
 		50F349CD2819DF980065D37E /* MainAdminProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminProtocol.swift; sourceTree = "<group>"; };
-		50F349D22819DFBE0065D37E /* MenuMainAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMainAdminViewController.swift; sourceTree = "<group>"; };
 		50F349E92819F3500065D37E /* MainAdminCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminCollectionViewCell.swift; sourceTree = "<group>"; };
 		50F349F42819F7840065D37E /* ExternalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalData.swift; sourceTree = "<group>"; };
 		50F349FE2819FB810065D37E /* MainAdminEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminEntity.swift; sourceTree = "<group>"; };
@@ -421,68 +405,6 @@
 				50577BCC28183FED00EEC7B7 /* IndexStoryboard.storyboard */,
 			);
 			path = IndexView;
-			sourceTree = "<group>";
-		};
-		50577BF8281862BB00EEC7B7 /* MainTienda */ = {
-			isa = PBXGroup;
-			children = (
-				50577BFE2818635400EEC7B7 /* MainTiendaView */,
-				50577BFD2818634200EEC7B7 /* MainTiendaInteractor */,
-				50577BFC2818633200EEC7B7 /* MainTiendaPresenter */,
-				50577BFB2818631900EEC7B7 /* MainTiendaEntity */,
-				50577BFA2818630900EEC7B7 /* MainTiendaRouter */,
-				50577BF9281862FD00EEC7B7 /* MainTiendaProtocol */,
-			);
-			path = MainTienda;
-			sourceTree = "<group>";
-		};
-		50577BF9281862FD00EEC7B7 /* MainTiendaProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				50577C242818648600EEC7B7 /* MainTiendaProtocol.swift */,
-			);
-			path = MainTiendaProtocol;
-			sourceTree = "<group>";
-		};
-		50577BFA2818630900EEC7B7 /* MainTiendaRouter */ = {
-			isa = PBXGroup;
-			children = (
-				50577C1C2818647400EEC7B7 /* MainTiendaRouter.swift */,
-			);
-			path = MainTiendaRouter;
-			sourceTree = "<group>";
-		};
-		50577BFB2818631900EEC7B7 /* MainTiendaEntity */ = {
-			isa = PBXGroup;
-			children = (
-				50577C162818645600EEC7B7 /* MainTiendaEntity.swift */,
-			);
-			path = MainTiendaEntity;
-			sourceTree = "<group>";
-		};
-		50577BFC2818633200EEC7B7 /* MainTiendaPresenter */ = {
-			isa = PBXGroup;
-			children = (
-				50577C112818643F00EEC7B7 /* MainTiendaPresenter.swift */,
-			);
-			path = MainTiendaPresenter;
-			sourceTree = "<group>";
-		};
-		50577BFD2818634200EEC7B7 /* MainTiendaInteractor */ = {
-			isa = PBXGroup;
-			children = (
-				50577C0C2818642C00EEC7B7 /* MainTiendaInteractor.swift */,
-			);
-			path = MainTiendaInteractor;
-			sourceTree = "<group>";
-		};
-		50577BFE2818635400EEC7B7 /* MainTiendaView */ = {
-			isa = PBXGroup;
-			children = (
-				50577BFF2818640100EEC7B7 /* MainTiendaViewController.swift */,
-				50577C072818641000EEC7B7 /* MainTiendaStoryboard.storyboard */,
-			);
-			path = MainTiendaView;
 			sourceTree = "<group>";
 		};
 		50577C3228186DDC00EEC7B7 /* UserRegister */ = {
@@ -737,7 +659,6 @@
 			children = (
 				50FFA07A281C9DAA009A0528 /* RegisterProducts */,
 				50FFA079281C9D1C009A0528 /* RegisterCategory */,
-				50577BF8281862BB00EEC7B7 /* MainTienda */,
 				50F349A72819DE7F0065D37E /* MainAdmin */,
 			);
 			path = UserAdmin;
@@ -801,7 +722,6 @@
 			children = (
 				50FFA03B281C6B8D009A0528 /* MainAdminTableView */,
 				50F349E02819F2FF0065D37E /* MainAdminCollectionView */,
-				50F349D22819DFBE0065D37E /* MenuMainAdminViewController.swift */,
 				50F349AE2819DEDF0065D37E /* MainAdminViewController.swift */,
 				50F349B62819DEF40065D37E /* MainAdminStoryboard.storyboard */,
 			);
@@ -830,7 +750,7 @@
 				50F1C70A2822D48200E6B85C /* DetailProduct */,
 				506897E32820771800566000 /* UserRegisterProducts */,
 				50FFA048281C96F9009A0528 /* PerfilUserRegister */,
-				50FFA056281C96F9009A0528 /* MainUserRegister */,
+				50FFA056281C96F9009A0528 /* MainUserListUser */,
 			);
 			path = UserModulRegister;
 			sourceTree = "<group>";
@@ -897,7 +817,7 @@
 			path = PerfilUserRegisterProtocol;
 			sourceTree = "<group>";
 		};
-		50FFA056281C96F9009A0528 /* MainUserRegister */ = {
+		50FFA056281C96F9009A0528 /* MainUserListUser */ = {
 			isa = PBXGroup;
 			children = (
 				50F1C72C2823394300E6B85C /* MainUserRegisterView */,
@@ -907,7 +827,7 @@
 				50F1C7282823391600E6B85C /* MainUserRegisterRouter */,
 				50F1C727282338FB00E6B85C /* MainUserRegisterProtocol */,
 			);
-			path = MainUserRegister;
+			path = MainUserListUser;
 			sourceTree = "<group>";
 		};
 		50FFA079281C9D1C009A0528 /* RegisterCategory */ = {
@@ -1122,7 +1042,6 @@
 				50F349B72819DEF40065D37E /* MainAdminStoryboard.storyboard in Resources */,
 				506897F42820771800566000 /* UserRegisterProductsStoryboard.storyboard in Resources */,
 				50FFA087281C9E5E009A0528 /* RegisterCategoryStoryboard.storyboard in Resources */,
-				50577C082818641000EEC7B7 /* MainTiendaStoryboard.storyboard in Resources */,
 				50F1C7152822D48200E6B85C /* DetailProductStoryboard.storyboard in Resources */,
 				5011ED492817626100831C83 /* Assets.xcassets in Resources */,
 				50577C4228186DDC00EEC7B7 /* UserStoryboard.storyboard in Resources */,
@@ -1258,7 +1177,6 @@
 				50F349F52819F7850065D37E /* ExternalData.swift in Sources */,
 				506898062820808E00566000 /* RequestManagers.swift in Sources */,
 				506897F92820771800566000 /* UserRegisterProductsEntity.swift in Sources */,
-				50577C002818640100EEC7B7 /* MainTiendaViewController.swift in Sources */,
 				50FFA068281C96FA009A0528 /* PerfilUserRegisterPresenter.swift in Sources */,
 				50F1C740282339B200E6B85C /* MainUserRegisterPresenter.swift in Sources */,
 				50577C4328186DDC00EEC7B7 /* UserViewController.swift in Sources */,
@@ -1270,16 +1188,13 @@
 				50577BE12818402700EEC7B7 /* IndexPresenter.swift in Sources */,
 				50F1C74A282339D300E6B85C /* MainUserRegisterRouter.swift in Sources */,
 				5068980B282082F300566000 /* RegisterProductEntity.swift in Sources */,
-				50F349D32819DFBE0065D37E /* MenuMainAdminViewController.swift in Sources */,
 				50FFA066281C96FA009A0528 /* PerfilUserRegisterViewController.swift in Sources */,
 				50577C4428186DDC00EEC7B7 /* UserInteractor.swift in Sources */,
 				501A6FF82820440C00636F7F /* RegisterProductsInteractor.swift in Sources */,
 				50577C4628186DDC00EEC7B7 /* UserRouter.swift in Sources */,
-				50577C252818648600EEC7B7 /* MainTiendaProtocol.swift in Sources */,
 				50F1C7142822D48200E6B85C /* DetailProductRouter.swift in Sources */,
 				50F349FF2819FB810065D37E /* MainAdminEntity.swift in Sources */,
 				50F1C745282339C300E6B85C /* MainUserRegisterEntity.swift in Sources */,
-				50577C1D2818647400EEC7B7 /* MainTiendaRouter.swift in Sources */,
 				506897F32820771800566000 /* UserRegisterProductsViewController.swift in Sources */,
 				50F349AF2819DEDF0065D37E /* MainAdminViewController.swift in Sources */,
 				50577BDC2818401A00EEC7B7 /* IndexEntity.swift in Sources */,
@@ -1288,7 +1203,6 @@
 				50F349C92819DF890065D37E /* MainAdminRouter.swift in Sources */,
 				50577BE62818403600EEC7B7 /* IndexInteractor.swift in Sources */,
 				50F1C7162822D48200E6B85C /* DetailProductCollectionViewController.swift in Sources */,
-				50577C172818645600EEC7B7 /* MainTiendaEntity.swift in Sources */,
 				50577C4028186DDC00EEC7B7 /* UserEntity.swift in Sources */,
 				50FFA096281C9EC4009A0528 /* RegisterCategoryEntity.swift in Sources */,
 				50FFA09B281C9ED4009A0528 /* RegisterCategoryRouter.swift in Sources */,
@@ -1304,9 +1218,7 @@
 				501A70072820443400636F7F /* RegisterProductsProtocol.swift in Sources */,
 				506897F82820771800566000 /* UserRegisterProductsPresenter.swift in Sources */,
 				50577BD22818400000EEC7B7 /* IndexProtocol.swift in Sources */,
-				50577C122818643F00EEC7B7 /* MainTiendaPresenter.swift in Sources */,
 				50F34A04281A024E0065D37E /* RequestManager.swift in Sources */,
-				50577C0D2818642C00EEC7B7 /* MainTiendaInteractor.swift in Sources */,
 				50FFA08C281C9E73009A0528 /* RegisterCategoryInteractor.swift in Sources */,
 				50F1C7192822D48200E6B85C /* DetailProductEntity.swift in Sources */,
 				50F349BC2819DF650065D37E /* MainAdminInteractor.swift in Sources */,

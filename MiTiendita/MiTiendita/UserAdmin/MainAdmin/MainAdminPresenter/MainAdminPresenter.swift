@@ -11,7 +11,7 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     var view: MainAdminViewControllerProtocol?
     var interactor: MainAdminInteractorProtocol?
     var router: MainAdminRouterProtocol?
-    var recivedUser: User?
+    var recivedUser: User?    
     func openEditUser(user: User, isEdditing: Bool){
         let vc = PerfilUserRegisterRouter.createModulePerfilUserRegister(user: user, isEdditing: isEdditing)
         view?.present(vc, animated: true)
@@ -30,11 +30,9 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
         router?.openListProduct(view: view!)
     }
     func openDetailProduct(data: ProductDetail){
-        let vc = DetailProductRouter.createModule(data: data)
-        view?.present(vc, animated: true, completion: nil)
+        router?.openDetailProduct(view: view!, data: data)
     }
     func recivedDataFromIndex(){
-        print("data in \(recivedUser?.name)")
         view?.recivedDataFromPresenter(data: recivedUser!)
     }
 }

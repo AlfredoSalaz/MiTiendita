@@ -8,7 +8,7 @@
 import UIKit
 
 
-class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol , MenuHamburguesaViewControllerDelegate {
+class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol {
     var presenter: MainAdminPresenterProtocol?
     var user: User?
     var listCategory: [CategoryProduct]?
@@ -23,23 +23,22 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     @IBOutlet weak var btnAddCategory: UIButton?
     @IBOutlet weak var btnCar: UIButton?
     @IBOutlet weak var indicatorView: UIActivityIndicatorView?
-    
-    var menuHamburguesa: MenuMainAdminViewController?
-    override func loadView() {
-        presenter?.recivedDataFromIndex()
-    }
+    @IBOutlet weak var photoUser: UIImageView?
+    @IBOutlet weak var nameUser: UILabel?
+    @IBOutlet weak var stackUsuarios: UIStackView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        validationView()
+        presenter?.recivedDataFromIndex()
         tableView.delegate = self
         indicatorView?.startAnimating()
-        //presenter?.getCategories()
-        //presenter?.getProduct()
-        
+        presenter?.getCategories()
+        presenter?.getProduct()
+        loadDataInMenu()
+        validationView()
     }
+    
     func recivedDataFromPresenter(data: User){
-        print("-as.a-, \(data.name)")
         self.user = data
     }
     func validationView(){
@@ -97,18 +96,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         print("falloooo")
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "menuHamburguesa"){
-            if let controller = segue.destination as?
-                MenuMainAdminViewController {
-                print("Voy en el segue \(user?.name)")
-                self.menuHamburguesa = controller
-                self.menuHamburguesa?.delegate = self
-                self.menuHamburguesa?.presenter = presenter
-                self.menuHamburguesa?.user = self.user
-            }
-        }
-    }
+    
     @IBAction  func registerCategory(_ sender: Any){
         presenter?.openRegisterCategory()
     }
@@ -136,3 +124,34 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
+extension MainAdminViewController {
+    func loadDataInMenu() {
+        if user?.role == "admin" {
+            stackUsuarios?.isHidden = false
+        }else{
+            stackUsuarios?.isHidden = true
+        }
+        nameUser?.text = user?.name
+    }
+    
+    
+    @IBAction func editUser(_ sender: Any) {
+        presenter?.openEditUser(user: user!, isEdditing: true)
+    }
+    
+    @IBAction func categoryProduct(_ sender: Any) {
+        hideMenuHamburguesa()
+        isOn = true
+    }
+    @IBAction func productsAdmin(_ sender: Any) {
+        presenter?.openListProduct()
+    }
+    @IBAction func registerUserAdmin(_ sender: Any) {
+        
+        presenter?.openEditUser(user: user!, isEdditing: false)
+    }
+
+    @IBAction func cerrarSession(_ sender: Any){
+        dismiss(animated: true)
+    }
+}

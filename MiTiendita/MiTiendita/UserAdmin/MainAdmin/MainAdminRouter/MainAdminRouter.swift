@@ -10,7 +10,6 @@ import UIKit
 class MainAdminRouter: MainAdminRouterProtocol {
     
     static func createModuleMainAdmin(user: User) -> UIViewController {
-        print("---u \(user.name)")
         let view = mainstoryboard.instantiateViewController(withIdentifier: "mainAdmin") as! MainAdminViewController
         let presenter: MainAdminInteractorOutputProtocol & MainAdminPresenterProtocol = MainAdminPresenter()
         let interactor: MainAdminInteractorProtocol = MainAdminInteractor()

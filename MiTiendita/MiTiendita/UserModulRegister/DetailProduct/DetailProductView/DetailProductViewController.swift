@@ -24,6 +24,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.recivedProductFromListProduct()
         showData()
     }
     
