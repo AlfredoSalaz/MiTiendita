@@ -46,6 +46,7 @@
 		5068980B282082F300566000 /* RegisterProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068980A282082F300566000 /* RegisterProductEntity.swift */; };
 		50793D972824284800547845 /* InternalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50793D962824284800547845 /* InternalData.swift */; };
 		50793D9C28246E5A00547845 /* MainUserRegisterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50793D9B28246E5A00547845 /* MainUserRegisterTableViewCell.swift */; };
+		50DE38702825B6E30091E14E /* InternalDataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE386F2825B6E30091E14E /* InternalDataUser.swift */; };
 		50F1C7142822D48200E6B85C /* DetailProductRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C70B2822D48200E6B85C /* DetailProductRouter.swift */; };
 		50F1C7152822D48200E6B85C /* DetailProductStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F1C70C2822D48200E6B85C /* DetailProductStoryboard.storyboard */; };
 		50F1C7162822D48200E6B85C /* DetailProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1C70D2822D48200E6B85C /* DetailProductCollectionViewController.swift */; };
@@ -158,6 +159,7 @@
 		5068980A282082F300566000 /* RegisterProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductEntity.swift; sourceTree = "<group>"; };
 		50793D962824284800547845 /* InternalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalData.swift; sourceTree = "<group>"; };
 		50793D9B28246E5A00547845 /* MainUserRegisterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserRegisterTableViewCell.swift; sourceTree = "<group>"; };
+		50DE386F2825B6E30091E14E /* InternalDataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalDataUser.swift; sourceTree = "<group>"; };
 		50F1C70B2822D48200E6B85C /* DetailProductRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductRouter.swift; sourceTree = "<group>"; };
 		50F1C70C2822D48200E6B85C /* DetailProductStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailProductStoryboard.storyboard; sourceTree = "<group>"; };
 		50F1C70D2822D48200E6B85C /* DetailProductCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductCollectionViewController.swift; sourceTree = "<group>"; };
@@ -751,6 +753,7 @@
 				506897E32820771800566000 /* UserRegisterProducts */,
 				50FFA048281C96F9009A0528 /* PerfilUserRegister */,
 				50FFA056281C96F9009A0528 /* MainUserListUser */,
+				50DE386F2825B6E30091E14E /* InternalDataUser.swift */,
 			);
 			path = UserModulRegister;
 			sourceTree = "<group>";
@@ -1241,6 +1244,7 @@
 				50F349EA2819F3500065D37E /* MainAdminCollectionViewCell.swift in Sources */,
 				50577BD72818400B00EEC7B7 /* IndexRouter.swift in Sources */,
 				50FFA040281C6DF2009A0528 /* MainAdminTableViewCell.swift in Sources */,
+				50DE38702825B6E30091E14E /* InternalDataUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
