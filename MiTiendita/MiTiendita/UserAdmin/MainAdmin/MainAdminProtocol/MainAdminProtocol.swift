@@ -23,7 +23,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     var view: MainAdminViewControllerProtocol? {get set}
     var interactor: MainAdminInteractorProtocol? {get set}
     var router: MainAdminRouterProtocol? {get set}
-    func openEditUser(user: User, isEdditing: Bool)
+    //func openEditUser(user: User, isEdditing: Bool)
     func openRegisterCategory()
     func editCategory(data: CategoryProduct, isEdit: Bool)
     func openListProduct()
@@ -68,4 +68,5 @@ protocol MainAdminRouterProtocol {
     func openListProduct(view: MainAdminViewControllerProtocol)
     func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail)
     static func createModuleMainAdmin(user: User) -> UIViewController
+    func openListUsuers(View: MainAdminViewControllerProtocol)
 }

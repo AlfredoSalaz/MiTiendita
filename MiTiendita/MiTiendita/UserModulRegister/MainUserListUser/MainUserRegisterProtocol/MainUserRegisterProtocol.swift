@@ -14,8 +14,7 @@ protocol MainUserRegisterViewControllerProtocol: UIViewController{
     
     func datosObtenidosUser(data: [NSManagedObject])
     func getUsuarios()
-    
-    
+
 }
 
 //Interactor
@@ -23,6 +22,8 @@ protocol MainUserRegisterInteractorProtocol: NSObject{
     var output: MainUserRegisterOutputProtocol? {get set}
     
     func getUsuarios()
+
+    
 }
 
 //Presenter
@@ -32,6 +33,8 @@ protocol MainUserRegisterPresentProtocol: NSObject{
     var router: MainUserRegisterRouterProtocol? {get set}
     
     func getUsuarios()
+    
+    func agregarNuevoUsuario()
     
 }
 
@@ -44,6 +47,8 @@ protocol MainUserRegisterOutputProtocol: NSObject{
 //Router
 protocol MainUserRegisterRouterProtocol {
     var presenter: MainUserRegisterPresentProtocol? {get set}
+    
+    func openViewNuevoUsuario(view: MainUserRegisterViewControllerProtocol)
     
     static func createModule() -> UIViewController
 }

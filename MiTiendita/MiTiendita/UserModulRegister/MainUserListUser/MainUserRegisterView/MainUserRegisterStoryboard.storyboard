@@ -12,13 +12,13 @@
         <!--Main User Register View Controller-->
         <scene sceneID="eLb-0H-FR1">
             <objects>
-                <viewController storyboardIdentifier="mainUserRegister" id="b2o-s0-dyU" customClass="MainUserRegisterViewController" customModule="MiTiendita" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainUserRegister" modalPresentationStyle="fullScreen" id="b2o-s0-dyU" customClass="MainUserRegisterViewController" customModule="MiTiendita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KdK-Lf-sh9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kki-UO-gfQ">
-                                <rect key="frame" x="321" y="64" width="65" height="31"/>
+                                <rect key="frame" x="336" y="64" width="50" height="31"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add"/>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gYI-fM-T41">
-                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="708"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="101" id="cOZ-RE-bA2" customClass="MainUserRegisterTableViewCell" customModule="MiTiendita" customModuleProvider="target">
@@ -84,17 +84,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lista de usuarios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHv-Py-MrE">
+                                <rect key="frame" x="20" y="131" width="129" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhM-ys-YG6">
+                                <rect key="frame" x="20" y="64" width="56" height="31"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <action selector="backMenu:" destination="b2o-s0-dyU" eventType="touchUpInside" id="QL7-bC-SG4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VNl-Ta-hSP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VNl-Ta-hSP" firstAttribute="trailing" secondItem="Kki-UO-gfQ" secondAttribute="trailing" constant="28" id="1mV-Hd-FAP"/>
                             <constraint firstAttribute="bottom" secondItem="gYI-fM-T41" secondAttribute="bottom" id="4A1-kE-vW3"/>
-                            <constraint firstItem="Kki-UO-gfQ" firstAttribute="leading" secondItem="VNl-Ta-hSP" secondAttribute="leading" constant="321" id="T5w-cg-b7h"/>
-                            <constraint firstItem="gYI-fM-T41" firstAttribute="top" secondItem="VNl-Ta-hSP" secondAttribute="top" constant="60" id="hfA-Vb-YRa"/>
+                            <constraint firstItem="bhM-ys-YG6" firstAttribute="leading" secondItem="VNl-Ta-hSP" secondAttribute="leading" constant="20" id="C5L-ka-AlO"/>
+                            <constraint firstItem="gYI-fM-T41" firstAttribute="top" secondItem="VNl-Ta-hSP" secondAttribute="top" constant="144" id="GOv-6R-pJT"/>
+                            <constraint firstItem="nHv-Py-MrE" firstAttribute="top" secondItem="bhM-ys-YG6" secondAttribute="bottom" constant="36" id="SAf-p8-P6w"/>
+                            <constraint firstItem="nHv-Py-MrE" firstAttribute="leading" secondItem="VNl-Ta-hSP" secondAttribute="leading" constant="20" id="YV1-fR-vS3"/>
+                            <constraint firstItem="Kki-UO-gfQ" firstAttribute="top" secondItem="VNl-Ta-hSP" secondAttribute="top" constant="20" id="fHn-hn-CvA"/>
+                            <constraint firstItem="bhM-ys-YG6" firstAttribute="top" secondItem="VNl-Ta-hSP" secondAttribute="top" constant="20" id="fad-37-DGo"/>
                             <constraint firstItem="gYI-fM-T41" firstAttribute="trailing" secondItem="VNl-Ta-hSP" secondAttribute="trailing" id="nvX-AM-snq"/>
                             <constraint firstItem="gYI-fM-T41" firstAttribute="leading" secondItem="VNl-Ta-hSP" secondAttribute="leading" id="oKb-sf-kjt"/>
-                            <constraint firstItem="Kki-UO-gfQ" firstAttribute="top" secondItem="VNl-Ta-hSP" secondAttribute="top" constant="20" id="uDs-GO-6OC"/>
+                            <constraint firstItem="VNl-Ta-hSP" firstAttribute="trailing" secondItem="Kki-UO-gfQ" secondAttribute="trailing" constant="28" id="xCf-Kl-iMV"/>
                         </constraints>
                     </view>
                     <connections>

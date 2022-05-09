@@ -22,14 +22,12 @@ protocol PerfilUserRegisterPresenterProtocol : NSObject {
     
     func saveUserInfo(user: UsuarioCore)
     
-    
 }
 
 protocol PerfilUserRegisterInteractorProtocol : NSObject {
     var output: PerfilUserRegisterInteractorOutPutProtocol? {get set}
     
     func saveUserInfo(user: UsuarioCore)
-    
 }
 
 protocol PerfilUserRegisterInteractorOutPutProtocol : NSObject {
@@ -40,5 +38,7 @@ protocol PerfilUserRegisterInteractorOutPutProtocol : NSObject {
 
 protocol PerfilUserRegisterRouterProtocol {
     var presenter: PerfilUserRegisterPresenterProtocol? {get set}
-    static func createModulePerfilUserRegister(user: User, isEdditing: Bool) -> UIViewController
+    //static func createModulePerfilUserRegister(user: User, isEdditing: Bool) -> UIViewController
+    //static func createModulePerfilUserRegister() -> UIViewController
+    //func iniciarModuloPerfilUserRegister()
 }

@@ -10,8 +10,11 @@ import CoreData
 
 class MainUserRegisterViewController: UIViewController, MainUserRegisterViewControllerProtocol {
     
-    
-    
+    func returnData() {
+        DispatchQueue.main.async {
+            self.tableUsuarios.reloadData()
+        }
+    }
     
     
     @IBOutlet weak var tableUsuarios: UITableView!
@@ -28,8 +31,16 @@ class MainUserRegisterViewController: UIViewController, MainUserRegisterViewCont
         tableUsuarios.delegate = self
         tableUsuarios.dataSource = self
         
+        //tableUsuarios.reloadData()
+        
         getUsuarios()
         datosObtenidosUser(data: usuarios!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getUsuarios()
+        self.tableUsuarios.reloadData()
+    
     }
     
     //Funcion que pide los datos almacenados en core
@@ -44,7 +55,15 @@ class MainUserRegisterViewController: UIViewController, MainUserRegisterViewCont
     }
     
     @IBAction func addUser(_ sender: Any) {
+        print("Me presiono")
+        presenter?.agregarNuevoUsuario()
     }
+    
+    
+    @IBAction func backMenu(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
 }
 
 extension MainUserRegisterViewController: UITableViewDelegate, UITableViewDataSource{
@@ -66,5 +85,13 @@ extension MainUserRegisterViewController: UITableViewDelegate, UITableViewDataSo
         
     }
     
+/*
+    //Eliminar el registro
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        
+    }
+     
+    */
 }
 

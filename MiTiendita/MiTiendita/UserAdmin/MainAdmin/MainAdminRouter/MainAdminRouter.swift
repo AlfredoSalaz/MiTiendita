@@ -9,6 +9,8 @@ import UIKit
 
 class MainAdminRouter: MainAdminRouterProtocol {
     
+    
+    
     static func createModuleMainAdmin(user: User) -> UIViewController {
         let view = mainstoryboard.instantiateViewController(withIdentifier: "mainAdmin") as! MainAdminViewController
         let presenter: MainAdminInteractorOutputProtocol & MainAdminPresenterProtocol = MainAdminPresenter()
@@ -38,6 +40,10 @@ class MainAdminRouter: MainAdminRouterProtocol {
     func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail){
         let vc = DetailProductRouter.createModule(data: data)
         view.present(vc, animated: true, completion: nil)
+    }
+    func openListUsuers(View: MainAdminViewControllerProtocol) {
+        let vc = MainUserRegisterRouter.createModule()
+        View.present(vc, animated: true)
     }
     static var mainstoryboard: UIStoryboard{
         return UIStoryboard(name: "MainAdminStoryboard", bundle: nil)

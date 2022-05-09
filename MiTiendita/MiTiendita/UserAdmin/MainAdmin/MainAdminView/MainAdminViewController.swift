@@ -177,7 +177,7 @@ extension MainAdminViewController {
     
     
     @IBAction func editUser(_ sender: Any) {
-        presenter?.openEditUser(user: user!, isEdditing: true)
+        //presenter?.openEditUser(user: user!, isEdditing: true)
     }
     
     @IBAction func categoryProduct(_ sender: Any) {
@@ -189,7 +189,9 @@ extension MainAdminViewController {
     }
     @IBAction func registerUserAdmin(_ sender: Any) {
         
-        presenter?.openEditUser(user: user!, isEdditing: false)
+        //presenter?.openEditUser(user: user!, isEdditing: false)
+        presenter?.openViewUser()
+        
     }
 
     @IBAction func cerrarSession(_ sender: Any){

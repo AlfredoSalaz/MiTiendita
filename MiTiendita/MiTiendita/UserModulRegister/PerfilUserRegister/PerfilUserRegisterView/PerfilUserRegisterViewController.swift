@@ -17,6 +17,11 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
     @IBOutlet weak var txtDireccion: UITextField!
     @IBOutlet weak var txtTarjetaCredito: UITextField!
     
+    var imgUser: UIImage?
+    var nameImage: String?
+    
+    @IBOutlet weak var pickerView: UIView!
+    
     var presenter: PerfilUserRegisterPresenterProtocol?
     var user: User?
     
@@ -40,6 +45,8 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
         txtTarjetaCredito.layer.borderWidth = 1
         txtTarjetaCredito.layer.borderColor = UIColor.magenta.cgColor
         
+        pickerView?.isHidden = true
+        
     }
 
     func validateData(){
@@ -52,13 +59,58 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
     }
     
     @IBAction func btnGuardarDatos(_ sender: Any) {
-
-        var usuario = UsuarioCore(nombre: txtNombre.text ?? "", apellido: txtApellido.text ?? "", correo: txtCorreo.text ?? "", password: txtPassword.text ?? "", direccion: txtDireccion.text ?? "", tarjeta: Int(txtTarjetaCredito.text ?? "") ?? 0)
+        
+        let usuario = UsuarioCore(nombre: txtNombre.text ?? "", apellido: txtApellido.text ?? "", correo: txtCorreo.text ?? "", password: txtPassword.text ?? "", direccion: txtDireccion.text ?? "", tarjeta: Int(txtTarjetaCredito.text ?? "") ?? 0)
             
             presenter?.saveUserInfo(user: usuario)
         
+        dismiss(animated: true)
+        
     }
+    
     @IBAction func btnBack(_ sender: Any){
+        self.dismiss(animated: true)
+    }
+    
+    
+    @IBAction func addImage(_ sender: Any) {
+        pickerView.isHidden = !pickerView!.isHidden
+    }
+    
+    @IBAction func galery(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+            
+            let imagePicker: UIImagePickerController = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true)
+        }
+    }
+    
+    @IBAction func camera(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
+            let imagePicker: UIImagePickerController = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true)
+        }
+    }
+    
+}
+
+extension PerfilUserRegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: true, completion: nil)
+        let imagen = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        imgUserPerfil?.image = imagen
+        self.pickerView?.isHidden = true
+        self.nameImage = UUID().uuidString
+        self.imgUser = imagen
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("-----")
         dismiss(animated: true, completion: nil)
     }
 }
