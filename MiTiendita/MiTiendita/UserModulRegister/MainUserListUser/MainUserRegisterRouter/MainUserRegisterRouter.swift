@@ -10,9 +10,7 @@ import Alamofire
 
 class MainUserRegisterRouter: MainUserRegisterRouterProtocol {
     
-    
     var presenter: MainUserRegisterPresentProtocol?
-    
     
     static func createModule() -> UIViewController{
         
@@ -32,6 +30,14 @@ class MainUserRegisterRouter: MainUserRegisterRouterProtocol {
         
         return view
     }
+    
+    func openViewNuevoUsuario(view: MainUserRegisterViewControllerProtocol) {
+        
+        let views = PerfilUserRegisterRouter.createModulePerfilUserRegister()
+        view.present(views, animated: true)
+        
+    }
+    
     
     static var storyboard:UIStoryboard{
         return UIStoryboard(name: "MainUserRegisterStoryboard", bundle: nil)

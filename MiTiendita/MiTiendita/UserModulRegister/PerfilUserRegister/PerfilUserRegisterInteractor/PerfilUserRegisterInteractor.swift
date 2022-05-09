@@ -8,6 +8,10 @@
 import UIKit
 import CoreData
 
+protocol usuarioDelegate{
+    func nuevoUsuario(user: User)
+}
+
 class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtocol {
 
     var users = [NSManagedObject]()
@@ -20,7 +24,7 @@ class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtoc
     func saveUserInfo(user: UsuarioCore) {
         
         let manageContext = appDelegate.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "Usuarios", in: manageContext) else {return}
+        guard let entity = NSEntityDescription.entity(forEntityName: "UsuariosCD", in: manageContext) else {return}
         
         let usuario = NSManagedObject(entity: entity, insertInto: manageContext)
         
@@ -35,13 +39,13 @@ class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtoc
         
         do{
             try manageContext.save()
+            print("Estos son los usuarios: \(usuario)")
             self.users.append(usuario)
             print(usuario)
         }catch(let error as NSError){
             print(error)
         }
          
-
     }
         
 }

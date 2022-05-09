@@ -8,17 +8,21 @@
 import UIKit
 
 class PerfilUserRegisterRouter: PerfilUserRegisterRouterProtocol{
+    
     var presenter: PerfilUserRegisterPresenterProtocol?
     
-    static func createModulePerfilUserRegister(user: User, isEdditing: Bool) -> UIViewController{
+    //static func createModulePerfilUserRegister(user: User, isEdditing: Bool) -> UIViewController{
+    static func createModulePerfilUserRegister() -> UIViewController{
+        print("Se inicio")
+        
         let view = storyboard.instantiateViewController(withIdentifier: "PerfilUserRegister") as! PerfilUserRegisterViewController
         let presenter : PerfilUserRegisterPresenterProtocol & PerfilUserRegisterInteractorOutPutProtocol = PerfilUserRegisterPresenter()
         let interactor : PerfilUserRegisterInteractorProtocol = PerfilUserRegisterInteractor()
         var router: PerfilUserRegisterRouterProtocol = PerfilUserRegisterRouter()
         
         view.presenter = presenter
-        view.user = user
-        view.isEditiing = isEdditing
+        //view.user = user
+        //view.isEditiing = isEdditing
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router

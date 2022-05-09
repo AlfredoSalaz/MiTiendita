@@ -17,28 +17,14 @@ class MainUserRegisterInteractor: NSObject, MainUserRegisterInteractorProtocol {
     var output: MainUserRegisterOutputProtocol?
     
     func getUsuarios() {
-        
-        print("valorrrrrrrr")
-        
-        let manageContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest : NSFetchRequest <UsuariosCD> = UsuariosCD.fetchRequest()
-        
-        do{
-            let resultados = try manageContext.fetch(fetchRequest)
-            
-            users = resultados as [NSManagedObject]
-            
-            for res in resultados{
-                
-                print("Datos------\(res.nombre)")
-                print(res.apellido)
-            }
-            output?.datosObtenidosUser(data: resultados)
-            
-        }catch(let error as NSError){
-            print(error)
-        }
-        
+        InternalDataUser().getUsuarios(delegate: self)
     }
     
+}
+
+
+extension MainUserRegisterInteractor: InternalDataUserDelegate {
+    func getUser(data: [NSManagedObject]) {
+        output?.datosObtenidosUser(data: data)
+    }
 }

@@ -8,15 +8,23 @@ import  CoreData
 import UIKit
 
 class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
+    
     var view: MainAdminViewControllerProtocol?
     var interactor: MainAdminInteractorProtocol?
     var router: MainAdminRouterProtocol?
-    var recivedUser: User?    
+    var recivedUser: User?
+    /*
     func openEditUser(user: User, isEdditing: Bool){
         let vc = PerfilUserRegisterRouter.createModulePerfilUserRegister(user: user, isEdditing: isEdditing)
         view?.present(vc, animated: true)
         
     }
+     */
+    
+    func openViewUser() {
+        router?.openListUsuers(View: view!)
+    }
+    
     func getCategories() {
         interactor?.getCategoriesProduct()
     }

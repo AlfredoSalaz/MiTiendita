@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class MainUserRegisterPresenter: NSObject, MainUserRegisterPresentProtocol{
-    
+
     var view: MainUserRegisterViewControllerProtocol?
     
     var interactor: MainUserRegisterInteractorProtocol?
@@ -18,6 +18,11 @@ class MainUserRegisterPresenter: NSObject, MainUserRegisterPresentProtocol{
     
     func getUsuarios() {
         interactor?.getUsuarios()
+    }
+    
+    func agregarNuevoUsuario() {
+        print("Voyyy")
+        router?.openViewNuevoUsuario(view: view!)
     }
     
 }
