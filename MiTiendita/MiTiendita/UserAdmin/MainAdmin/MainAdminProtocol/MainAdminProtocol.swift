@@ -29,6 +29,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     func openListProduct()
     func getCategories()
     func getProduct()
+    func openViewUser()
     func openDetailProduct(data: ProductDetail)
     var recivedUser: User? {get set}
     func recivedDataFromIndex()
