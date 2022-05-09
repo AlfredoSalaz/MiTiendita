@@ -16,6 +16,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     var productsCategory: [Product]?
     
     var categoryCoreData: [NSManagedObject]?
+    var productsCoreData: [NSManagedObject]?
     var productByCategory: Dictionary = [Int: [Product]]()
     var isOn = true
     @IBOutlet weak var leadinViewMenuHamburguesa: NSLayoutConstraint!
@@ -56,6 +57,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         indicatorView?.isHidden = false
         indicatorView?.startAnimating()
         presenter?.resetEntityCoreData(name: "Categories")
+        presenter?.resetEntityCoreData(name: "ProductCD")
         presenter?.getCategories()
         presenter?.getProduct()
         
@@ -84,7 +86,6 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         var list: [Product] = []
         for listCat  in listCategory! {
             for listPro in listProducts!{
-                print("listCat \(listCat.id)")
                 if listCat.id == listPro.category?.id{
                     list.append(listPro)
                 }
@@ -101,7 +102,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
             self?.indicatorView?.isHidden = true
         }
         DispatchQueue.main.async {
-            self.saveInCoreDataCategories()
+            //self.saveInCoreDataCategories()
         }
         
     }
@@ -116,6 +117,18 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
             let dato = CategoryRegister(name: data.name ?? "", image: data.image ?? "", id: data.id)
                 presenter?.saveCategoryInCoreData(data: dato)
         }
+        DispatchQueue.main.async {
+            self.saveInCoreDataProduct()
+        }
+    }
+    func saveInCoreDataProduct(){
+        guard let listProduct = self.listProducts else {
+            return
+        }
+        for data in listProduct{
+            let dato = ProductRegister(idProduct: data.id ,title: data.title ?? "", price: data.price ?? 0, descripc: data.description ?? "", categoryId: data.category?.id ?? 0, images: data.images ?? [""])
+            presenter?.saveProductsCoreData(data: dato)
+        }
     }
     
     @IBAction  func registerCategory(_ sender: Any){
@@ -126,7 +139,6 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
 
 extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("me actualice \(listCategory?.count)")
         return listCategory?.count ?? 0
     }
     
@@ -137,11 +149,19 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
         cell.nameCategory?.text = data?.name
         cell.collectionView?.tag = indexPath.row + 1
         productsCategory = productByCategory[indexPath.row + 1]
+        cell.actionButton = {
+            if let data = data{
+                self.actionButton(data: data)
+            }
+        }
         cell.listPr = productsCategory
         cell.presenter = presenter
         cell.collectionView?.reloadData()
         
         return cell
+    }
+    func actionButton(data: CategoryProduct){
+        presenter?.editCategory(data: data, isEdit: true)
     }
 }
 
@@ -181,7 +201,6 @@ extension MainAdminViewController {
     }
     func recivedCategoryfromCoreData(data: [NSManagedObject]){
         self.categoryCoreData = data
-        print("coredata \(data.count)")
         listCategory?.removeAll()
         var list: [CategoryProduct] = []
         for a in data{
@@ -189,11 +208,64 @@ extension MainAdminViewController {
                 list.append(cat)
         }
         self.listCategory = list
-        print("data \(listCategory?.count)d")
-        presenter?.getProduct()
+        print("me")
+        presenter?.getProductCoreData()
     }
     func resetDataInCoreData(){
         print("Se reseteo la info")
     }
     
+    func recivedProductsFromCoreData(data: [NSManagedObject]) {
+        print("recibi producto de CD \(data.count)")
+        self.productsCoreData = data
+        listProducts?.removeAll()
+        var list: [Product] = []
+        for a in data{
+            let prod = Product(id: a.value(forKey: "idProduct") as! Int, title: a.value(forKey: "title") as? String, price: a.value(forKey: "price") as? Int, description: a.value(forKey: "descripcion") as? String, category: getCategoryForId(id: a.value(forKey: "idCategory") as! Int), images: a.value(forKey: "images") as? [String])
+                list.append(prod)
+        }
+        self.listProducts = list
+        
+        var list1: [Product] = []
+        for listCat  in listCategory! {
+            for listPro in listProducts!{
+                if listCat.id == listPro.category?.id{
+                    list1.append(listPro)
+                }
+            }
+            productByCategory[listCat.id] = list1
+            print("id: \(listCat.id) tiene \(list1.count)")
+            list1.removeAll()
+        }
+        print("loadView")
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+            self?.indicatorView?.stopAnimating()
+            self?.indicatorView?.isHidden = true
+        }
+    }
+    
+    func getCategoryForId(id: Int) -> CategoryProduct{
+        var cat: CategoryProduct?
+        listCategory?.forEach{
+            if $0.id == id{
+                cat = CategoryProduct(id: $0.id, name: $0.name, image: $0.image)
+            }
+        }
+        return cat!
+    }
+}
+protocol MainAdminViewControllerDelegate {
+    func updateTable()
+}
+
+extension MainAdminViewController{
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("mee")
+        indicatorView?.isHidden = false
+        indicatorView?.startAnimating()
+        presenter?.getCategories()
+        presenter?.getProduct()
+    }
 }

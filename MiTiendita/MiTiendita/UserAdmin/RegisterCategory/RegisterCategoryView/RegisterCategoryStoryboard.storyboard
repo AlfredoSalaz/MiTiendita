@@ -120,6 +120,14 @@
                                                     <action selector="savedData:" destination="HX3-TC-sTZ" eventType="touchUpInside" id="zwW-bj-7ba"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="IKI-3C-Baq">
+                                                <rect key="frame" x="182" y="384" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="lCS-u6-W6d"/>
+                                                    <constraint firstAttribute="width" constant="50" id="wc0-L5-l6X"/>
+                                                </constraints>
+                                                <color key="color" red="0.3746567964553833" green="0.16563212871551514" blue="0.92774271965026855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -141,6 +149,8 @@
                                             <constraint firstItem="Rbc-Qf-uff" firstAttribute="leading" secondItem="tfb-y3-lKx" secondAttribute="leading" constant="40" id="ZJk-zo-CQ5"/>
                                             <constraint firstItem="VVF-Qf-o6k" firstAttribute="top" secondItem="Rbc-Qf-uff" secondAttribute="bottom" constant="40" id="aZb-Va-yXP"/>
                                             <constraint firstItem="rRP-zG-4F8" firstAttribute="top" secondItem="VVF-Qf-o6k" secondAttribute="bottom" constant="60" id="auY-iX-FP0"/>
+                                            <constraint firstItem="IKI-3C-Baq" firstAttribute="centerY" secondItem="tfb-y3-lKx" secondAttribute="centerY" id="d1K-8E-U1Q"/>
+                                            <constraint firstItem="IKI-3C-Baq" firstAttribute="centerX" secondItem="tfb-y3-lKx" secondAttribute="centerX" id="e7k-si-19I"/>
                                             <constraint firstItem="ybn-DS-Pv8" firstAttribute="leading" secondItem="tfb-y3-lKx" secondAttribute="leading" id="fCA-6p-42L"/>
                                             <constraint firstItem="Ytu-eA-MI6" firstAttribute="leading" secondItem="tfb-y3-lKx" secondAttribute="leading" constant="40" id="fH8-Ph-ihf"/>
                                             <constraint firstItem="2nk-iZ-YKc" firstAttribute="leading" secondItem="tfb-y3-lKx" secondAttribute="leading" id="gvu-Ya-At2"/>
@@ -170,8 +180,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnSave" destination="DSR-Nt-JoB" id="8Vr-mg-ZCm"/>
                         <outlet property="imageCategory" destination="VVF-Qf-o6k" id="2wE-w8-kDS"/>
                         <outlet property="nameCategory" destination="Ytu-eA-MI6" id="jxa-SK-MVm"/>
+                        <outlet property="titleSection" destination="Rbc-Qf-uff" id="KWe-4e-MSI"/>
+                        <outlet property="viewIndicator" destination="IKI-3C-Baq" id="5Y1-Rl-zI0"/>
                         <outlet property="viewPiker" destination="ybn-DS-Pv8" id="o0O-LX-DOB"/>
                     </connections>
                 </viewController>

@@ -26,6 +26,9 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func openRegisterCategory() {
         router?.openRegisterCategoryRouter(view: view!)
     }
+    func editCategory(data: CategoryProduct, isEdit: Bool) {
+        router?.editCategoryRouter(view: view!, data: data, isEdit: isEdit)
+    }
     func openListProduct(){
         router?.openListProduct(view: view!)
     }
@@ -44,6 +47,14 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func saveCategoryInCoreData(data: CategoryRegister) {
         interactor?.saveCategoryCoreData(data: data)
     }
+    func getProductCoreData() {
+        interactor?.getProductsCoreData()
+    }
+    
+    func saveProductsCoreData(data: ProductRegister) {
+        interactor?.saveProductCoreData(data: data)
+    }
+    
 }
 
 extension MainAdminPresenter: MainAdminInteractorOutputProtocol{
@@ -61,5 +72,8 @@ extension MainAdminPresenter: MainAdminInteractorOutputProtocol{
     }
     func resetDataInCD() {
         view?.resetDataInCoreData()
+    }
+    func onRecivedProductsCoreData(data: [NSManagedObject]) {
+        view?.recivedProductsFromCoreData(data: data)
     }
 }

@@ -29,8 +29,10 @@ class IndexRouter: IndexRouterProtocol{
         view.present(viewController, animated: true)
     }
     func openMainTiendaRouter(view:IndexViewControllerProtocol, user: User){
-        let viewController = MainAdminRouter.createModuleMainAdmin(user: user)
-        view.present(viewController, animated: true)
+        DispatchQueue.main.async {
+            let viewController = MainAdminRouter.createModuleMainAdmin(user: user)
+            view.present(viewController, animated: true)
+        }
     }
     
     static var storyboard: UIStoryboard {

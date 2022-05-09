@@ -10,12 +10,15 @@ import CoreData
 class RegisterCategoryInteractor: NSObject, RegisterCategoryInteractorProtocol {
     var output: RegisterCategoryInteractorOutputProtocol?
     
-    
-    
     func savedCategory(data: [String: Any] ) {
-        RequestManager.generic(url: ExternalData().urlAddCategory, metodo: "POST", contenido: data, delegate: self, tag: 0)
+        RequestManager.generic(url: ExternalData().urlAddCategory, metodo: "POST", contenido: data, tipoDato: CategoryProduct.self, delegate: self, tag: 0)
         
     }
+    
+    func editeddCategory(data: [String : Any], id: Int) {
+        RequestManager.generic(url: "\(ExternalData().urlEditCategory)\(id)", metodo: "PUT",tipoDato: CategoryProduct.self, delegate: self, tag: 1)
+    }
+    
     func savedImage(type: String, nameFile: String, image: UIImage) {
         //guard let imagen = image else {return}
         RequestManager().subirImagen(nombreParametro: type, nombreArchivo: "\(nameFile).jpg", imagen: image, delegate: self, tag: 1)
@@ -29,7 +32,9 @@ extension RegisterCategoryInteractor: RequestManagerDelegate{
     func onResponseSuccess(data: Decodable?, tag: Int) {
         switch tag {
         case 0:
-            output?.onRecivedMesageSuccesfulCategory()
+            if let data = data as? CategoryProduct{
+                output?.onRecivedMesageSuccesfulCategory(data: data)
+            }
         case 1:
             if let data = data as? RespuestaSubirImagen {
                 output?.onRecivedUrlImage(url: data.location)
@@ -46,7 +51,7 @@ extension RegisterCategoryInteractor: RequestManagerDelegate{
 
 extension RegisterCategoryInteractor: InternalDataDelegate {
     func saveCategorySuccess(data: NSManagedObject) {
-        print("se guardo")
+        print("se guardo Categoria")
     }
     func saveCategoryFaillure(error: NSError) {
         print("no se guardo")

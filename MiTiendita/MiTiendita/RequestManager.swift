@@ -44,7 +44,7 @@ class RequestManager {
             let tarea = URLSession.shared.dataTask(with: peticion){
                 data, response, error in
                 guard let datos = data, error == nil else {return}
-                print("Data extoo")
+                print("Data extoo \(datos)")
                 do{
                     let obj = tipoDato == nil ? nil : try JSONDecoder().decode(tipoDato!.self, from: datos)
                     if tipoDato != nil && obj == nil && !datos.isEmpty {
@@ -58,6 +58,28 @@ class RequestManager {
                 }
             }
             tarea.resume()
+        } else if metodo == "PUT"{
+            
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "PUT"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let body: [String: Any] = [
+                "userId":3,
+                "title":"Alfredo",
+                "body":"eSTO ES UNA PRUEBA"]
+            urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+            let urlSession = URLSession.shared.dataTask(with: urlRequest){
+                data, response, error in
+                guard let data = data else {return}
+                do{
+                    let respuesta = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                    
+                    print("respuesta \(respuesta)")
+                }catch{
+                    print(error)
+                }
+            }
+            urlSession.resume()
         }
     }
     

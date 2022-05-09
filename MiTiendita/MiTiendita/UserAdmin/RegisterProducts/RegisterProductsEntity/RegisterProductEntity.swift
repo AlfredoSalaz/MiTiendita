@@ -7,18 +7,20 @@
 
 import Foundation
 
-class ProductRegister: Codable{
+class ProductRegister: Encodable{
+    var idProduct: Int
     var title: String
     var price: Int
-    var description: String
+    var descripcion: String
     var categoryId: Int
-    var images: [URL]?
+    var images: [String]
     
-    init(title: String, price: Int, descrip: String, categ: Int) {
-        self.categoryId = categ
+    init(idProduct: Int, title: String, price: Int, descripc: String, categoryId: Int, images: [String]) {
+        self.idProduct = idProduct
         self.title = title
         self.price = price
-        description = descrip
-        //images = imag
+        self.descripcion = descripc
+        self.categoryId = categoryId
+        self.images = images
     }
 }

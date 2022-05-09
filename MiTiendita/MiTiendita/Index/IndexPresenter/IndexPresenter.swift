@@ -18,15 +18,28 @@ class IndexPresenter: NSObject, IndexPresenterProtocol{
     func openViewRegister(){
         router?.openViewRegisters(view: view!)
     }
+    func authenticationUser(data: [String : Any]) {
+        interactor?.authenticatioUser(data: data)
+    }
     
-    func getAllUser() {
-        interactor?.getAllUsers()
+    func getUserAuthentication(token: String) {
+        interactor?.getUserAuthenticatio(token: token)
     }
     
 }
 
 extension IndexPresenter: IndexInteractorOutputProtocol{
-    func onRecivedUser(data: [User]) {
-        view?.recivedAllUser(data: data)
+    func onRecivedToken(data: UserToken) {
+        view?.recivedToken(token: data)
     }
+    
+    func onRecivedUser(data: User) {
+        view?.recivedUser(data: data)
+    }
+    
+    func onResponseFaillure(error: NSError) {
+        print("estoy en presenter y fallo")
+    }
+    
+    
 }

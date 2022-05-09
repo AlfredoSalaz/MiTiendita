@@ -56,19 +56,32 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSf-l3-CFu">
-                                                                                    <rect key="frame" x="40" y="0.0" width="374" height="40"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="324" height="40"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bu1-iU-Dic">
+                                                                                    <rect key="frame" x="344" y="5" width="30" height="30"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="30" id="Mll-6i-09O"/>
+                                                                                        <constraint firstAttribute="height" constant="30" id="fjL-Ug-8no"/>
+                                                                                    </constraints>
+                                                                                    <state key="normal" image="editar"/>
+                                                                                    <connections>
+                                                                                        <action selector="actionEdith:" destination="sC7-RQ-sZO" eventType="touchUpInside" id="ahe-FX-BMF"/>
+                                                                                    </connections>
+                                                                                </button>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="40" id="2ZB-Hq-fvZ"/>
+                                                                                <constraint firstItem="Bu1-iU-Dic" firstAttribute="top" secondItem="6iJ-AH-sca" secondAttribute="top" constant="5" id="BcB-bU-GWy"/>
                                                                                 <constraint firstItem="zSf-l3-CFu" firstAttribute="leading" secondItem="6iJ-AH-sca" secondAttribute="leading" constant="40" id="IqR-z2-sCN"/>
                                                                                 <constraint firstItem="zSf-l3-CFu" firstAttribute="top" secondItem="6iJ-AH-sca" secondAttribute="top" id="ZU0-ct-wMH"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="zSf-l3-CFu" secondAttribute="bottom" id="bvt-h5-urn"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="zSf-l3-CFu" secondAttribute="trailing" id="oaN-fM-Jpc"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="zSf-l3-CFu" secondAttribute="trailing" constant="50" id="oaN-fM-Jpc"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="Bu1-iU-Dic" secondAttribute="trailing" constant="40" id="qOY-Xe-9Z7"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R9T-Fc-ORc">
@@ -178,6 +191,7 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
+                                                            <outlet property="btnEdit" destination="Bu1-iU-Dic" id="SyV-Zp-C2k"/>
                                                             <outlet property="collectionView" destination="R9T-Fc-ORc" id="M6R-7n-BaR"/>
                                                             <outlet property="nameCategory" destination="zSf-l3-CFu" id="UHF-5a-Sp5"/>
                                                         </connections>
@@ -509,7 +523,7 @@
                         <outlet property="nameUser" destination="z2G-od-Kb1" id="QUJ-30-kwQ"/>
                         <outlet property="photoUser" destination="OX8-CG-1xs" id="fDt-Ym-8iG"/>
                         <outlet property="stackUsuarios" destination="YuJ-Gu-HmO" id="HoU-t8-Edz"/>
-                        <outlet property="tableView" destination="PQb-Sh-wRl" id="2xR-Te-AuC"/>
+                        <outlet property="tableView" destination="PQb-Sh-wRl" id="Oa2-W5-MEy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zk7-9P-dqC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -520,6 +534,7 @@
     <resources>
         <image name="catalog" width="512" height="512"/>
         <image name="delivery-box" width="512" height="512"/>
+        <image name="editar" width="512" height="512"/>
         <image name="error" width="512" height="512"/>
         <image name="fondo" width="1400" height="2100"/>
         <image name="list" width="512" height="512"/>

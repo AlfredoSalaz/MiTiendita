@@ -13,9 +13,11 @@ class MainAdminTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
 
     @IBOutlet weak var nameCategory: UILabel?
     @IBOutlet weak var collectionView: UICollectionView?
+    @IBOutlet weak var btnEdit: UIButton?
     var listPr: [Product]?
     var delegate : MainAdminTableViewCellDelegate?
-    
+    var cat: String?
+    var actionButton: (()->())?
     override func awakeFromNib() {
         super.awakeFromNib()
     
@@ -30,6 +32,8 @@ class MainAdminTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         cell.nameProduct?.text = data.title
         cell.indicatorView?.startAnimating()
         guard let url = data.images?.first else {
+            cell.indicatorView?.stopAnimating()
+            cell.indicatorView?.isHidden = true
             return cell
         }
         DispatchQueue.main.async {
@@ -47,11 +51,12 @@ class MainAdminTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let data = listPr![indexPath.row]
-        print("Voy a \(data.title)")
-        
         let detail = ProductDetail(id: data.id , title: (data.title)!, price: (data.price)!, description: (data.description)!, category: (data.category!), images: data.images ?? [])
         
         presenter?.openDetailProduct(data: detail)
+    }
+    @IBAction func actionEdith(_ sender: UIButton){
+        self.actionButton?()
     }
     
 }

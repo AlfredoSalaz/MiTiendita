@@ -9,7 +9,8 @@ import UIKit
 
 protocol IndexViewControllerProtocol: UIViewController{
     var presenter: IndexPresenterProtocol? {get set}
-    func recivedAllUser(data: [User])
+    func recivedUser(data: User)
+    func recivedToken(token: UserToken)
 }
 
 protocol IndexPresenterProtocol: NSObject{
@@ -18,16 +19,20 @@ protocol IndexPresenterProtocol: NSObject{
     var router: IndexRouterProtocol? {get set}
     func openMainTienda(user: User)
     func openViewRegister()
-    func getAllUser()
+    func authenticationUser(data: [String: Any])
+    func getUserAuthentication(token: String)
 }
 
 protocol IndexInteractorProtocol: NSObject {
     var output: IndexInteractorOutputProtocol? {get set}
-    func getAllUsers()
+    func authenticatioUser(data: [String: Any])
+    func getUserAuthenticatio(token: String)
 }
 
 protocol IndexInteractorOutputProtocol {
-    func onRecivedUser(data: [User])
+    func onRecivedToken(data: UserToken)
+    func onRecivedUser(data: User)
+    func onResponseFaillure(error: NSError)
 }
 
 protocol IndexRouterProtocol {

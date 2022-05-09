@@ -9,23 +9,42 @@ import UIKit
 
 class RegisterCategoryViewController: UIViewController, RegisterCategoryViewControllerProtocol {
     var presenter: RegisterCategoryPresenterProtocol?
-    
     @IBOutlet weak var imageCategory: UIImageView?
     @IBOutlet weak var nameCategory: UITextField?
     @IBOutlet weak var viewPiker: UIView?
-    
+    @IBOutlet weak var titleSection: UILabel?
+    @IBOutlet weak var btnSave: UIButton?
+    @IBOutlet weak var viewIndicator: UIActivityIndicatorView?
     var imgCategoria: UIImage?
     var nameImage: String?
+    
+    var isEdit: Bool?
+    var category: CategoryProduct?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewIndicator?.isHidden = true
+        presenter?.recivedCategoryEdit()
         // Do any additional setup after loading the view.
         imageCategory?.layer.borderWidth = 1
         imageCategory?.layer.borderColor = UIColor.magenta.cgColor
         viewPiker?.isHidden = true
+        loadData()
     }
     
-
+    func loadData(){
+        guard let data = category, let edit = isEdit else {
+            return
+        }
+        nameCategory?.text = data.name
+        imageCategory?.load(url: URL(string: data.image ?? "")!)
+        print("esit \(edit)")
+        if edit{
+            print("---z-z")
+            titleSection?.text = "Editar Categoria"
+            btnSave?.setTitle("Editar", for: .normal)
+        }
+    }
     @IBAction func addImage(_ sender: Any){
         viewPiker?.isHidden = !viewPiker!.isHidden
     }
@@ -53,25 +72,48 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
         dismiss(animated: true)
     }
     @IBAction func savedData(_ sender: Any){
+        guard let isEdit = isEdit else {return}
+        
+        viewIndicator?.isHidden = false
+        viewIndicator?.startAnimating()
         presenter?.saveImage(type: "file", nameFile: nameImage ?? "defaultImg", image: imgCategoria ?? UIImage())
     }
     func recivedUrl(url: String){
-        
-        DispatchQueue.main.sync {
-            let catInfo = CategoryRegister(name: nameCategory?.text ?? "Default", image: url, id: 0)
-            guard let nameCategory = nameCategory?.text else {return}
-            let data: [String: Any] = [
-                "name": "\(nameCategory)",
-                "image": "\(url)"
-            ]
-            self.presenter?.saveCategory(data: data)
-            //self.presenter?.saveInCoreData(data: catInfo)
+        guard let isEdit = isEdit else{return}
+        if isEdit{
+            print("is edit")
+            DispatchQueue.main.sync {
+                guard let nameCategory = nameCategory?.text else {return}
+                let data: [String: Any] = [
+                    "name": "\(nameCategory)",
+                    "image": "\(url)"
+                ]
+                guard let id = category?.id else{return}
+                self.presenter?.edittCategory(data: data, id: id)
+            }
+        }else{
+            DispatchQueue.main.sync {
+                guard let nameCategory = nameCategory?.text else {return}
+                let data: [String: Any] = [
+                    "name": "\(nameCategory)",
+                    "image": "\(url)"
+                ]
+                self.presenter?.saveCategory(data: data)
+            }
         }
-        
     }
-    func savedCategory(){
-        DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
+    func savedCategory(data: CategoryProduct){
+        guard let isEdit = isEdit else {return}
+        if isEdit{
+            print("editado")
+        }else{
+            let cat = CategoryRegister(name: data.name ?? "default", image: data.image ?? "", id: data.id)
+            DispatchQueue.main.async {
+                self.presenter?.saveInCoreData(data: cat)
+                self.dismiss(animated: true, completion: nil)
+                self.viewIndicator?.isHidden = true
+                self.viewIndicator?.stopAnimating()
+            }
         }
     }
 }

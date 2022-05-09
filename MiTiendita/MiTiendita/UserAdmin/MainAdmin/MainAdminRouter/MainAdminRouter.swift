@@ -24,7 +24,11 @@ class MainAdminRouter: MainAdminRouterProtocol {
     }
     
     func openRegisterCategoryRouter(view: MainAdminViewControllerProtocol){
-        let vc = RegisterCategoryRouter.createModuleRegisterCategory()
+        let vc = RegisterCategoryRouter.createModuleRegisterCategory(data: nil, isEdit: nil)
+        view.present(vc, animated: true)
+    }
+    func editCategoryRouter(view: MainAdminViewControllerProtocol, data: CategoryProduct, isEdit: Bool){
+        let vc = RegisterCategoryRouter.createModuleRegisterCategory(data: data, isEdit: isEdit)
         view.present(vc, animated: true)
     }
     func openListProduct(view: MainAdminViewControllerProtocol){

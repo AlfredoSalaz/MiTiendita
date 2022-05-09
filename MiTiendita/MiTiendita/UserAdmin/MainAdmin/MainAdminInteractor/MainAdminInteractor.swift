@@ -14,7 +14,6 @@ class MainAdminInteractor: NSObject, MainAdminInteractorProtocol {
         RequestManager.generic(url: ExternalData().categoriesProduct, metodo: "GET", tipoResultado: [CategoryProduct].self, delegate: self, tag: 0)
     }
     func getProducts(){
-        print("Antes del request")
         RequestManager.generic(url: ExternalData().listProduct, metodo: "GET", tipoResultado: [Product].self, delegate: self, tag: 1)
     }
     func getCategoryCoreData() {
@@ -26,6 +25,15 @@ class MainAdminInteractor: NSObject, MainAdminInteractorProtocol {
     func saveCategoryCoreData(data: CategoryRegister) {
         InternalData().saveCategoryInCoreData(data: data, delegate: self)
     }
+    
+    func getProductsCoreData() {
+        InternalData().getProductFromCoreData(delegate: self)
+    }
+    
+    func saveProductCoreData(data: ProductRegister) {
+        InternalData().saveProductInCoreData(data: data, delegate: self)
+    }
+    
 }
 extension MainAdminInteractor: RequestManagerDelegate{
     func onResponseSuccess(data: Decodable?, tag: Int) {
@@ -62,5 +70,11 @@ extension MainAdminInteractor: InternalDataDelegate{
     func requestFaillure(error: NSError) {
         print("fallo")
         output?.onRecivedFaillureData()
+    }
+    func saveProductSuccess(data: NSManagedObject) {
+        print("Guarde los productos")
+    }
+    func onRecivedProductSuccess(data: [NSManagedObject]) {
+        output?.onRecivedProductsCoreData(data: data)
     }
 }
