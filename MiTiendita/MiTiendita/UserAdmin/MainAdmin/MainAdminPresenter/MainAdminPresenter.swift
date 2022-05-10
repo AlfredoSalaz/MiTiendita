@@ -34,8 +34,8 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func openRegisterCategory() {
         router?.openRegisterCategoryRouter(view: view!)
     }
-    func editCategory(data: CategoryProduct, isEdit: Bool) {
-        router?.editCategoryRouter(view: view!, data: data, isEdit: isEdit)
+    func editCategory(data: CategoryProduct, isEdit: Bool, objectCoreData: NSManagedObject) {
+        router?.editCategoryRouter(view: view!, data: data, isEdit: isEdit, objectCoreData: objectCoreData)
     }
     func openListProduct(){
         router?.openListProduct(view: view!)

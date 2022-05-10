@@ -40,6 +40,8 @@ extension IndexPresenter: IndexInteractorOutputProtocol{
     func onResponseFaillure(error: NSError) {
         print("estoy en presenter y fallo")
     }
-    
+    func faillureAuthPre() {
+        view?.faillureAuthView()
+    }
     
 }

@@ -8,7 +8,8 @@
 import UIKit
 
 class IndexRouter: IndexRouterProtocol{
-
+    /// Funcion que crea el modulo del index inicializando todos los datos
+    /// - Return
     static func createModule() -> UIViewController {
         let main = storyboard
         let view = main.instantiateViewController(withIdentifier: "index") as! IndexViewController

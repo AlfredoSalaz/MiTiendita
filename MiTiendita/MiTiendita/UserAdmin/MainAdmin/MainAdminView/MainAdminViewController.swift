@@ -19,22 +19,24 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     var productsCoreData: [NSManagedObject]?
     var productByCategory: Dictionary = [Int: [Product]]()
     var isOn = true
+    var isReload = false
     @IBOutlet weak var leadinViewMenuHamburguesa: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var btnAddCategory: UIButton?
-    @IBOutlet weak var btnCar: UIButton?
     @IBOutlet weak var indicatorView: UIActivityIndicatorView?
     @IBOutlet weak var photoUser: UIImageView?
     @IBOutlet weak var nameUser: UILabel?
+    
     @IBOutlet weak var stackUsuarios: UIStackView?
-    @IBOutlet weak var btnReload: UIButton?
+    @IBOutlet weak var viewStackCarShop: UIView?
+    @IBOutlet weak var viewStackaddCategory: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView?.isHidden = true
         presenter?.recivedDataFromIndex()
-        //presenter?.getCategoryCoreD()
+        presenter?.getCategoryCoreD()
         //presenter?.resetEntityCoreData(name: "Categories")
+        
         tableView.delegate = self
         
         loadDataInMenu()
@@ -46,14 +48,15 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     }
     func validationView(){
         if user?.role == "admin"{
-            btnAddCategory?.isHidden = false
-            btnCar?.isHidden = true
+            viewStackaddCategory?.isHidden = false
+            viewStackCarShop?.isHidden = true
         }else {
-           btnAddCategory?.isHidden = true
-            btnCar?.isHidden = false
+            viewStackaddCategory?.isHidden = true
+            viewStackCarShop?.isHidden = false
         }
     }
     @IBAction func reloadDataInViewAndCoreData(_ sender: Any){
+        isReload = true
         indicatorView?.isHidden = false
         indicatorView?.startAnimating()
         presenter?.resetEntityCoreData(name: "Categories")
@@ -101,10 +104,15 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
             self?.indicatorView?.stopAnimating()
             self?.indicatorView?.isHidden = true
         }
-        DispatchQueue.main.async {
-            //self.saveInCoreDataCategories()
+        if isReload{
+            DispatchQueue.main.async {
+                self.saveInCoreDataCategories()
+                self.isReload = false
+            }
         }
-        
+        /*DispatchQueue.main.async {
+            self.presenter?.getCategoryCoreD()
+        }*/
     }
     func faillureData() {
         print("falloooo")
@@ -161,7 +169,15 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func actionButton(data: CategoryProduct){
-        presenter?.editCategory(data: data, isEdit: true)
+        print("data: \(data.name)")
+        categoryCoreData?.forEach{
+            print("valor \($0.value(forKey: "id"))")
+            if $0.value(forKey: "id") as! Int == data.id{
+                print("meeeee")
+                presenter?.editCategory(data: data, isEdit: true, objectCoreData: $0)
+                return
+            }
+        }
     }
 }
 
@@ -203,14 +219,14 @@ extension MainAdminViewController {
     }
     func recivedCategoryfromCoreData(data: [NSManagedObject]){
         self.categoryCoreData = data
-        listCategory?.removeAll()
+        /*listCategory?.removeAll()
         var list: [CategoryProduct] = []
         for a in data{
             let cat = CategoryProduct(id: a.value(forKey: "id") as! Int, name: a.value(forKey: "name") as? String, image: a.value(forKey: "image") as? String)
                 list.append(cat)
         }
         self.listCategory = list
-        print("me")
+        print("me")*/
         presenter?.getProductCoreData()
     }
     func resetDataInCoreData(){
@@ -220,7 +236,11 @@ extension MainAdminViewController {
     func recivedProductsFromCoreData(data: [NSManagedObject]) {
         print("recibi producto de CD \(data.count)")
         self.productsCoreData = data
-        listProducts?.removeAll()
+        DispatchQueue.main.async { [weak self] in
+            self?.indicatorView?.stopAnimating()
+            self?.indicatorView?.isHidden = true
+        }
+        /*listProducts?.removeAll()
         var list: [Product] = []
         for a in data{
             let prod = Product(id: a.value(forKey: "idProduct") as! Int, title: a.value(forKey: "title") as? String, price: a.value(forKey: "price") as? Int, description: a.value(forKey: "descripcion") as? String, category: getCategoryForId(id: a.value(forKey: "idCategory") as! Int), images: a.value(forKey: "images") as? [String])
@@ -244,7 +264,7 @@ extension MainAdminViewController {
             self?.tableView.reloadData()
             self?.indicatorView?.stopAnimating()
             self?.indicatorView?.isHidden = true
-        }
+        }*/
     }
     
     func getCategoryForId(id: Int) -> CategoryProduct{

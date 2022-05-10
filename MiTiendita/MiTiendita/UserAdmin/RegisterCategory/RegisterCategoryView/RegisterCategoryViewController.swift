@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterCategoryViewController: UIViewController, RegisterCategoryViewControllerProtocol {
     var presenter: RegisterCategoryPresenterProtocol?
@@ -20,6 +21,7 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
     
     var isEdit: Bool?
     var category: CategoryProduct?
+    var objectCoreData: NSManagedObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +74,6 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
         dismiss(animated: true)
     }
     @IBAction func savedData(_ sender: Any){
-        guard let isEdit = isEdit else {return}
-        
         viewIndicator?.isHidden = false
         viewIndicator?.startAnimating()
         presenter?.saveImage(type: "file", nameFile: nameImage ?? "defaultImg", image: imgCategoria ?? UIImage())
@@ -106,6 +106,15 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
         guard let isEdit = isEdit else {return}
         if isEdit{
             print("editado")
+            let cat = CategoryRegister(name: data.name ?? "default", image: data.image ?? "", id: data.id)
+            guard let object = self.objectCoreData else {return}
+            print("have info")
+            DispatchQueue.main.async {
+                self.presenter?.updateInCoreData(data: cat, objectCoreData: object)
+                self.dismiss(animated: true, completion: nil)
+                self.viewIndicator?.isHidden = true
+                self.viewIndicator?.stopAnimating()
+            }
         }else{
             let cat = CategoryRegister(name: data.name ?? "default", image: data.image ?? "", id: data.id)
             DispatchQueue.main.async {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import  CoreData
 
 protocol RegisterCategoryViewControllerProtocol: UIViewController {
     var presenter: RegisterCategoryPresenterProtocol? {get set}
@@ -13,6 +14,7 @@ protocol RegisterCategoryViewControllerProtocol: UIViewController {
     func savedCategory(data: CategoryProduct)
     var category: CategoryProduct?{get set}
     var isEdit: Bool?{get set}
+    var objectCoreData: NSManagedObject? {get set}
 }
 
 protocol RegisterCategoryPresenterProtocol: NSObject {
@@ -21,11 +23,13 @@ protocol RegisterCategoryPresenterProtocol: NSObject {
     var router: RegisterCategoryRouterProtocol? {get set}
     var categoryPre: CategoryProduct? {get set}
     var isEditPre: Bool?{get set}
+    var objectCoreDataa: NSManagedObject? {get set}
     
     func saveCategory(data: [String: Any] )
     func saveImage(type: String, nameFile: String, image: UIImage)
     func edittCategory(data: [String: Any], id: Int)
     func saveInCoreData(data: CategoryRegister)
+    func updateInCoreData(data: CategoryRegister, objectCoreData: NSManagedObject)
     func recivedCategoryEdit()
 }
 
@@ -35,6 +39,7 @@ protocol RegisterCategoryInteractorProtocol: NSObject {
     func editeddCategory(data: [String: Any], id: Int)
     func savedImage(type: String, nameFile: String, image: UIImage)
     func savedInCoreData(data: CategoryRegister)
+    func editedInCoreData(data: CategoryRegister, objectCoreData: NSManagedObject)
 }
 
 protocol RegisterCategoryInteractorOutputProtocol {
@@ -45,5 +50,5 @@ protocol RegisterCategoryInteractorOutputProtocol {
 
 protocol RegisterCategoryRouterProtocol {
     var presenter: RegisterCategoryPresenterProtocol? {get set}
-    static func createModuleRegisterCategory(data: CategoryProduct?, isEdit: Bool?) -> UIViewController
+    static func createModuleRegisterCategory(data: CategoryProduct?, isEdit: Bool?, objectCoreData: NSManagedObject?) -> UIViewController
 }

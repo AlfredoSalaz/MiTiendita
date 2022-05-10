@@ -28,6 +28,21 @@ class InternalData {
             delegate.requestFaillure(error: error)
         }
     }
+    func updateCategoryInCoreData(data: CategoryRegister, delegate: InternalDataDelegate, object: NSManagedObject){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let manageContext = appDelegate.persistentContainer.viewContext
+        do {
+            object.setValue(data.id, forKey: "id")
+            object.setValue(data.name, forKey: "name")
+            object.setValue(getImageDataFromUrl(url: data.image), forKey: "image")
+            try manageContext.save()
+            delegate.saveCategorySuccess(data: object)
+        } catch (let error as NSError) {
+            print("Failed")
+            delegate.requestFaillure(error: error)
+        }
+        
+    }
     func getImageDataFromUrl(url: String) -> Data{
         guard  let url = URL(string: url) else {
             return Data()

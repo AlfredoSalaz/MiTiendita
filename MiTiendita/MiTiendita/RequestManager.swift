@@ -55,6 +55,7 @@ class RequestManager {
                     }
                 }catch{
                     delegate.onResponseFailure(data: nil, error: .BAD_DECODABLE, tag: tag)
+                    
                 }
             }
             tarea.resume()
@@ -63,20 +64,21 @@ class RequestManager {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "PUT"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            let body: [String: Any] = [
-                "userId":3,
-                "title":"Alfredo",
-                "body":"eSTO ES UNA PRUEBA"]
-            urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+            let datos: [String: Any] = contenido!
+            urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: datos, options: .fragmentsAllowed)
             let urlSession = URLSession.shared.dataTask(with: urlRequest){
                 data, response, error in
-                guard let data = data else {return}
+                guard let datos = data else {return}
                 do{
-                    let respuesta = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                    
-                    print("respuesta \(respuesta)")
+                    let obj = tipoDato == nil ? nil : try JSONDecoder().decode(tipoDato!.self, from: datos)
+                    if tipoDato != nil && obj == nil && !datos.isEmpty {
+                        print( "Posible bad decodable \((String(data: datos, encoding: .utf8)) ?? "not_string")")
+                        delegate.onResponseFailure(data: nil, error: .BAD_DECODABLE, tag: tag)
+                    } else {
+                        delegate.onResponseSuccess(data: obj, tag: tag)
+                    }
                 }catch{
-                    print(error)
+                    delegate.onResponseFailure(data: nil, error: .BAD_DECODABLE, tag: tag)
                 }
             }
             urlSession.resume()

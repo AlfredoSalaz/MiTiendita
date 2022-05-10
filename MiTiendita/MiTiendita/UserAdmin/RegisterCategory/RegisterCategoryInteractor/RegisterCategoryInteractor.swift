@@ -16,7 +16,7 @@ class RegisterCategoryInteractor: NSObject, RegisterCategoryInteractorProtocol {
     }
     
     func editeddCategory(data: [String : Any], id: Int) {
-        RequestManager.generic(url: "\(ExternalData().urlEditCategory)\(id)", metodo: "PUT",tipoDato: CategoryProduct.self, delegate: self, tag: 1)
+        RequestManager.generic(url: "\(ExternalData().urlEditCategory)\(id)", metodo: "PUT",contenido: data, tipoDato: CategoryProduct.self, delegate: self, tag: 2)
     }
     
     func savedImage(type: String, nameFile: String, image: UIImage) {
@@ -25,6 +25,9 @@ class RegisterCategoryInteractor: NSObject, RegisterCategoryInteractorProtocol {
     }
     func savedInCoreData(data: CategoryRegister){
         InternalData().saveCategoryInCoreData(data: data, delegate: self)
+    }
+    func editedInCoreData(data: CategoryRegister, objectCoreData: NSManagedObject) {
+        InternalData().updateCategoryInCoreData(data: data, delegate: self, object: objectCoreData)
     }
     
 }
@@ -38,6 +41,10 @@ extension RegisterCategoryInteractor: RequestManagerDelegate{
         case 1:
             if let data = data as? RespuestaSubirImagen {
                 output?.onRecivedUrlImage(url: data.location)
+            }
+        case 2:
+            if let datas = data as? CategoryProduct {
+                output?.onRecivedMesageSuccesfulCategory(data: datas)
             }
         default:
             output?.onRecivedMessageFaillure()

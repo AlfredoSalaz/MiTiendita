@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterCategoryRouter: RegisterCategoryRouterProtocol {
     var presenter: RegisterCategoryPresenterProtocol?
     
-    static func createModuleRegisterCategory(data: CategoryProduct?, isEdit: Bool?) -> UIViewController {
+    static func createModuleRegisterCategory(data: CategoryProduct?, isEdit: Bool?, objectCoreData: NSManagedObject?) -> UIViewController {
         let view = storyboard.instantiateViewController(withIdentifier: "registerCategory") as! RegisterCategoryViewController
         let presenter: RegisterCategoryPresenterProtocol & RegisterCategoryInteractorOutputProtocol = RegisterCategoryPresenter()
         let interactor: RegisterCategoryInteractorProtocol = RegisterCategoryInteractor()
@@ -24,6 +25,7 @@ class RegisterCategoryRouter: RegisterCategoryRouterProtocol {
         router.presenter = presenter
         presenter.isEditPre = isEdit
         presenter.categoryPre = data
+        presenter.objectCoreDataa = objectCoreData
         return view
     }
     

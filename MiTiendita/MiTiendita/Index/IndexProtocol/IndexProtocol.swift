@@ -11,6 +11,7 @@ protocol IndexViewControllerProtocol: UIViewController{
     var presenter: IndexPresenterProtocol? {get set}
     func recivedUser(data: User)
     func recivedToken(token: UserToken)
+    func faillureAuthView()
 }
 
 protocol IndexPresenterProtocol: NSObject{
@@ -33,6 +34,7 @@ protocol IndexInteractorOutputProtocol {
     func onRecivedToken(data: UserToken)
     func onRecivedUser(data: User)
     func onResponseFaillure(error: NSError)
+    func faillureAuthPre()
 }
 
 protocol IndexRouterProtocol {
