@@ -31,7 +31,8 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        validateData()
+        
+        presenter?.receicedUser()
         txtNombre.layer.borderWidth = 1
         txtNombre.layer.borderColor = UIColor.magenta.cgColor
         txtApellido.layer.borderWidth = 1
@@ -47,6 +48,7 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
         
         pickerView?.isHidden = true
         
+        validateData()
     }
 
     func validateData(){

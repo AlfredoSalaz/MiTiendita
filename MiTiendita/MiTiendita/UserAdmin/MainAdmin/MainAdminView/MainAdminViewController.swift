@@ -193,7 +193,7 @@ extension MainAdminViewController {
     
     
     @IBAction func editUser(_ sender: Any) {
-        //presenter?.openEditUser(user: user!, isEdditing: true)
+        presenter?.openEditUser(user: user!, isEdditing: true)
     }
     
     @IBAction func categoryProduct(_ sender: Any) {

@@ -15,8 +15,14 @@ class PerfilUserRegisterPresenter: NSObject, PerfilUserRegisterPresenterProtocol
 
     var router: PerfilUserRegisterRouterProtocol?
     
+    var isEdit: Bool?
+    var user: User?
     func saveUserInfo(user: UsuarioCore) {
         interactor?.saveUserInfo(user: user)
+    }
+    func receicedUser(){
+        view?.isEditiing = isEdit
+        view?.user = user
     }
 }
 
