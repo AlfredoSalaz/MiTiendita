@@ -21,6 +21,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     var presenter: DetailProductPresenterProtocol?
     
     var product: ProductDetail?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
         showData()
         collectionView.delegate = self
         collectionView.dataSource = self
+        print("el usario es \(user?.name)")
     }
     
     func showData() {
@@ -40,10 +42,16 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     }
 
     @IBAction func btnAddCar(_ sender: Any) {
+        //presenter?.openViewCompras(product: product, user: nil)
+        let compraUser = ComprasUser(usId: user?.id ?? 0, totalProd: Decimal(product?.price ?? 0), totalCompra: Decimal(product?.price ?? 0), prodId: product?.id ?? 0, priceProducts: Decimal(product?.price ?? 0), numberProducts: 1, imageProd: product?.images.first ?? "", nameProd: product?.title ?? "")
+        presenter?.saveCompraUser(compra: compraUser)
     }
     
     @IBAction func btnBack(_ sender: Any) {
         dismiss(animated: true)
+    }
+    func saveCompraCoreData(){
+        presenter?.openViewCompras(product: product, user: user)
     }
 }
 

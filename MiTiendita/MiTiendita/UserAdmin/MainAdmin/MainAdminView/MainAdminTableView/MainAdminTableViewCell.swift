@@ -16,6 +16,7 @@ class MainAdminTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     @IBOutlet weak var btnEdit: UIButton?
     var listPr: [Product]?
     var delegate : MainAdminTableViewCellDelegate?
+    var user: User?
     var cat: String?
     var actionButton: (()->())?
     override func awakeFromNib() {
@@ -52,8 +53,8 @@ class MainAdminTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let data = listPr![indexPath.row]
         let detail = ProductDetail(id: data.id , title: (data.title)!, price: (data.price)!, description: (data.description)!, category: (data.category!), images: data.images ?? [])
-        
-        presenter?.openDetailProduct(data: detail)
+        print("user \(user?.name)")
+        presenter?.openDetailProduct(data: detail, user: user)
     }
     @IBAction func actionEdith(_ sender: UIButton){
         self.actionButton?()

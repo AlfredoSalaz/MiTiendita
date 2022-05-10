@@ -24,7 +24,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     var interactor: MainAdminInteractorProtocol? {get set}
     var router: MainAdminRouterProtocol? {get set}
     
-    func openEditUser(user: User, isEdditing: Bool)
+    func openEditUser(user: User?, isEdditing: Bool)
     
     func openRegisterCategory()
     func editCategory(data: CategoryProduct, isEdit: Bool, objectCoreData: NSManagedObject)
@@ -32,7 +32,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     func getCategories()
     func getProduct()
     func openViewUser()
-    func openDetailProduct(data: ProductDetail)
+    func openDetailProduct(data: ProductDetail, user: User?)
     var recivedUser: User? {get set}
     func recivedDataFromIndex()
     //Coredata
@@ -66,12 +66,13 @@ protocol MainAdminInteractorOutputProtocol: NSObject {
 }
 //ROUTER
 protocol MainAdminRouterProtocol {
+    var presenter: MainAdminPresenterProtocol? {get set}
     func openRegisterCategoryRouter(view: MainAdminViewControllerProtocol)
     func editCategoryRouter(view: MainAdminViewControllerProtocol, data: CategoryProduct, isEdit: Bool, objectCoreData: NSManagedObject)
     func openListProduct(view: MainAdminViewControllerProtocol)
-    func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail)
+    func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail, user: User?)
     static func createModuleMainAdmin(user: User) -> UIViewController
     func openListUsuers(View: MainAdminViewControllerProtocol)
     
-    func openEditUser(view: MainAdminViewControllerProtocol, isEdit:Bool, user: User)
+    func openEditUser(view: MainAdminViewControllerProtocol, isEdit:Bool, user: User?)
 }

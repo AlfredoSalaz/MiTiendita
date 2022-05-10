@@ -8,10 +8,7 @@
 import UIKit
 import CoreData
 class MainAdminRouter: MainAdminRouterProtocol {
-    
-    
-    
-    
+    var presenter: MainAdminPresenterProtocol?
     
     static func createModuleMainAdmin(user: User) -> UIViewController {
         let view = mainstoryboard.instantiateViewController(withIdentifier: "mainAdmin") as! MainAdminViewController
@@ -39,8 +36,8 @@ class MainAdminRouter: MainAdminRouterProtocol {
         let vc = UserRegisterProductsRouter.createModuleUserRegisterProducts()
         view.present(vc, animated: true, completion: nil)
     }
-    func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail){
-        let vc = DetailProductRouter.createModule(data: data)
+    func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail, user: User?){
+        let vc = DetailProductRouter.createModule(data: data, user: user)
         view.present(vc, animated: true, completion: nil)
     }
     func openListUsuers(View: MainAdminViewControllerProtocol) {
@@ -48,7 +45,7 @@ class MainAdminRouter: MainAdminRouterProtocol {
         View.present(vc, animated: true)
     }
     
-    func openEditUser(view: MainAdminViewControllerProtocol, isEdit: Bool, user: User) {
+    func openEditUser(view: MainAdminViewControllerProtocol, isEdit: Bool, user: User?) {
         let vc = PerfilUserRegisterRouter.createModulePerfilUserRegister(user: user, isEdditing: true)
         view.present(vc, animated: true)
     }

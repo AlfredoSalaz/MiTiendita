@@ -21,6 +21,8 @@
 		50162305282ACBEB00F03AC1 /* ComprasEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50162304282ACBEB00F03AC1 /* ComprasEntity.swift */; };
 		5016230A282ACBFA00F03AC1 /* ComprasRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50162309282ACBFA00F03AC1 /* ComprasRouter.swift */; };
 		5016230F282ACC0600F03AC1 /* ComprasProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016230E282ACC0600F03AC1 /* ComprasProtocol.swift */; };
+		50162314282AE79000F03AC1 /* ComprasViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50162313282AE79000F03AC1 /* ComprasViewCell.swift */; };
+		50162319282AFF5300F03AC1 /* InternalDataCompras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50162318282AFF5300F03AC1 /* InternalDataCompras.swift */; };
 		501A6FEE282043EB00636F7F /* RegisterProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A6FED282043EB00636F7F /* RegisterProductsViewController.swift */; };
 		501A6FF3282043FB00636F7F /* RegisterProductsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501A6FF2282043FB00636F7F /* RegisterProductsStoryboard.storyboard */; };
 		501A6FF82820440C00636F7F /* RegisterProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A6FF72820440C00636F7F /* RegisterProductsInteractor.swift */; };
@@ -142,6 +144,8 @@
 		50162304282ACBEB00F03AC1 /* ComprasEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasEntity.swift; sourceTree = "<group>"; };
 		50162309282ACBFA00F03AC1 /* ComprasRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasRouter.swift; sourceTree = "<group>"; };
 		5016230E282ACC0600F03AC1 /* ComprasProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasProtocol.swift; sourceTree = "<group>"; };
+		50162313282AE79000F03AC1 /* ComprasViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasViewCell.swift; sourceTree = "<group>"; };
+		50162318282AFF5300F03AC1 /* InternalDataCompras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalDataCompras.swift; sourceTree = "<group>"; };
 		501A6FED282043EB00636F7F /* RegisterProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductsViewController.swift; sourceTree = "<group>"; };
 		501A6FF2282043FB00636F7F /* RegisterProductsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterProductsStoryboard.storyboard; sourceTree = "<group>"; };
 		501A6FF72820440C00636F7F /* RegisterProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductsInteractor.swift; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				50F34A03281A024E0065D37E /* RequestManager.swift */,
 				506898052820808E00566000 /* RequestManagers.swift */,
 				50793D962824284800547845 /* InternalData.swift */,
+				50162318282AFF5300F03AC1 /* InternalDataCompras.swift */,
 			);
 			path = MiTiendita;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 			children = (
 				501622ED282ACBAA00F03AC1 /* ComprasStoryboard.storyboard */,
 				501622F5282ACBBD00F03AC1 /* ComprasViewController.swift */,
+				50162313282AE79000F03AC1 /* ComprasViewCell.swift */,
 			);
 			path = ComprasView;
 			sourceTree = "<group>";
@@ -1276,8 +1282,10 @@
 				5068980B282082F300566000 /* RegisterProductEntity.swift in Sources */,
 				50FFA066281C96FA009A0528 /* PerfilUserRegisterViewController.swift in Sources */,
 				501622FB282ACBCF00F03AC1 /* ComprasInteractor.swift in Sources */,
+				50162319282AFF5300F03AC1 /* InternalDataCompras.swift in Sources */,
 				50577C4428186DDC00EEC7B7 /* UserInteractor.swift in Sources */,
 				501A6FF82820440C00636F7F /* RegisterProductsInteractor.swift in Sources */,
+				50162314282AE79000F03AC1 /* ComprasViewCell.swift in Sources */,
 				50577C4628186DDC00EEC7B7 /* UserRouter.swift in Sources */,
 				50F1C7142822D48200E6B85C /* DetailProductRouter.swift in Sources */,
 				50F349FF2819FB810065D37E /* MainAdminEntity.swift in Sources */,

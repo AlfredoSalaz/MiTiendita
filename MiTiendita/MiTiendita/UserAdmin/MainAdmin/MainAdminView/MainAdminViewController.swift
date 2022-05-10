@@ -164,16 +164,15 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
         }
         cell.listPr = productsCategory
         cell.presenter = presenter
+        print("user que enviare \(user?.name)")
+        cell.user = user
         cell.collectionView?.reloadData()
         
         return cell
     }
     func actionButton(data: CategoryProduct){
-        print("data: \(data.name)")
         categoryCoreData?.forEach{
-            print("valor \($0.value(forKey: "id"))")
             if $0.value(forKey: "id") as! Int == data.id{
-                print("meeeee")
                 presenter?.editCategory(data: data, isEdit: true, objectCoreData: $0)
                 return
             }
@@ -193,7 +192,7 @@ extension MainAdminViewController {
     
     
     @IBAction func editUser(_ sender: Any) {
-        presenter?.openEditUser(user: user!, isEdditing: true)
+        presenter?.openEditUser(user: user, isEdditing: true)
     }
     
     @IBAction func categoryProduct(_ sender: Any) {

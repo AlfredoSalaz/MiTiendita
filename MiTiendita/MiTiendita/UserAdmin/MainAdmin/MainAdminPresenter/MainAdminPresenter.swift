@@ -20,7 +20,7 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
         
     }
      */
-    func openEditUser(user: User, isEdditing: Bool) {
+    func openEditUser(user: User?, isEdditing: Bool) {
         router?.openEditUser(view: view!, isEdit: true, user: user)
     }
     
@@ -44,8 +44,8 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func openListProduct(){
         router?.openListProduct(view: view!)
     }
-    func openDetailProduct(data: ProductDetail){
-        router?.openDetailProduct(view: view!, data: data)
+    func openDetailProduct(data: ProductDetail, user: User?){
+        router?.openDetailProduct(view: view!, data: data, user: user)
     }
     func recivedDataFromIndex(){
         view?.recivedDataFromPresenter(data: recivedUser!)
