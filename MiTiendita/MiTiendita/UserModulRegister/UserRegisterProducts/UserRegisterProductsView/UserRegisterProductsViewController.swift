@@ -60,18 +60,8 @@ extension UserRegisterProductsViewController: UITableViewDelegate, UITableViewDa
         
         let data = listProducts?[indexPath.row]
         
-        DispatchQueue.global(qos: .default).async {
-            let url = URL(string: (self.listProducts?[indexPath.row].images?[0])! )
-                    let data = try? Data(contentsOf: url!)
-                    guard let data = data else {return}
-                    DispatchQueue.main.async {
-                        cell.imgProduct.image = UIImage(data: data)
-                    }
-                }
+        cell.imgProduct.load(url: URL(string: data?.images?.first ?? "")!)
         cell.nameProduct.text = data?.title
-        //cell.nameProduct.text = data?.title
-        //cell.nameDescription.text = data?.description
-        //cell.priceProduct.text = "\(data?.price)"
         
         return cell
     }
