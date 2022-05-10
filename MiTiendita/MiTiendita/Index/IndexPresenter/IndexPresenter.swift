@@ -8,6 +8,8 @@
 import UIKit
 
 class IndexPresenter: NSObject, IndexPresenterProtocol{
+    
+    
     var router: IndexRouterProtocol?
     var interactor: IndexInteractorProtocol?
     var view: IndexViewControllerProtocol?
@@ -24,6 +26,10 @@ class IndexPresenter: NSObject, IndexPresenterProtocol{
     
     func getUserAuthentication(token: String) {
         interactor?.getUserAuthenticatio(token: token)
+    }
+    
+    func openViewRegisterNewUser() {
+        router?.openViewregisterNewUser(view: view!)
     }
     
 }

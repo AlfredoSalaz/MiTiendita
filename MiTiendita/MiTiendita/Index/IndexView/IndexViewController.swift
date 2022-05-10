@@ -51,6 +51,7 @@ class IndexViewController: UIViewController, IndexViewControllerProtocol {
     }
     @IBAction func loginGuest(_ sender: Any){
         //presenter?.openMainTienda(tipeUser: "Admin")
+        //presenter?.openViewRegisterNewUser()
     }
     ///Funcion que crea y presenta un alerta para cuando el usuario quiere iniciar sesion sin ingresar datos
     func showAlert(){

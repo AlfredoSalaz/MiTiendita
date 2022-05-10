@@ -8,6 +8,8 @@
 import UIKit
 
 class IndexRouter: IndexRouterProtocol{
+    
+    
     /// Funcion que crea el modulo del index inicializando todos los datos
     /// - Return
     static func createModule() -> UIViewController {
@@ -34,6 +36,11 @@ class IndexRouter: IndexRouterProtocol{
             let viewController = MainAdminRouter.createModuleMainAdmin(user: user)
             view.present(viewController, animated: true)
         }
+    }
+    
+    func openViewregisterNewUser(view: IndexViewControllerProtocol) {
+        let viewController = UserRouter.createModuleUserRegister()
+        view.present(viewController, animated: true)
     }
     
     static var storyboard: UIStoryboard {

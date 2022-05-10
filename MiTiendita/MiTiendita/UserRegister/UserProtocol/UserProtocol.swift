@@ -9,6 +9,7 @@ import UIKit
 
 protocol UserViewControllerProtocol: UIViewController{
     var presenter: UserPresenterProtocol? {get set}
+    func dismissWindow()
     
 }
 protocol UserPresenterProtocol: NSObject{
@@ -16,12 +17,17 @@ protocol UserPresenterProtocol: NSObject{
     var interactor: UserInteractorProtocol? {get set}
     var router: UserRouterProtocol?{get set}
     
+    
+    func saveUserApi(user: [String: Any])
 }
 
 protocol UserInteractorProtocol: NSObject{
     var output: UserInteractorOutputProtocol? {get set}
+    
+    func saveUserApi(user: [String: Any])
 }
 protocol UserInteractorOutputProtocol {
+    func dismissWindow()
     
 }
 protocol UserRouterProtocol {
