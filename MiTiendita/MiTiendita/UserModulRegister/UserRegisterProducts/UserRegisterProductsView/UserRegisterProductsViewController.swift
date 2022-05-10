@@ -58,12 +58,19 @@ extension UserRegisterProductsViewController: UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UserRegisterProductsTableView
         
-        
         let data = listProducts?[indexPath.row]
-        //cell.imgProduct.image = data?.images
         
+        DispatchQueue.global(qos: .default).async {
+            let url = URL(string: (self.listProducts?[indexPath.row].images?[0])! )
+                    let data = try? Data(contentsOf: url!)
+                    guard let data = data else {return}
+                    DispatchQueue.main.async {
+                        cell.imgProduct.image = UIImage(data: data)
+                    }
+                }
         cell.nameProduct.text = data?.title
-        cell.nameDescription.text = data?.description
+        //cell.nameProduct.text = data?.title
+        //cell.nameDescription.text = data?.description
         //cell.priceProduct.text = "\(data?.price)"
         
         return cell

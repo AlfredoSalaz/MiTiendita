@@ -8,8 +8,7 @@
 import UIKit
 
 class DetailProductCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var collectionViewProducts: UIView!
+
     
     @IBOutlet weak var imgProduct: UIImageView!
     
