@@ -26,6 +26,8 @@ class DetailProductViewController: UIViewController, DetailProductViewController
         super.viewDidLoad()
         presenter?.recivedProductFromListProduct()
         showData()
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     func showData() {
@@ -34,7 +36,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
         lblDescripcion.text = product?.description
         lblCategory.text = product?.category.name
         lblPrecio.text = String("$ \(product?.price ?? 0)")
-
+        
     }
 
     @IBAction func btnAddCar(_ sender: Any) {
@@ -45,4 +47,20 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     }
 }
 
-
+extension DetailProductViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        product?.images.count ?? 0
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! DetailProductCollectionViewCell
+        
+        let data = product?.images[indexPath.row]
+        print("Imagen: \(data)")
+        cell.imgProduct.load(url: URL(string: data ?? "")!)
+        
+        return cell
+    }
+    
+    
+}
