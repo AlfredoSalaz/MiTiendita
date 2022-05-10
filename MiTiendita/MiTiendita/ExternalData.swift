@@ -17,4 +17,6 @@ class ExternalData {
     var urlGetUser = "https://api.escuelajs.co/api/v1/users"
     var urlGetToken = "https://api.escuelajs.co/api/v1/auth/login"
     var urlGetPerfile = "https://api.escuelajs.co/api/v1/auth/profile"
+    var urlAddNewUser = "https://api.escuelajs.co/api/v1/users/"
+    var checkUrlAvailable = "https://api.escuelajs.co/api/v1/users/is-available"
 }

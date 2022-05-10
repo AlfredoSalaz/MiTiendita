@@ -20,6 +20,7 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
     @IBOutlet weak var lblTextoCampos: UILabel!
     
     var presenter: UserPresenterProtocol?
+    var user: [String: Any]?
     
     let myColor : UIColor = UIColor.magenta
 
@@ -38,7 +39,6 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
         
     }
     //Validar 4 caracteres
-    
     func validarCampos() {
         guard let email = txtEmail?.text, let password = txtPassword?.text else{
             showAlert()
@@ -56,15 +56,39 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
             print("Puede ingresar")
         }
     }
-    @IBAction func btnRegistrar(_ sender: Any) {
-        validarCampos()
+    
+    func dismissWindow() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+        }
     }
     
+    @IBAction func btnRegistrar(_ sender: Any) {
+        
+        loadDataUser()
+        presenter?.saveUserApi(user: user!)
+        
+        //validarCampos()
+    }
+    
+    func loadDataUser(){
+        let nombre = txtNombre.text ?? ""
+        let apellido = txtApellido.text ?? ""
+        let correo = txtEmail.text ?? ""
+        let password = txtPassword.text ?? ""
+        user = [
+            "name": nombre + " " + apellido,
+            "email": correo,
+            "password": password,
+            "avatar": "https://api.lorem.space/image/face?w=640&h=480"
+        ]
+    }
     
     @IBAction func btnBack(_ sender: Any) {
         dismiss(animated: true)
         
     }
+    
     func showAlert(){
         // create the alert
         let alert = UIAlertController(title: "Error al registrar", message: "Los campos no deben ir vacios.", preferredStyle: UIAlertController.Style.alert)

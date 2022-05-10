@@ -22,12 +22,15 @@ protocol IndexPresenterProtocol: NSObject{
     func openViewRegister()
     func authenticationUser(data: [String: Any])
     func getUserAuthentication(token: String)
+    
+    func openViewRegisterNewUser()
 }
 
 protocol IndexInteractorProtocol: NSObject {
     var output: IndexInteractorOutputProtocol? {get set}
     func authenticatioUser(data: [String: Any])
     func getUserAuthenticatio(token: String)
+    
 }
 
 protocol IndexInteractorOutputProtocol {
@@ -40,5 +43,8 @@ protocol IndexInteractorOutputProtocol {
 protocol IndexRouterProtocol {
     func openViewRegisters(view: IndexViewControllerProtocol)
     func openMainTiendaRouter(view:IndexViewControllerProtocol, user: User)
+    
+    func openViewregisterNewUser(view: IndexViewControllerProtocol)
+    
     static func createModule() -> UIViewController
 }

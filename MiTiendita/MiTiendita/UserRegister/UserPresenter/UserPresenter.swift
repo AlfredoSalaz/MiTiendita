@@ -8,13 +8,20 @@
 import UIKit
 
 class UserPresenter: NSObject, UserPresenterProtocol{
-    
+
     var view: UserViewControllerProtocol?
     var interactor: UserInteractorProtocol?
     var router: UserRouterProtocol?
-
+    
+    func saveUserApi(user: [String : Any]) {
+        interactor?.saveUserApi(user: user)
+    }
 }
 
 extension UserPresenter: UserInteractorOutputProtocol{
+    func dismissWindow() {
+        view?.dismissWindow()
+    }
+    
     
 }
