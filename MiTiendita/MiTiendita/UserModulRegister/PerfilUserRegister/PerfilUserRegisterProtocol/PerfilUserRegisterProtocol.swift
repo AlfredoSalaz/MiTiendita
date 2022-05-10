@@ -10,7 +10,7 @@ import UIKit
 protocol PerfilUserRegisterViewControllerProtocol: UIViewController {
     var presenter: PerfilUserRegisterPresenterProtocol? {get set}
     var user: User? {get set}
-    
+    var isEditiing: Bool? {get set}
     //func receivedlistProduct(data: [UsuarioCore])
     //func faillureData()
 }
@@ -20,6 +20,10 @@ protocol PerfilUserRegisterPresenterProtocol : NSObject {
     var interactor: PerfilUserRegisterInteractorProtocol? {get set}
     var router: PerfilUserRegisterRouterProtocol? {get set}
     
+    var isEdit: Bool? {get set}
+    var user: User? {get set}
+    
+    func receicedUser()
     func saveUserInfo(user: UsuarioCore)
     
 }
@@ -38,7 +42,7 @@ protocol PerfilUserRegisterInteractorOutPutProtocol : NSObject {
 
 protocol PerfilUserRegisterRouterProtocol {
     var presenter: PerfilUserRegisterPresenterProtocol? {get set}
-    //static func createModulePerfilUserRegister(user: User, isEdditing: Bool) -> UIViewController
+    static func createModulePerfilUserRegister(user: User?, isEdditing: Bool) -> UIViewController
     //static func createModulePerfilUserRegister() -> UIViewController
     //func iniciarModuloPerfilUserRegister()
 }

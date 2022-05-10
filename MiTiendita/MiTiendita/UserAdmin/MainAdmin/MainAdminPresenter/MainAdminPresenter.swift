@@ -20,6 +20,10 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
         
     }
      */
+    func openEditUser(user: User, isEdditing: Bool) {
+        router?.openEditUser(view: view!, isEdit: true, user: user)
+    }
+    
     
     func openViewUser() {
         router?.openListUsuers(View: view!)

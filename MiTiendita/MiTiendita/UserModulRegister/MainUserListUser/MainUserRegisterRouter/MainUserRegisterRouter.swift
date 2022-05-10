@@ -33,7 +33,7 @@ class MainUserRegisterRouter: MainUserRegisterRouterProtocol {
     
     func openViewNuevoUsuario(view: MainUserRegisterViewControllerProtocol) {
         
-        let views = PerfilUserRegisterRouter.createModulePerfilUserRegister()
+        let views = PerfilUserRegisterRouter.createModulePerfilUserRegister(user: nil, isEdditing: false)
         view.present(views, animated: true)
         
     }

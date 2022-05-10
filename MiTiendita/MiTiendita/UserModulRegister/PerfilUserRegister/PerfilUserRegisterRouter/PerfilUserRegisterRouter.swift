@@ -12,7 +12,7 @@ class PerfilUserRegisterRouter: PerfilUserRegisterRouterProtocol{
     var presenter: PerfilUserRegisterPresenterProtocol?
     
     //static func createModulePerfilUserRegister(user: User, isEdditing: Bool) -> UIViewController{
-    static func createModulePerfilUserRegister() -> UIViewController{
+    static func createModulePerfilUserRegister(user: User?, isEdditing: Bool) -> UIViewController{
         print("Se inicio")
         
         let view = storyboard.instantiateViewController(withIdentifier: "PerfilUserRegister") as! PerfilUserRegisterViewController
@@ -21,14 +21,13 @@ class PerfilUserRegisterRouter: PerfilUserRegisterRouterProtocol{
         var router: PerfilUserRegisterRouterProtocol = PerfilUserRegisterRouter()
         
         view.presenter = presenter
-        //view.user = user
-        //view.isEditiing = isEdditing
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
         interactor.output = presenter
         router.presenter = presenter
-        
+        presenter.user = user
+        presenter.isEdit = isEdditing
         return view
         
     }
