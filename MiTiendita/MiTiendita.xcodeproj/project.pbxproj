@@ -14,6 +14,13 @@
 		5011ED4C2817626100831C83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5011ED4A2817626100831C83 /* LaunchScreen.storyboard */; };
 		5011ED572817626200831C83 /* MiTienditaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5011ED562817626200831C83 /* MiTienditaTests.swift */; };
 		5011ED622817626200831C83 /* MiTienditaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5011ED612817626200831C83 /* MiTienditaUITests.swift */; };
+		501622EE282ACBAA00F03AC1 /* ComprasStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501622ED282ACBAA00F03AC1 /* ComprasStoryboard.storyboard */; };
+		501622F6282ACBBD00F03AC1 /* ComprasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501622F5282ACBBD00F03AC1 /* ComprasViewController.swift */; };
+		501622FB282ACBCF00F03AC1 /* ComprasInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501622FA282ACBCF00F03AC1 /* ComprasInteractor.swift */; };
+		50162300282ACBDD00F03AC1 /* ComprasPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501622FF282ACBDD00F03AC1 /* ComprasPresenter.swift */; };
+		50162305282ACBEB00F03AC1 /* ComprasEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50162304282ACBEB00F03AC1 /* ComprasEntity.swift */; };
+		5016230A282ACBFA00F03AC1 /* ComprasRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50162309282ACBFA00F03AC1 /* ComprasRouter.swift */; };
+		5016230F282ACC0600F03AC1 /* ComprasProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016230E282ACC0600F03AC1 /* ComprasProtocol.swift */; };
 		501A6FEE282043EB00636F7F /* RegisterProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A6FED282043EB00636F7F /* RegisterProductsViewController.swift */; };
 		501A6FF3282043FB00636F7F /* RegisterProductsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501A6FF2282043FB00636F7F /* RegisterProductsStoryboard.storyboard */; };
 		501A6FF82820440C00636F7F /* RegisterProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A6FF72820440C00636F7F /* RegisterProductsInteractor.swift */; };
@@ -128,6 +135,13 @@
 		5011ED5D2817626200831C83 /* MiTienditaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiTienditaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5011ED612817626200831C83 /* MiTienditaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiTienditaUITests.swift; sourceTree = "<group>"; };
 		5011ED632817626200831C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		501622ED282ACBAA00F03AC1 /* ComprasStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComprasStoryboard.storyboard; sourceTree = "<group>"; };
+		501622F5282ACBBD00F03AC1 /* ComprasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasViewController.swift; sourceTree = "<group>"; };
+		501622FA282ACBCF00F03AC1 /* ComprasInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasInteractor.swift; sourceTree = "<group>"; };
+		501622FF282ACBDD00F03AC1 /* ComprasPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasPresenter.swift; sourceTree = "<group>"; };
+		50162304282ACBEB00F03AC1 /* ComprasEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasEntity.swift; sourceTree = "<group>"; };
+		50162309282ACBFA00F03AC1 /* ComprasRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasRouter.swift; sourceTree = "<group>"; };
+		5016230E282ACC0600F03AC1 /* ComprasProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasProtocol.swift; sourceTree = "<group>"; };
 		501A6FED282043EB00636F7F /* RegisterProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductsViewController.swift; sourceTree = "<group>"; };
 		501A6FF2282043FB00636F7F /* RegisterProductsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterProductsStoryboard.storyboard; sourceTree = "<group>"; };
 		501A6FF72820440C00636F7F /* RegisterProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductsInteractor.swift; sourceTree = "<group>"; };
@@ -298,6 +312,68 @@
 				5011ED632817626200831C83 /* Info.plist */,
 			);
 			path = MiTienditaUITests;
+			sourceTree = "<group>";
+		};
+		501622E6282ACAA300F03AC1 /* Compras */ = {
+			isa = PBXGroup;
+			children = (
+				501622EC282ACB8600F03AC1 /* ComprasView */,
+				501622EB282ACB7B00F03AC1 /* ComprasInteractor */,
+				501622EA282ACB6D00F03AC1 /* ComprasPresenter */,
+				501622E9282ACB6200F03AC1 /* ComprasEntity */,
+				501622E8282ACB5900F03AC1 /* ComprasRouter */,
+				501622E7282ACB4900F03AC1 /* ComprasProtocol */,
+			);
+			path = Compras;
+			sourceTree = "<group>";
+		};
+		501622E7282ACB4900F03AC1 /* ComprasProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				5016230E282ACC0600F03AC1 /* ComprasProtocol.swift */,
+			);
+			path = ComprasProtocol;
+			sourceTree = "<group>";
+		};
+		501622E8282ACB5900F03AC1 /* ComprasRouter */ = {
+			isa = PBXGroup;
+			children = (
+				50162309282ACBFA00F03AC1 /* ComprasRouter.swift */,
+			);
+			path = ComprasRouter;
+			sourceTree = "<group>";
+		};
+		501622E9282ACB6200F03AC1 /* ComprasEntity */ = {
+			isa = PBXGroup;
+			children = (
+				50162304282ACBEB00F03AC1 /* ComprasEntity.swift */,
+			);
+			path = ComprasEntity;
+			sourceTree = "<group>";
+		};
+		501622EA282ACB6D00F03AC1 /* ComprasPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				501622FF282ACBDD00F03AC1 /* ComprasPresenter.swift */,
+			);
+			path = ComprasPresenter;
+			sourceTree = "<group>";
+		};
+		501622EB282ACB7B00F03AC1 /* ComprasInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				501622FA282ACBCF00F03AC1 /* ComprasInteractor.swift */,
+			);
+			path = ComprasInteractor;
+			sourceTree = "<group>";
+		};
+		501622EC282ACB8600F03AC1 /* ComprasView */ = {
+			isa = PBXGroup;
+			children = (
+				501622ED282ACBAA00F03AC1 /* ComprasStoryboard.storyboard */,
+				501622F5282ACBBD00F03AC1 /* ComprasViewController.swift */,
+			);
+			path = ComprasView;
 			sourceTree = "<group>";
 		};
 		501A6FE72820439400636F7F /* RegisterProductsProtocol */ = {
@@ -752,6 +828,7 @@
 		50FFA047281C96F9009A0528 /* UserModulRegister */ = {
 			isa = PBXGroup;
 			children = (
+				501622E6282ACAA300F03AC1 /* Compras */,
 				50F1C70A2822D48200E6B85C /* DetailProduct */,
 				506897E32820771800566000 /* UserRegisterProducts */,
 				50FFA048281C96F9009A0528 /* PerfilUserRegister */,
@@ -1043,6 +1120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5011ED4C2817626100831C83 /* LaunchScreen.storyboard in Resources */,
+				501622EE282ACBAA00F03AC1 /* ComprasStoryboard.storyboard in Resources */,
 				501A6FF3282043FB00636F7F /* RegisterProductsStoryboard.storyboard in Resources */,
 				50F1C7362823398600E6B85C /* MainUserRegisterStoryboard.storyboard in Resources */,
 				50F349B72819DEF40065D37E /* MainAdminStoryboard.storyboard in Resources */,
@@ -1189,6 +1267,7 @@
 				50F349C42819DF750065D37E /* MainAdminPresenter.swift in Sources */,
 				50793D9C28246E5A00547845 /* MainUserRegisterTableViewCell.swift in Sources */,
 				50F1C71A2822D48200E6B85C /* DetailProductInteractor.swift in Sources */,
+				50162305282ACBEB00F03AC1 /* ComprasEntity.swift in Sources */,
 				506897F72820771800566000 /* UserRegisterProductsProtocol.swift in Sources */,
 				50F1C71C2822D48200E6B85C /* DetailProductViewController.swift in Sources */,
 				50577BE12818402700EEC7B7 /* IndexPresenter.swift in Sources */,
@@ -1196,6 +1275,7 @@
 				50DE38752825B9000091E14E /* ExternalDataUser.swift in Sources */,
 				5068980B282082F300566000 /* RegisterProductEntity.swift in Sources */,
 				50FFA066281C96FA009A0528 /* PerfilUserRegisterViewController.swift in Sources */,
+				501622FB282ACBCF00F03AC1 /* ComprasInteractor.swift in Sources */,
 				50577C4428186DDC00EEC7B7 /* UserInteractor.swift in Sources */,
 				501A6FF82820440C00636F7F /* RegisterProductsInteractor.swift in Sources */,
 				50577C4628186DDC00EEC7B7 /* UserRouter.swift in Sources */,
@@ -1204,6 +1284,7 @@
 				50F1C745282339C300E6B85C /* MainUserRegisterEntity.swift in Sources */,
 				506897F32820771800566000 /* UserRegisterProductsViewController.swift in Sources */,
 				50F349AF2819DEDF0065D37E /* MainAdminViewController.swift in Sources */,
+				501622F6282ACBBD00F03AC1 /* ComprasViewController.swift in Sources */,
 				50577BDC2818401A00EEC7B7 /* IndexEntity.swift in Sources */,
 				501A6FEE282043EB00636F7F /* RegisterProductsViewController.swift in Sources */,
 				50F1C74F282339E500E6B85C /* MainUserRegisterProtocol.swift in Sources */,
@@ -1223,6 +1304,7 @@
 				50FFA091281C9E99009A0528 /* RegisterCategoryPresenter.swift in Sources */,
 				50FFA082281C9E44009A0528 /* RegisterCategoryViewController.swift in Sources */,
 				501A70072820443400636F7F /* RegisterProductsProtocol.swift in Sources */,
+				5016230F282ACC0600F03AC1 /* ComprasProtocol.swift in Sources */,
 				506897F82820771800566000 /* UserRegisterProductsPresenter.swift in Sources */,
 				50577BD22818400000EEC7B7 /* IndexProtocol.swift in Sources */,
 				50F34A04281A024E0065D37E /* RequestManager.swift in Sources */,
@@ -1248,6 +1330,8 @@
 				50F349EA2819F3500065D37E /* MainAdminCollectionViewCell.swift in Sources */,
 				50577BD72818400B00EEC7B7 /* IndexRouter.swift in Sources */,
 				50FFA040281C6DF2009A0528 /* MainAdminTableViewCell.swift in Sources */,
+				50162300282ACBDD00F03AC1 /* ComprasPresenter.swift in Sources */,
+				5016230A282ACBFA00F03AC1 /* ComprasRouter.swift in Sources */,
 				50DE38702825B6E30091E14E /* InternalDataUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
