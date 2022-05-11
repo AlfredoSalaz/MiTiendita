@@ -119,9 +119,21 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQH-bY-TCA">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intente con otro email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idm-m3-c5h">
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="3j2-09-rc7"/>
+                                                    <constraint firstItem="idm-m3-c5h" firstAttribute="leading" secondItem="hQH-bY-TCA" secondAttribute="leading" id="45m-8K-VZI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="idm-m3-c5h" secondAttribute="trailing" constant="20" id="CTC-23-E7a"/>
+                                                    <constraint firstAttribute="bottom" secondItem="idm-m3-c5h" secondAttribute="bottom" id="afl-Yf-Xpw"/>
+                                                    <constraint firstItem="idm-m3-c5h" firstAttribute="top" secondItem="hQH-bY-TCA" secondAttribute="top" id="oRc-84-2dI"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -159,9 +171,21 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nF-XI-IOH">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña demasiado corta " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1t-Fa-F6t">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="W1t-Fa-F6t" firstAttribute="leading" secondItem="3nF-XI-IOH" secondAttribute="leading" id="Oub-rX-R6c"/>
                                                     <constraint firstAttribute="height" constant="20" id="Vp2-Qd-YZA"/>
+                                                    <constraint firstAttribute="bottom" secondItem="W1t-Fa-F6t" secondAttribute="bottom" id="ipX-GK-t5I"/>
+                                                    <constraint firstAttribute="trailing" secondItem="W1t-Fa-F6t" secondAttribute="trailing" id="qiH-yZ-LFQ"/>
+                                                    <constraint firstItem="W1t-Fa-F6t" firstAttribute="top" secondItem="3nF-XI-IOH" secondAttribute="top" id="uiQ-w9-7Dp"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -233,6 +257,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lblTextoCampos" destination="Gfs-At-imm" id="WJG-e7-s6N"/>
+                        <outlet property="stackEmail" destination="5Oq-L4-MJE" id="cxs-UT-OsH"/>
+                        <outlet property="stackPassword" destination="D5k-oA-W33" id="xgP-t9-sN9"/>
                         <outlet property="txtApellido" destination="5DO-qs-Mbj" id="g2t-6c-v9a"/>
                         <outlet property="txtEmail" destination="yeE-42-vAP" id="IXt-bE-d2s"/>
                         <outlet property="txtNombre" destination="oEW-1b-SbI" id="P2n-lk-6Fg"/>
@@ -254,6 +280,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

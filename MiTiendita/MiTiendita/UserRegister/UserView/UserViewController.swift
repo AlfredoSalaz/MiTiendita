@@ -9,16 +9,16 @@ import UIKit
 
 class UserViewController: UIViewController, UserViewControllerProtocol {
     
-    
-    
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtApellido: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var lblTextoCampos: UILabel!
+    @IBOutlet weak var stackEmail: UIStackView!
+    @IBOutlet weak var stackPassword: UIStackView!
     
     var presenter: UserPresenterProtocol?
-    var user: [String: Any]?
+    var user1: [String: Any]?
     
     let myColor : UIColor = UIColor.magenta
 
@@ -33,28 +33,35 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
         txtApellido?.layer.borderColor = myColor.cgColor
         txtEmail?.layer.borderColor = myColor.cgColor
         txtPassword.layer.borderColor = myColor.cgColor
-    }
-    //Validar 4 caracteres
-    func validarCampos() {
-        guard let email = txtEmail?.text, let password = txtPassword?.text else{
-            showAlert()
-            return
-        }
         
-        if password.count < 4 || !email.isEmail || email == ""
-                              || password == "" || txtNombre.text == ""
-                              || txtApellido.text == "" {
-            let alert = UIAlertController(title: "Error al registrar", message: "*Correo electronico invalido\n*La contraseña debe ser mayor a 4 caracteres", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-        if password.count >= 5{
-            print("Puede ingresar")
-        }
+        stackEmail.isHidden = true
+        stackPassword.isHidden = true
     }
+    //Función que se encarga de validar el correo electronico y la longuitud de la contraseña del usuario
     func errorCheckEmail(user: ValidateEmail) {
-        if user.isAvailable == false{//Si existe, no te puedes loguear
-            //presenter?.saveUserApi(user: user)
+        if user.isAvailable == true { //NO existe, si te puedes loguear
+            //presenter?.saveUserApi(user: user1!)
+            print("Es true")
+            DispatchQueue.main.async {
+                if self.txtPassword.text!.count < 4{
+                    self.stackPassword.isHidden = false
+                }else {
+                    self.stackPassword.isHidden = true
+                    self.stackEmail.isHidden = true
+                }
+            }
+            //presenter?.saveUserApi(user: user1!)
+            
+        } else { //Usuario ya existente, no te puedes loguear
+            DispatchQueue.main.async {
+                self.stackEmail.isHidden = false
+                if self.txtPassword.text!.count < 4{
+                    self.stackPassword.isHidden = false
+                }else if user.isAvailable == true && self.txtPassword.text!.count > 5 {
+                    self.stackPassword.isHidden = true
+                    self.stackEmail.isHidden = true
+                }
+            }
         }
     }
     
@@ -65,18 +72,19 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
         }
     }
     
+    ///Acción del boton registrar nuevo usuario
     @IBAction func btnRegistrar(_ sender: Any) {
         loadDataUser()
-        presenter?.saveUserApi(user: user!)
-        //validarCampos()
+        presenter?.trySaveUserApi(user: user1!)
     }
     
+    ///Función que asigna los valores  ingresados por el usuario, a un diccionario llamado usuario
     func loadDataUser(){
-        let nombre = txtNombre.text ?? ""
-        let apellido = txtApellido.text ?? ""
-        let correo = txtEmail.text ?? ""
-        let password = txtPassword.text ?? ""
-        user = [
+        let nombre = self.txtNombre.text ?? ""
+        let apellido = self.txtApellido.text ?? ""
+        let correo = self.txtEmail.text ?? ""
+        let password = self.txtPassword.text ?? ""
+        self.user1 = [
             "name": nombre + " " + apellido,
             "email": correo,
             "password": password,
@@ -84,11 +92,12 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
         ]
     }
     
+    ///Acción del botón regresar a la pantalla anterior
     @IBAction func btnBack(_ sender: Any) {
         dismiss(animated: true)
-        
     }
     
+    ///Funcion que muestra un alerta en pantalla, en dado caso que no cumpla con los parametros que se le pide al usuario
     func showAlert(){
         // create the alert
         let alert = UIAlertController(title: "Error al registrar", message: "Los campos no deben ir vacios.", preferredStyle: UIAlertController.Style.alert)
