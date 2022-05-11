@@ -14,11 +14,16 @@ class UserPresenter: NSObject, UserPresenterProtocol{
     var router: UserRouterProtocol?
     
     func saveUserApi(user: [String : Any]) {
-        interactor?.saveUserApi(user: user)
+        //interactor?.saveUserApi(user: user)
+        interactor?.trySavedUserApi(user: user)
     }
 }
 
 extension UserPresenter: UserInteractorOutputProtocol{
+    func errorCheckEmail(user: ValidateEmail) {
+        view?.errorCheckEmail(user: user)
+    }
+    
     func dismissWindow() {
         view?.dismissWindow()
     }

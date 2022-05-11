@@ -10,6 +10,7 @@ import UIKit
 protocol UserViewControllerProtocol: UIViewController{
     var presenter: UserPresenterProtocol? {get set}
     func dismissWindow()
+    func errorCheckEmail(user: ValidateEmail)
     
 }
 protocol UserPresenterProtocol: NSObject{
@@ -25,9 +26,11 @@ protocol UserInteractorProtocol: NSObject{
     var output: UserInteractorOutputProtocol? {get set}
     
     func saveUserApi(user: [String: Any])
+    func trySavedUserApi(user: [String: Any])
 }
 protocol UserInteractorOutputProtocol {
     func dismissWindow()
+    func errorCheckEmail(user: ValidateEmail)
     
 }
 protocol UserRouterProtocol {

@@ -8,20 +8,21 @@
 import UIKit
 
 class UserInteractor: NSObject, UserInteractorProtocol{
+    
+    
 
     var output: UserInteractorOutputProtocol?
     
     func saveUserApi(user: [String : Any]) {
         
         var email: Any?
-        
         for (key,value) in user{
             if key == "email"{
                 let a = value
                 email = a
-                
             }
         }
+        
         print(email)
         let data1: [String: Any] = [
             "email": email!
@@ -31,6 +32,9 @@ class UserInteractor: NSObject, UserInteractorProtocol{
         //RequestManager.generic(url: ExternalData().urlAddNewUser, metodo: "POST", contenido: user, tipoDato: User.self, delegate: self)
     }
     
+    func trySavedUserApi(user: [String : Any]) {
+        RequestManager.generic(url: ExternalData().urlAddNewUser, metodo: "POST", contenido: user, tipoDato: User.self, delegate: self)
+    }
 }
 
 extension UserInteractor: RequestManagerDelegate{
@@ -39,8 +43,9 @@ extension UserInteractor: RequestManagerDelegate{
             case 0:
                 if let data = data as? ValidateEmail{
                     print("datos: \(data.isAvailable)")
+                    output?.errorCheckEmail(user: data)
+                    print("Se guardo")
                 }
-
             default:
                 break
             }
