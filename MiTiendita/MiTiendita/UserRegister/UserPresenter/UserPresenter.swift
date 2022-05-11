@@ -8,14 +8,18 @@
 import UIKit
 
 class UserPresenter: NSObject, UserPresenterProtocol{
-
+    
     var view: UserViewControllerProtocol?
     var interactor: UserInteractorProtocol?
     var router: UserRouterProtocol?
     
     func saveUserApi(user: [String : Any]) {
-        //interactor?.saveUserApi(user: user)
+        print("Guardando usuario ya validado")
         interactor?.trySavedUserApi(user: user)
+    }
+    func trySaveUserApi(user: [String : Any]) {
+        print("Volviendo a validar el usuario")
+        interactor?.saveUserApi(user: user)
     }
 }
 

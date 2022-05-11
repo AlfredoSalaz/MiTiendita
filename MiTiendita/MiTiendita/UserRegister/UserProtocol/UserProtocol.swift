@@ -20,6 +20,7 @@ protocol UserPresenterProtocol: NSObject{
     
     
     func saveUserApi(user: [String: Any])
+    func trySaveUserApi(user: [String: Any])
 }
 
 protocol UserInteractorProtocol: NSObject{
