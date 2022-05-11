@@ -54,12 +54,45 @@ class InternalDataCompras {
         }
         return dataImage
     }
+    func deleteComprasCoreData(data: NSManagedObject, delegate: InternalDataComprasDelegate){
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        let manageContext = appdelegate.persistentContainer.viewContext
+        
+        manageContext.delete(data)
+        do{
+            try manageContext.save()
+            delegate.deleteCompraSuccess(data: data)
+        }catch (let error as NSError){
+            delegate.faillureRequest(error: error)
+        }
+    }
+    func updateCompraCoreData(object: NSManagedObject, delegate: InternalDataComprasDelegate, data: ComprasUser){
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        let manageContext = appdelegate.persistentContainer.viewContext
+        do {
+            object.setValue(data.userId, forKey: "userId")
+            object.setValue(data.productId, forKey: "productId")
+            object.setValue(data.numberProduct, forKey: "numerProduct")
+            object.setValue(data.priceProduct, forKey: "priceProduct")
+            object.setValue(data.total, forKey: "total")
+            object.setValue(data.totalProduct, forKey: "totalProduct")
+            object.setValue(data.nameProduct, forKey: "nameProduct")
+            object.setValue(getImageDataFromUrl(url: data.imageProduct), forKey: "imageProduct")
+            try manageContext.save()
+            delegate.updatedCompraSuccess(data: object)
+        } catch (let error as NSError) {
+            print("Failed")
+            delegate.faillureRequest(error: error)
+        }
+    }
 }
 
 protocol InternalDataComprasDelegate {
     func saveCompraSuccess(data: NSManagedObject?)
     func faillureRequest(error: NSError)
     func recivedSucessCompra(data: [NSManagedObject])
+    func deleteCompraSuccess(data: NSManagedObject)
+    func updatedCompraSuccess(data: NSManagedObject)
 }
 
 extension InternalDataComprasDelegate{
@@ -70,6 +103,12 @@ extension InternalDataComprasDelegate{
         
     }
     func recivedSucessCompra(data: [NSManagedObject]){
+        
+    }
+    func deleteCompraSuccess(data: NSManagedObject){
+        
+    }
+    func updatedCompraSuccess(data: NSManagedObject){
         
     }
 }

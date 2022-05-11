@@ -20,11 +20,10 @@ class UserRegisterProductsViewController: UIViewController,  UserRegisterProduct
     
     var presenter: UserRegisterProductsPresenterProtocol?
 
-    var listProducts: [Product]?
-    
+    var listProducts = [Product.shared]
+    var user = User.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter?.getListProduct()
     }
 
@@ -52,25 +51,27 @@ class UserRegisterProductsViewController: UIViewController,  UserRegisterProduct
 
 extension UserRegisterProductsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listProducts?.count ?? 0
+        return listProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UserRegisterProductsTableView
         
-        let data = listProducts?[indexPath.row]
+        let data = listProducts[indexPath.row]
+        if let url = URL(string: data.images?.first ?? ""){
+            cell.imgProduct.load(url: url)
+        }
         
-        cell.imgProduct.load(url: URL(string: data?.images?.first ?? "")!)
-        cell.nameProduct.text = data?.title
+        cell.nameProduct.text = data.title
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let data = listProducts?[indexPath.row]
+        let data = listProducts[indexPath.row]
         
-        let pro = ProductDetail(id: data!.id , title: (data?.title)!, price: (data?.price)!, description: (data?.description)!, category: (data?.category!)!, images: data?.images ?? [])
+        let pro = ProductDetail(id: data.id! , title: (data.title)!, price: (data.price)!, description: (data.description)!, category: (data.category!), images: data.images ?? [])
         
         presenter?.openDetailProducts(product: pro)
         

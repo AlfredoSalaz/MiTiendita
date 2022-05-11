@@ -37,7 +37,7 @@ class MainAdminRouter: MainAdminRouterProtocol {
         view.present(vc, animated: true, completion: nil)
     }
     func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail, user: User?){
-        let vc = DetailProductRouter.createModule(data: data, user: user)
+        let vc = DetailProductRouter.createModule(data: data)
         view.present(vc, animated: true, completion: nil)
     }
     func openListUsuers(View: MainAdminViewControllerProtocol) {
@@ -47,6 +47,12 @@ class MainAdminRouter: MainAdminRouterProtocol {
     
     func openEditUser(view: MainAdminViewControllerProtocol, isEdit: Bool, user: User?) {
         let vc = PerfilUserRegisterRouter.createModulePerfilUserRegister(user: user, isEdditing: true)
+        view.present(vc, animated: true)
+    }
+    
+    func openViewComprasRouterfromMain(user: User?, view: MainAdminViewControllerProtocol) {
+        let vc = ComprasRouter.createModuleCompras(
+            product: nil)
         view.present(vc, animated: true)
     }
     

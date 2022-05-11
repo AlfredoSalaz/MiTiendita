@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct User: Decodable{
-    var id: Int
+class User: Decodable{
+    static let shared = User()
+    private init(){
+        
+    }
+    var id: Int?
     var email: String?
     var password: String?
     var name: String?

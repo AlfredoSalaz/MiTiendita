@@ -11,19 +11,28 @@ class ComprasPresenter: NSObject, ComprasPresenterProtocol{
     var view: ComprasViewControllerProtocol?
     var interactor: ComprasInteractorProtocol?
     var router: ComprasRouterProtocol?
-    var user: User?
     var product: ProductDetail?
     
     func recivedData(){
-        view?.user = user
         view?.product = product
     }
     func getComprasCD(){
         interactor?.getComprasCoreData()
     }
+    func updateCompraUserCar(compra: ComprasUser, object: NSManagedObject?) {
+        interactor?.updateCompraUserCarr(compra: compra, object: object)
+    }
+    
+    func deleteCompraUser(object: NSManagedObject?) {
+        interactor?.deleteCompraUserCD(object: object)
+    }
+    
 }
 extension ComprasPresenter: ComprasInteractorOutputProtocol{
     func recivedCompraFromCD(data: [NSManagedObject]){
         view?.recivedCompraFromCoreData(data: data)
+    }
+    func deletedObjectSuccess() {
+        view?.deletedObjectSuccessInCD()
     }
 }

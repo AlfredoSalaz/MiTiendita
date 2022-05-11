@@ -8,13 +8,27 @@
 import Foundation
 
 struct CategoryProduct: Codable{
-    var id: Int
+    static let shared = CategoryProduct()
+    private init() {
+        
+    }
+    var id: Int?
     var name: String?
     var image: String?
+    
+    init(id: Int, name: String, image: String) {
+        self.image = image
+        self.id = id
+        self.name = name
+    }
 }
 
 struct Product: Codable {
-    var id: Int
+    static let shared = Product()
+    private init() {
+        
+    }
+    var id: Int?
     var title: String?
     var price: Int?
     var description: String?

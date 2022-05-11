@@ -10,9 +10,9 @@ import UIKit
 
 class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol {
     var presenter: MainAdminPresenterProtocol?
-    var user: User?
-    var listCategory: [CategoryProduct]?
-    var listProducts: [Product]?
+    var user = User.shared
+    var listCategory = [CategoryProduct.shared]
+    var listProducts = [Product.shared]
     var productsCategory: [Product]?
     
     var categoryCoreData: [NSManagedObject]?
@@ -20,6 +20,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     var productByCategory: Dictionary = [Int: [Product]]()
     var isOn = true
     var isReload = false
+    
     @IBOutlet weak var leadinViewMenuHamburguesa: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView?
@@ -44,10 +45,16 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     }
     
     func recivedDataFromPresenter(data: User){
-        self.user = data
+        user.avatar = data.avatar
+        user.email = data.email
+        user.id = data.id
+        user.password = data.password
+        user.role = data.role
+        user.name = data.name
+        
     }
     func validationView(){
-        if user?.role == "admin"{
+        if user.role == "admin"{
             viewStackaddCategory?.isHidden = false
             viewStackCarShop?.isHidden = true
         }else {
@@ -87,13 +94,13 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     func onReceivedlistProduct(data: [Product]) {
         listProducts = data
         var list: [Product] = []
-        for listCat  in listCategory! {
-            for listPro in listProducts!{
+        for listCat  in listCategory {
+            for listPro in listProducts{
                 if listCat.id == listPro.category?.id{
                     list.append(listPro)
                 }
             }
-            productByCategory[listCat.id] = list
+            productByCategory[listCat.id ?? 0] = list
             print("id: \(listCat.id) tiene \(list.count)")
             list.removeAll()
         }
@@ -118,11 +125,8 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         print("falloooo")
     }
     func saveInCoreDataCategories() {
-        guard let listCategory = self.listCategory else {
-            return
-        }
         for data in listCategory{
-            let dato = CategoryRegister(name: data.name ?? "", image: data.image ?? "", id: data.id)
+            let dato = CategoryRegister(name: data.name ?? "", image: data.image ?? "", id: data.id ?? 0)
                 presenter?.saveCategoryInCoreData(data: dato)
         }
         DispatchQueue.main.async {
@@ -130,11 +134,8 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         }
     }
     func saveInCoreDataProduct(){
-        guard let listProduct = self.listProducts else {
-            return
-        }
-        for data in listProduct{
-            let dato = ProductRegister(idProduct: data.id ,title: data.title ?? "", price: data.price ?? 0, descripc: data.description ?? "", categoryId: data.category?.id ?? 0, images: data.images ?? [""])
+        for data in listProducts{
+            let dato = ProductRegister(idProduct: data.id! ,title: data.title ?? "", price: data.price ?? 0, descripc: data.description ?? "", categoryId: data.category?.id ?? 0, images: data.images ?? [""])
             presenter?.saveProductsCoreData(data: dato)
         }
     }
@@ -147,24 +148,25 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
 
 extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listCategory?.count ?? 0
+        return listCategory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainAdminTableViewCell
         
-        let data = listCategory?[indexPath.row]
-        cell.nameCategory?.text = data?.name
+        let data = listCategory[indexPath.row]
+        if user.role != "admin"{
+            cell.btnEdit?.isHidden = true
+        }
+        cell.nameCategory?.text = data.name
         cell.collectionView?.tag = indexPath.row + 1
         productsCategory = productByCategory[indexPath.row + 1]
         cell.actionButton = {
-            if let data = data{
-                self.actionButton(data: data)
-            }
+            self.actionButton(data: data)
         }
         cell.listPr = productsCategory
         cell.presenter = presenter
-        print("user que enviare \(user?.name)")
+        print("user que enviare \(user.name)")
         cell.user = user
         cell.collectionView?.reloadData()
         
@@ -172,7 +174,7 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func actionButton(data: CategoryProduct){
         categoryCoreData?.forEach{
-            if $0.value(forKey: "id") as! Int == data.id{
+            if $0.value(forKey: "id") as? Int == data.id{
                 presenter?.editCategory(data: data, isEdit: true, objectCoreData: $0)
                 return
             }
@@ -182,12 +184,12 @@ extension MainAdminViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension MainAdminViewController {
     func loadDataInMenu() {
-        if user?.role == "admin" {
+        if user.role == "admin" {
             stackUsuarios?.isHidden = false
         }else{
             stackUsuarios?.isHidden = true
         }
-        nameUser?.text = user?.name
+        nameUser?.text = user.name
     }
     
     
@@ -200,6 +202,13 @@ extension MainAdminViewController {
         isOn = true
     }
     @IBAction func productsAdmin(_ sender: Any) {
+        /*let userSingleton = User.shared
+        userSingleton.avatar = user.avatar
+        userSingleton.email = user.email
+        userSingleton.id = user.id
+        userSingleton.password = user.password
+        userSingleton.role = user.role
+        userSingleton.name = user.name*/
         presenter?.openListProduct()
     }
     @IBAction func registerUserAdmin(_ sender: Any) {
@@ -207,6 +216,9 @@ extension MainAdminViewController {
         //presenter?.openEditUser(user: user!, isEdditing: false)
         presenter?.openViewUser()
         
+    }
+    @IBAction func carAction(_ sender: Any){
+        presenter?.openViewComprasRouterfromMainPre(user: user)
     }
 
     @IBAction func cerrarSession(_ sender: Any){
@@ -268,9 +280,9 @@ extension MainAdminViewController {
     
     func getCategoryForId(id: Int) -> CategoryProduct{
         var cat: CategoryProduct?
-        listCategory?.forEach{
+        listCategory.forEach{
             if $0.id == id{
-                cat = CategoryProduct(id: $0.id, name: $0.name, image: $0.image)
+                cat = CategoryProduct(id: $0.id!, name: $0.name!, image: $0.image!)
             }
         }
         return cat!

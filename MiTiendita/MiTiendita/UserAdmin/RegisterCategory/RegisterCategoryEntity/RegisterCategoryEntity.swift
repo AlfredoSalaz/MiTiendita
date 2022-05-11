@@ -8,9 +8,12 @@
 import Foundation
 
 struct CategoryRegister: Encodable {
-    var name: String
-    var image: String
-    var id: Int
+    static let shared = CategoryRegister()
+    init(){
+    }
+    var name: String?
+    var image: String?
+    var id: Int?
     
     init(name: String, image:  String, id: Int) {
         self.image = image

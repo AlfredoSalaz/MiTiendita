@@ -20,7 +20,7 @@ class InternalData {
         let category = NSManagedObject(entity: entity, insertInto: manageContext)
         category.setValue(data.id, forKey: "id")
         category.setValue(data.name, forKey: "name")
-        category.setValue(getImageDataFromUrl(url: data.image), forKey: "image")
+        category.setValue(getImageDataFromUrl(url: data.image!), forKey: "image")
         do {
             try manageContext.save()
             delegate.saveCategorySuccess(data: category)
@@ -34,7 +34,7 @@ class InternalData {
         do {
             object.setValue(data.id, forKey: "id")
             object.setValue(data.name, forKey: "name")
-            object.setValue(getImageDataFromUrl(url: data.image), forKey: "image")
+            object.setValue(getImageDataFromUrl(url: data.image!), forKey: "image")
             try manageContext.save()
             delegate.saveCategorySuccess(data: object)
         } catch (let error as NSError) {

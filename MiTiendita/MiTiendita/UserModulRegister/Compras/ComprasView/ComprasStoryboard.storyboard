@@ -11,7 +11,7 @@
         <!--Compras View Controller-->
         <scene sceneID="CCP-df-shQ">
             <objects>
-                <viewController storyboardIdentifier="compras" id="mkG-vk-9mv" customClass="ComprasViewController" customModule="MiTiendita" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="compras" modalPresentationStyle="fullScreen" id="mkG-vk-9mv" customClass="ComprasViewController" customModule="MiTiendita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hvm-2S-Jv8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,13 +187,26 @@
                                                 </constraints>
                                                 <state key="normal" title="Pagar"/>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1z-oA-GkD">
+                                                <rect key="frame" x="20" y="10" width="80" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="4wu-tN-IuE"/>
+                                                    <constraint firstAttribute="width" constant="80" id="J1Y-hI-rMz"/>
+                                                </constraints>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backButton:" destination="mkG-vk-9mv" eventType="touchUpInside" id="cAR-xF-E4e"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="sZ0-JM-oUU" firstAttribute="top" secondItem="sLi-gs-Q7H" secondAttribute="bottom" constant="40" id="Bxv-8S-VtX"/>
                                             <constraint firstItem="sLi-gs-Q7H" firstAttribute="top" secondItem="ea2-JC-y0Y" secondAttribute="bottom" constant="40" id="Ca8-r0-0fE"/>
+                                            <constraint firstItem="g1z-oA-GkD" firstAttribute="leading" secondItem="tKb-WY-6hK" secondAttribute="leading" constant="20" id="D8B-ns-lrn"/>
                                             <constraint firstItem="sLi-gs-Q7H" firstAttribute="leading" secondItem="tKb-WY-6hK" secondAttribute="leading" constant="10" id="EaC-Hh-f8Z"/>
                                             <constraint firstAttribute="trailing" secondItem="sLi-gs-Q7H" secondAttribute="trailing" constant="10" id="GDE-Hm-EUS"/>
+                                            <constraint firstItem="g1z-oA-GkD" firstAttribute="top" secondItem="tKb-WY-6hK" secondAttribute="top" constant="10" id="GwB-lc-47E"/>
                                             <constraint firstItem="ea2-JC-y0Y" firstAttribute="leading" secondItem="tKb-WY-6hK" secondAttribute="leading" constant="40" id="fZR-m5-zI0"/>
                                             <constraint firstAttribute="trailing" secondItem="ea2-JC-y0Y" secondAttribute="trailing" constant="40" id="jOV-XG-bBQ"/>
                                             <constraint firstAttribute="bottom" secondItem="sZ0-JM-oUU" secondAttribute="bottom" constant="30" id="jPm-7c-xOz"/>

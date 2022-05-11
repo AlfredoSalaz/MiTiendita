@@ -41,6 +41,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     func resetEntityCoreData(name: String)
     func getProductCoreData()
     func saveProductsCoreData(data: ProductRegister)
+    func openViewComprasRouterfromMainPre( user: User?)
 }
 //INTERACTOR
 protocol MainAdminInteractorProtocol: NSObject {
@@ -75,4 +76,5 @@ protocol MainAdminRouterProtocol {
     func openListUsuers(View: MainAdminViewControllerProtocol)
     
     func openEditUser(view: MainAdminViewControllerProtocol, isEdit:Bool, user: User?)
+    func openViewComprasRouterfromMain( user: User?, view: MainAdminViewControllerProtocol)
 }

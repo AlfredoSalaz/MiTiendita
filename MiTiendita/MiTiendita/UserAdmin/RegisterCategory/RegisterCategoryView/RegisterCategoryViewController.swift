@@ -106,7 +106,7 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
         guard let isEdit = isEdit else {return}
         if isEdit{
             print("editado")
-            let cat = CategoryRegister(name: data.name ?? "default", image: data.image ?? "", id: data.id)
+            let cat = CategoryRegister(name: data.name ?? "default", image: data.image ?? "", id: data.id!)
             guard let object = self.objectCoreData else {return}
             print("have info")
             DispatchQueue.main.async {
@@ -116,7 +116,7 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
                 self.viewIndicator?.stopAnimating()
             }
         }else{
-            let cat = CategoryRegister(name: data.name ?? "default", image: data.image ?? "", id: data.id)
+            let cat = CategoryRegister(name: data.name ?? "default", image: data.image ?? "", id: data.id!)
             DispatchQueue.main.async {
                 self.presenter?.saveInCoreData(data: cat)
                 self.dismiss(animated: true, completion: nil)

@@ -13,7 +13,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     @IBOutlet weak var lblDescripcion: UILabel!
     @IBOutlet weak var lblPrecio: UILabel!
     @IBOutlet weak var lblCategory: UILabel!
-    
+    @IBOutlet weak var btnAddCar: UIButton?
     @IBOutlet weak var imgProduct: UIImageView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -21,15 +21,17 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     var presenter: DetailProductPresenterProtocol?
     
     var product: ProductDetail?
-    var user: User?
     
+    var userSingleton = User.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.recivedProductFromListProduct()
         showData()
         collectionView.delegate = self
         collectionView.dataSource = self
-        print("el usario es \(user?.name)")
+        if userSingleton.role == "admin"{
+            btnAddCar?.isHidden = true
+        }
     }
     
     func showData() {
@@ -43,7 +45,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
 
     @IBAction func btnAddCar(_ sender: Any) {
         //presenter?.openViewCompras(product: product, user: nil)
-        let compraUser = ComprasUser(usId: user?.id ?? 0, totalProd: Decimal(product?.price ?? 0), totalCompra: Decimal(product?.price ?? 0), prodId: product?.id ?? 0, priceProducts: Decimal(product?.price ?? 0), numberProducts: 1, imageProd: product?.images.first ?? "", nameProd: product?.title ?? "")
+        let compraUser = ComprasUser(usId: userSingleton.id ?? 0, totalProd: Decimal(product?.price ?? 0), totalCompra: Decimal(product?.price ?? 0), prodId: product?.id ?? 0, priceProducts: Decimal(product?.price ?? 0), numberProducts: 1, imageProd: product?.images.first ?? "", nameProd: product?.title ?? "")
         presenter?.saveCompraUser(compra: compraUser)
     }
     
@@ -51,7 +53,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
         dismiss(animated: true)
     }
     func saveCompraCoreData(){
-        presenter?.openViewCompras(product: product, user: user)
+        presenter?.openViewCompras(product: product)
     }
 }
 

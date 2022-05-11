@@ -12,7 +12,6 @@ protocol DetailProductViewControllerProtocol: UIViewController {
     var presenter: DetailProductPresenterProtocol? {get set}
     
     var product: ProductDetail? {get set}
-    var user: User? {get set}
     func saveCompraCoreData()
 }
 
@@ -28,9 +27,9 @@ protocol DetailProductPresenterProtocol: NSObject {
     var interactor: DetailProductInteractorProtocol? {get set}
     var router: DetailProductRouterProtocol? {get set}
     var product: ProductDetail? {get set}
-    var user: User? {get set}
+    
     func recivedProductFromListProduct()
-    func openViewCompras(product: ProductDetail?, user: User?)
+    func openViewCompras(product: ProductDetail?)
     func saveCompraUser(compra: ComprasUser)
 }
 
@@ -42,8 +41,8 @@ protocol DetailProductOutputProtocol: NSObject {
 //Router
 protocol DetailProductRouterProtocol{
     var presenter: DetailProductPresenterProtocol? {get set}
-    static func createModule(data: ProductDetail, user: User?) -> UIViewController
-    func openViewComprasRouter(product: ProductDetail?, user: User?, view: DetailProductViewControllerProtocol)
+    static func createModule(data: ProductDetail) -> UIViewController
+    func openViewComprasRouter(product: ProductDetail?, view: DetailProductViewControllerProtocol)
 }
 
 

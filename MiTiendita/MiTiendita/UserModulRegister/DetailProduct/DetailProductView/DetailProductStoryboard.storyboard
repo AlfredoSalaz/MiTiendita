@@ -162,6 +162,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnAddCar" destination="Rk7-6S-xp5" id="Tgv-AD-tSK"/>
                         <outlet property="collectionView" destination="cwY-w0-lG8" id="p2u-Xi-KkH"/>
                         <outlet property="lblCategory" destination="uqd-yw-unX" id="oNY-I7-2qo"/>
                         <outlet property="lblDescripcion" destination="AkI-uA-8ga" id="Hia-Y6-Pbf"/>

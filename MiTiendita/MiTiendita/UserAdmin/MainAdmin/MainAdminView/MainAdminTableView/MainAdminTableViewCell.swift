@@ -52,7 +52,7 @@ class MainAdminTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let data = listPr![indexPath.row]
-        let detail = ProductDetail(id: data.id , title: (data.title)!, price: (data.price)!, description: (data.description)!, category: (data.category!), images: data.images ?? [])
+        let detail = ProductDetail(id: data.id! , title: (data.title)!, price: (data.price)!, description: (data.description)!, category: (data.category!), images: data.images ?? [])
         print("user \(user?.name)")
         presenter?.openDetailProduct(data: detail, user: user)
     }

@@ -15,15 +15,17 @@ class ComprasViewCell: UITableViewCell {
     @IBOutlet weak var precio: UILabel?
     @IBOutlet weak var total: UILabel?
     
-    var actionButton: (()->())?
+    var actionAddProdut: (()->())?
+    var actionDissProduct: (()->())?
+    var actionDeleteProduct: (()->())?
     
     @IBAction func addProduct(_ sender: Any){
-        actionButton?()
+        actionAddProdut?()
     }
     @IBAction func dissmissProduct(_ sender: Any){
-        actionButton?()
+        actionDissProduct?()
     }
     @IBAction func deleteProduct(_ sender: Any){
-        actionButton?()
+        actionDeleteProduct?()
     }
 }

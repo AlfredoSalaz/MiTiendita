@@ -312,6 +312,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AR-Q1-KW9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                         <state key="normal" image="shopping-cart"/>
+                                                                        <connections>
+                                                                            <action selector="carAction:" destination="Zs1-Pz-teS" eventType="touchUpInside" id="peN-OI-Syi"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -13,13 +13,7 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     var interactor: MainAdminInteractorProtocol?
     var router: MainAdminRouterProtocol?
     var recivedUser: User?
-    /*
-    func openEditUser(user: User, isEdditing: Bool){
-        let vc = PerfilUserRegisterRouter.createModulePerfilUserRegister(user: user, isEdditing: isEdditing)
-        view?.present(vc, animated: true)
-        
-    }
-     */
+    
     func openEditUser(user: User?, isEdditing: Bool) {
         router?.openEditUser(view: view!, isEdit: true, user: user)
     }
@@ -66,7 +60,9 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func saveProductsCoreData(data: ProductRegister) {
         interactor?.saveProductCoreData(data: data)
     }
-    
+    func openViewComprasRouterfromMainPre(user: User?) {
+        router?.openViewComprasRouterfromMain(user: user, view: view!)
+    }
 }
 
 extension MainAdminPresenter: MainAdminInteractorOutputProtocol{

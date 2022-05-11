@@ -24,7 +24,7 @@ class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProt
         view?.present(vc, animated: true)
     }
     func openDetailProducts(product: ProductDetail) {
-        let vc = DetailProductRouter.createModule(data: product, user: nil)
+        let vc = DetailProductRouter.createModule(data: product)
         view?.present(vc, animated: true)
         
     }
