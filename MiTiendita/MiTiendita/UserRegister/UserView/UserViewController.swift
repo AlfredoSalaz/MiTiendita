@@ -9,14 +9,12 @@ import UIKit
 
 class UserViewController: UIViewController, UserViewControllerProtocol {
     
+    
+    
     @IBOutlet weak var txtNombre: UITextField!
-    
     @IBOutlet weak var txtApellido: UITextField!
-
     @IBOutlet weak var txtEmail: UITextField!
-    
     @IBOutlet weak var txtPassword: UITextField!
-    
     @IBOutlet weak var lblTextoCampos: UILabel!
     
     var presenter: UserPresenterProtocol?
@@ -31,12 +29,10 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
         txtApellido?.layer.borderWidth = 2
         txtEmail?.layer.borderWidth = 2
         txtPassword?.layer.borderWidth = 2
-        
         txtNombre?.layer.borderColor = myColor.cgColor
         txtApellido?.layer.borderColor = myColor.cgColor
         txtEmail?.layer.borderColor = myColor.cgColor
         txtPassword.layer.borderColor = myColor.cgColor
-        
     }
     //Validar 4 caracteres
     func validarCampos() {
@@ -56,7 +52,13 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
             print("Puede ingresar")
         }
     }
+    func errorCheckEmail(user: ValidateEmail) {
+        if user.isAvailable == false{//Si existe, no te puedes loguear
+            //presenter?.saveUserApi(user: user)
+        }
+    }
     
+    ///Función encargada de ocultar la pantalla, atraves del hilo principal
     func dismissWindow() {
         DispatchQueue.main.async {
             self.dismiss(animated: true)
@@ -64,10 +66,8 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
     }
     
     @IBAction func btnRegistrar(_ sender: Any) {
-        
         loadDataUser()
         presenter?.saveUserApi(user: user!)
-        
         //validarCampos()
     }
     
