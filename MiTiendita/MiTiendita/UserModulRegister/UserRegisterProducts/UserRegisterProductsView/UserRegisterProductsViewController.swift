@@ -19,14 +19,18 @@ class UserRegisterProductsViewController: UIViewController,  UserRegisterProduct
     @IBOutlet weak var txtBusqueda: UITextField!
     
     var presenter: UserRegisterProductsPresenterProtocol?
-
+    let product = ProductDetalSingleton.shared
     var listProducts = [Product.shared]
     var user = User.shared
+    var isMultipleSlection = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableDatos.allowsMultipleSelectionDuringEditing = true
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         presenter?.getListProduct()
     }
-
     func receivedlistProduct(data: [Product]) {
         listProducts = data
         DispatchQueue.main.async { [weak self] in
@@ -46,6 +50,15 @@ class UserRegisterProductsViewController: UIViewController,  UserRegisterProduct
     }
     @IBAction func addNewProduct(_ sender: Any){
         presenter?.openRegisterProduct(isEdit: false)
+    }
+    @IBAction func cancelSelection(_ sender: Any){
+        tableDatos.setEditing(false, animated: true)
+        isMultipleSlection = false
+    }
+    @IBAction func multipleSelection(_ sender: Any){
+        tableDatos.setEditing(true, animated: true)
+        isMultipleSlection = true
+        tableDatos.reloadData()
     }
 }
 
@@ -68,15 +81,33 @@ extension UserRegisterProductsViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let data = listProducts[indexPath.row]
-        
-        let pro = ProductDetail(id: data.id! , title: (data.title)!, price: (data.price)!, description: (data.description)!, category: (data.category!), images: data.images ?? [])
-        
-        presenter?.openDetailProducts(product: pro)
-        
+        if isMultipleSlection{
+            print("me")
+        }else{
+            let data = listProducts[indexPath.row]
+            product.id = data.id
+            product.title = data.title
+            product.price = data.price
+            product.description = data.description
+            product.category = data.category
+            product.images = data.images
+            presenter?.openDetailProducts()
+        }
     }
-    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print("deselection")
+    }
+    func tableView(_ tableView: UITableView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        var da = true
+        let data = listProducts[indexPath.row]
+        if data.category?.id == 1{
+            da = false
+        }
+        return da
+    }
 }
 
 

@@ -24,3 +24,16 @@ struct ProductDetail: Codable {
         self.images = images
     }
 }
+
+class ProductDetalSingleton {
+    static let shared = ProductDetalSingleton()
+    init() {
+        
+    }
+    var id: Int?
+    var title: String?
+    var price: Int?
+    var description: String?
+    var category: CategoryProduct?
+    var images: [String]?
+}

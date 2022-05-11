@@ -10,9 +10,10 @@ import CoreData
 
 protocol ComprasViewControllerProtocol: UIViewController {
     var presenter: ComprasPresenterProtocol? {get set}
-    var product: ProductDetail? {get set}
+    
     func recivedCompraFromCoreData(data: [NSManagedObject])
     func deletedObjectSuccessInCD()
+    func upatedSuccessCD()
 }
 
 protocol ComprasPresenterProtocol: NSObject {
@@ -20,26 +21,25 @@ protocol ComprasPresenterProtocol: NSObject {
     var interactor: ComprasInteractorProtocol? {get set}
     var router: ComprasRouterProtocol? {get set}
     
-    var product: ProductDetail? {get set}
-    func recivedData()
     func getComprasCD()
-    func updateCompraUserCar(compra: ComprasUser, object: NSManagedObject?)
+    func updateCompraUserCar(compra: ComprasUserCD, object: NSManagedObject?)
     func deleteCompraUser(object: NSManagedObject?)
 }
 
 protocol ComprasInteractorProtocol: NSObject{
     var output: ComprasInteractorOutputProtocol? {get set}
     func getComprasCoreData()
-    func updateCompraUserCarr(compra: ComprasUser, object: NSManagedObject?)
+    func updateCompraUserCarr(compra: ComprasUserCD, object: NSManagedObject?)
     func deleteCompraUserCD(object: NSManagedObject?)
 }
 
 protocol ComprasInteractorOutputProtocol {
     func recivedCompraFromCD(data: [NSManagedObject])
     func deletedObjectSuccess()
+    func updatedSuccess()
 }
 
 protocol ComprasRouterProtocol {
     var presenter: ComprasPresenterProtocol? {get set}
-    static func createModuleCompras(product: ProductDetail?) -> UIViewController
+    static func createModuleCompras() -> UIViewController
 }

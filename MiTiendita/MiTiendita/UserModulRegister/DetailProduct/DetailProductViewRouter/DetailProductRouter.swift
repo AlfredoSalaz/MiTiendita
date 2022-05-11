@@ -10,7 +10,7 @@ import UIKit
 class DetailProductRouter: DetailProductRouterProtocol {
     var presenter: DetailProductPresenterProtocol?
     
-    static func createModule(data: ProductDetail) -> UIViewController {
+    static func createModule() -> UIViewController {
         
         let view = storyboard.instantiateViewController(withIdentifier: "detailProductView") as! DetailProductViewController
         let presenter: DetailProductPresenterProtocol & DetailProductOutputProtocol = DetailProductPresenter()
@@ -20,7 +20,6 @@ class DetailProductRouter: DetailProductRouterProtocol {
         
         view.presenter = presenter
         presenter.view = view
-        presenter.product = data
         presenter.interactor = interactor
         presenter.router = router
         interactor.output = presenter
@@ -33,8 +32,12 @@ class DetailProductRouter: DetailProductRouterProtocol {
     static var storyboard: UIStoryboard{
         return UIStoryboard(name: "DetailProductStoryboard", bundle: nil)
     }
-    func openViewComprasRouter(product: ProductDetail?, view: DetailProductViewControllerProtocol) {
-        let vc = ComprasRouter.createModuleCompras(product: product)
+    func openViewComprasRouter(view: DetailProductViewControllerProtocol) {
+        let vc = ComprasRouter.createModuleCompras()
+        view.present(vc, animated: true)
+    }
+    func openEditProduct(view: DetailProductViewControllerProtocol, isEdit: Bool?) {
+        let vc = RegisterProductsRouter.createModuleRegisterProduct(isEdit: isEdit)
         view.present(vc, animated: true)
     }
     

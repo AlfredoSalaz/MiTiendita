@@ -32,7 +32,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     func getCategories()
     func getProduct()
     func openViewUser()
-    func openDetailProduct(data: ProductDetail, user: User?)
+    func openDetailProduct()
     var recivedUser: User? {get set}
     func recivedDataFromIndex()
     //Coredata
@@ -41,7 +41,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     func resetEntityCoreData(name: String)
     func getProductCoreData()
     func saveProductsCoreData(data: ProductRegister)
-    func openViewComprasRouterfromMainPre( user: User?)
+    func openViewComprasRouterfromMainPre()
 }
 //INTERACTOR
 protocol MainAdminInteractorProtocol: NSObject {
@@ -71,10 +71,10 @@ protocol MainAdminRouterProtocol {
     func openRegisterCategoryRouter(view: MainAdminViewControllerProtocol)
     func editCategoryRouter(view: MainAdminViewControllerProtocol, data: CategoryProduct, isEdit: Bool, objectCoreData: NSManagedObject)
     func openListProduct(view: MainAdminViewControllerProtocol)
-    func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail, user: User?)
+    func openDetailProduct(view:MainAdminViewControllerProtocol)
     static func createModuleMainAdmin(user: User) -> UIViewController
     func openListUsuers(View: MainAdminViewControllerProtocol)
     
     func openEditUser(view: MainAdminViewControllerProtocol, isEdit:Bool, user: User?)
-    func openViewComprasRouterfromMain( user: User?, view: MainAdminViewControllerProtocol)
+    func openViewComprasRouterfromMain(view: MainAdminViewControllerProtocol)
 }

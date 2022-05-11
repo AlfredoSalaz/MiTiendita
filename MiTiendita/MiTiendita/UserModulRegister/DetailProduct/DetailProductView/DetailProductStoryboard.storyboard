@@ -135,6 +135,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nuc-ow-ZkH">
+                                <rect key="frame" x="344" y="54" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="XXC-aN-PYR"/>
+                                    <constraint firstAttribute="height" constant="30" id="x5J-U4-ehU"/>
+                                </constraints>
+                                <state key="normal" image="editar"/>
+                                <connections>
+                                    <action selector="editProduct:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sTJ-Xm-fSs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -146,6 +157,7 @@
                             <constraint firstItem="cwY-w0-lG8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Agc-VD-G3b"/>
                             <constraint firstItem="Rk7-6S-xp5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="BA8-Xx-qXi"/>
                             <constraint firstItem="95h-4Z-c8G" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="CEV-fo-b5B"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nuc-ow-ZkH" secondAttribute="trailing" constant="40" id="Q5w-XV-xmi"/>
                             <constraint firstItem="uqd-yw-unX" firstAttribute="top" secondItem="sW0-BU-fPw" secondAttribute="bottom" constant="25" id="SKl-yo-MWZ"/>
                             <constraint firstItem="95h-4Z-c8G" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="XzX-c9-63I"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sW0-BU-fPw" secondAttribute="trailing" constant="40" id="eJC-CO-zvt"/>
@@ -159,10 +171,12 @@
                             <constraint firstItem="Rk7-6S-xp5" firstAttribute="top" secondItem="uqd-yw-unX" secondAttribute="bottom" constant="38" id="ub1-NS-RzZ"/>
                             <constraint firstItem="vfV-Tt-hdz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="wLA-x2-gjj"/>
                             <constraint firstItem="sW0-BU-fPw" firstAttribute="top" secondItem="AkI-uA-8ga" secondAttribute="bottom" constant="16" id="xq5-J2-RG8"/>
+                            <constraint firstItem="Nuc-ow-ZkH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="yOZ-FC-hHs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnAddCar" destination="Rk7-6S-xp5" id="Tgv-AD-tSK"/>
+                        <outlet property="btnEdit" destination="Nuc-ow-ZkH" id="rdH-yS-lTK"/>
                         <outlet property="collectionView" destination="cwY-w0-lG8" id="p2u-Xi-KkH"/>
                         <outlet property="lblCategory" destination="uqd-yw-unX" id="oNY-I7-2qo"/>
                         <outlet property="lblDescripcion" destination="AkI-uA-8ga" id="Hia-Y6-Pbf"/>
@@ -176,6 +190,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="editar" width="512" height="512"/>
         <image name="profile" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

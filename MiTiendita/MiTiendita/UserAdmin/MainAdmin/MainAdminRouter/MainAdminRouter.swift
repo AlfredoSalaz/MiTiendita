@@ -36,8 +36,8 @@ class MainAdminRouter: MainAdminRouterProtocol {
         let vc = UserRegisterProductsRouter.createModuleUserRegisterProducts()
         view.present(vc, animated: true, completion: nil)
     }
-    func openDetailProduct(view:MainAdminViewControllerProtocol, data: ProductDetail, user: User?){
-        let vc = DetailProductRouter.createModule(data: data)
+    func openDetailProduct(view:MainAdminViewControllerProtocol){
+        let vc = DetailProductRouter.createModule()
         view.present(vc, animated: true, completion: nil)
     }
     func openListUsuers(View: MainAdminViewControllerProtocol) {
@@ -50,9 +50,8 @@ class MainAdminRouter: MainAdminRouterProtocol {
         view.present(vc, animated: true)
     }
     
-    func openViewComprasRouterfromMain(user: User?, view: MainAdminViewControllerProtocol) {
-        let vc = ComprasRouter.createModuleCompras(
-            product: nil)
+    func openViewComprasRouterfromMain(view: MainAdminViewControllerProtocol) {
+        let vc = ComprasRouter.createModuleCompras()
         view.present(vc, animated: true)
     }
     

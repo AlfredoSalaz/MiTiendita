@@ -10,8 +10,6 @@ import UIKit
 //View
 protocol DetailProductViewControllerProtocol: UIViewController {
     var presenter: DetailProductPresenterProtocol? {get set}
-    
-    var product: ProductDetail? {get set}
     func saveCompraCoreData()
 }
 
@@ -26,10 +24,9 @@ protocol DetailProductPresenterProtocol: NSObject {
     var view: DetailProductViewControllerProtocol? {get set}
     var interactor: DetailProductInteractorProtocol? {get set}
     var router: DetailProductRouterProtocol? {get set}
-    var product: ProductDetail? {get set}
     
-    func recivedProductFromListProduct()
-    func openViewCompras(product: ProductDetail?)
+    func openViewCompras()
+    func openEditProducts(isEdit: Bool?)
     func saveCompraUser(compra: ComprasUser)
 }
 
@@ -41,8 +38,9 @@ protocol DetailProductOutputProtocol: NSObject {
 //Router
 protocol DetailProductRouterProtocol{
     var presenter: DetailProductPresenterProtocol? {get set}
-    static func createModule(data: ProductDetail) -> UIViewController
-    func openViewComprasRouter(product: ProductDetail?, view: DetailProductViewControllerProtocol)
+    static func createModule() -> UIViewController
+    func openViewComprasRouter(view: DetailProductViewControllerProtocol)
+    func openEditProduct(view: DetailProductViewControllerProtocol, isEdit: Bool?)
 }
 
 

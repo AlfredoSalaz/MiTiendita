@@ -10,7 +10,7 @@ import UIKit
 class ComprasRouter: ComprasRouterProtocol {
     var presenter: ComprasPresenterProtocol?
     
-    static func createModuleCompras(product: ProductDetail?) -> UIViewController {
+    static func createModuleCompras() -> UIViewController {
         let view = storyboard.instantiateViewController(withIdentifier: "compras") as! ComprasViewController
         let presenter: ComprasPresenterProtocol & ComprasInteractorOutputProtocol = ComprasPresenter()
         let interactor: ComprasInteractorProtocol = ComprasInteractor()
@@ -22,8 +22,6 @@ class ComprasRouter: ComprasRouterProtocol {
         presenter.router = router
         interactor.output = presenter
         router.presenter = presenter
-        
-        presenter.product = product
         return view
     }
     

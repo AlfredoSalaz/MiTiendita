@@ -38,8 +38,8 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func openListProduct(){
         router?.openListProduct(view: view!)
     }
-    func openDetailProduct(data: ProductDetail, user: User?){
-        router?.openDetailProduct(view: view!, data: data, user: user)
+    func openDetailProduct(){
+        router?.openDetailProduct(view: view!)
     }
     func recivedDataFromIndex(){
         view?.recivedDataFromPresenter(data: recivedUser!)
@@ -60,8 +60,8 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func saveProductsCoreData(data: ProductRegister) {
         interactor?.saveProductCoreData(data: data)
     }
-    func openViewComprasRouterfromMainPre(user: User?) {
-        router?.openViewComprasRouterfromMain(user: user, view: view!)
+    func openViewComprasRouterfromMainPre() {
+        router?.openViewComprasRouterfromMain(view: view!)
     }
 }
 

@@ -11,12 +11,18 @@ class RegisterProductsPresenter: NSObject, RegisterProductsPresenterProtocol {
     weak var view: RegisterProductsViewControllerProtocol?
     var interactor: RegisterProductsInteractorProtocol?
     var router: RegisterProductsRouterProtocol?
-    
+    var isEditt: Bool?
     func saveNewProduct(data: [String: Any]){
         interactor?.saveNewProducts(data: data)
+    }
+    func loadInfo() {
+        view?.isEditt = isEditt
     }
 }
 
 extension RegisterProductsPresenter: RegisterProductsInteractorOutputProtocol {
     
+    func savedProductInAPI() {
+        view?.savedProductsInAPI()
+    }
 }

@@ -66,7 +66,7 @@ class InternalDataCompras {
             delegate.faillureRequest(error: error)
         }
     }
-    func updateCompraCoreData(object: NSManagedObject, delegate: InternalDataComprasDelegate, data: ComprasUser){
+    func updateCompraCoreData(object: NSManagedObject, delegate: InternalDataComprasDelegate, data: ComprasUserCD){
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let manageContext = appdelegate.persistentContainer.viewContext
         do {
@@ -77,7 +77,7 @@ class InternalDataCompras {
             object.setValue(data.total, forKey: "total")
             object.setValue(data.totalProduct, forKey: "totalProduct")
             object.setValue(data.nameProduct, forKey: "nameProduct")
-            object.setValue(getImageDataFromUrl(url: data.imageProduct), forKey: "imageProduct")
+            object.setValue(data.imageProduct, forKey: "imageProduct")
             try manageContext.save()
             delegate.updatedCompraSuccess(data: object)
         } catch (let error as NSError) {

@@ -9,14 +9,17 @@ import UIKit
 
 protocol RegisterProductsViewControllerProtocol: UIViewController {
     var presenter: RegisterProductsPresenterProtocol? {get set}
-    
+    func savedProductsInAPI()
+    var isEditt: Bool?{get set}
 }
 
 protocol RegisterProductsPresenterProtocol: NSObject {
     var view: RegisterProductsViewControllerProtocol? {get set}
     var interactor: RegisterProductsInteractorProtocol? {get set}
     var router: RegisterProductsRouterProtocol? {get set}
+    var isEditt: Bool?{get set}
     func saveNewProduct(data: [String: Any])
+    func loadInfo()
 }
 
 protocol RegisterProductsInteractorProtocol: NSObject {
@@ -25,10 +28,10 @@ protocol RegisterProductsInteractorProtocol: NSObject {
 }
 
 protocol RegisterProductsInteractorOutputProtocol{
-    
+    func savedProductInAPI()
 }
 
 protocol RegisterProductsRouterProtocol {
     var presenter: RegisterProductsPresenterProtocol? {get set}
-    static func createModuleRegisterProduct() -> UIViewController
+    static func createModuleRegisterProduct(isEdit: Bool?) -> UIViewController
 }

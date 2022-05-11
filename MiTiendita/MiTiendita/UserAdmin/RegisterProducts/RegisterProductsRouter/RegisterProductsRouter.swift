@@ -10,7 +10,7 @@ import UIKit
 class RegisterProductsRouter: RegisterProductsRouterProtocol {
     var presenter: RegisterProductsPresenterProtocol?
     
-    static func createModuleRegisterProduct() -> UIViewController {
+    static func createModuleRegisterProduct(isEdit: Bool?) -> UIViewController {
         let view = main.instantiateViewController(withIdentifier: "registerProducts") as! RegisterProductsViewController
         let presenter: RegisterProductsPresenterProtocol & RegisterProductsInteractorOutputProtocol = RegisterProductsPresenter()
         let interactor: RegisterProductsInteractorProtocol = RegisterProductsInteractor()
@@ -22,7 +22,7 @@ class RegisterProductsRouter: RegisterProductsRouterProtocol {
         presenter.interactor = interactor
         interactor.output = presenter
         router.presenter = presenter
-        
+        presenter.isEditt = isEdit
         return view
     }
     

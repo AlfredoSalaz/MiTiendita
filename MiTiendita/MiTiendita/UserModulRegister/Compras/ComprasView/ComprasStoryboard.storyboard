@@ -214,12 +214,22 @@
                                             <constraint firstItem="ea2-JC-y0Y" firstAttribute="top" secondItem="tKb-WY-6hK" secondAttribute="top" constant="20" id="qBB-jZ-sqC"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="yjI-Ad-o4S">
+                                        <rect key="frame" x="182" y="384" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="DlO-XA-9OP"/>
+                                            <constraint firstAttribute="width" constant="50" id="XOH-aP-taB"/>
+                                        </constraints>
+                                        <color key="color" red="0.3746567964553833" green="0.16563212871551514" blue="0.92774271965026855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tKb-WY-6hK" firstAttribute="leading" secondItem="I2c-t0-W9r" secondAttribute="leading" id="CQf-7U-NtK"/>
                                     <constraint firstItem="tKb-WY-6hK" firstAttribute="width" secondItem="I2c-t0-W9r" secondAttribute="width" id="ZZq-55-hL9"/>
                                     <constraint firstItem="tKb-WY-6hK" firstAttribute="top" secondItem="I2c-t0-W9r" secondAttribute="top" id="dpR-yH-Ryy"/>
+                                    <constraint firstItem="yjI-Ad-o4S" firstAttribute="centerX" secondItem="I2c-t0-W9r" secondAttribute="centerX" id="e73-Z1-hVO"/>
                                     <constraint firstAttribute="trailing" secondItem="tKb-WY-6hK" secondAttribute="trailing" id="ffF-9X-A2y"/>
+                                    <constraint firstItem="yjI-Ad-o4S" firstAttribute="centerY" secondItem="I2c-t0-W9r" secondAttribute="centerY" id="hR5-ZW-Hea"/>
                                     <constraint firstAttribute="bottom" secondItem="tKb-WY-6hK" secondAttribute="bottom" id="z0W-QA-Z3k"/>
                                 </constraints>
                             </scrollView>
@@ -235,6 +245,7 @@
                     </view>
                     <connections>
                         <outlet property="alturaTabla" destination="aTp-HA-HJq" id="dCn-Mh-zum"/>
+                        <outlet property="indicatorView" destination="yjI-Ad-o4S" id="Xhh-gg-VCx"/>
                         <outlet property="tableView" destination="sLi-gs-Q7H" id="l6I-Dp-Zra"/>
                     </connections>
                 </viewController>

@@ -45,6 +45,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     }
     
     func recivedDataFromPresenter(data: User){
+        //user = data
         user.avatar = data.avatar
         user.email = data.email
         user.id = data.id
@@ -202,13 +203,7 @@ extension MainAdminViewController {
         isOn = true
     }
     @IBAction func productsAdmin(_ sender: Any) {
-        /*let userSingleton = User.shared
-        userSingleton.avatar = user.avatar
-        userSingleton.email = user.email
-        userSingleton.id = user.id
-        userSingleton.password = user.password
-        userSingleton.role = user.role
-        userSingleton.name = user.name*/
+        
         presenter?.openListProduct()
     }
     @IBAction func registerUserAdmin(_ sender: Any) {
@@ -218,7 +213,7 @@ extension MainAdminViewController {
         
     }
     @IBAction func carAction(_ sender: Any){
-        presenter?.openViewComprasRouterfromMainPre(user: user)
+        presenter?.openViewComprasRouterfromMainPre()
     }
 
     @IBAction func cerrarSession(_ sender: Any){

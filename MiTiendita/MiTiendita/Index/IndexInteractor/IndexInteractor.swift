@@ -29,10 +29,10 @@ extension IndexInteractor: RequestManagerDelegate{
         switch tag {
         case 0:
             if let data = data as? UserToken{
-                if data.access_token != ""{
+                if data.access_token != "" && data.access_token != nil{
                     output?.onRecivedToken(data: data)
                 }else{
-                    print("vacio")
+                    output?.faillureAuthPre()
                 }
             }
         default:

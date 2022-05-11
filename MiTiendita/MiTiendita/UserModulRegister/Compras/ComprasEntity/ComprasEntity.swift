@@ -29,3 +29,25 @@ class ComprasUser: Encodable {
         nameProduct = nameProd
     }
 }
+class ComprasUserCD: Encodable {
+    
+    var userId: Int
+    var totalProduct: Decimal
+    var total: Decimal
+    var productId: Int
+    var priceProduct: Decimal
+    var numberProduct: Int
+    var imageProduct: Data
+    var nameProduct: String
+    
+    init(usId: Int, totalProd: Decimal, totalCompra: Decimal, prodId: Int, priceProducts: Decimal, numberProducts: Int, imageProd: Data, nameProd: String) {
+        userId = usId
+        totalProduct = totalProd
+        total = totalCompra
+        productId = prodId
+        priceProduct = priceProducts
+        numberProduct = numberProducts
+        imageProduct = imageProd
+        nameProduct = nameProd
+    }
+}

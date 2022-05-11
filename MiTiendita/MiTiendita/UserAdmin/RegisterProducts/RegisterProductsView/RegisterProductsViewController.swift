@@ -17,11 +17,11 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
     @IBOutlet weak var idCategory: UITextField?
     @IBOutlet weak var viewLoadImage: UIView?
     var product: [String: Any]?
-    var isEdit: Bool = false
-
+    var isEditt: Bool?
+    var productSin = ProductDetalSingleton.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        validateView()
+        presenter?.loadInfo()
         viewLoadImage?.isHidden = true
         nameProduct?.layer.borderWidth = 1
         price?.layer.borderWidth = 1
@@ -29,12 +29,14 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
         nameProduct?.layer.borderColor = UIColor.magenta.cgColor
         price?.layer.borderColor = UIColor.magenta.cgColor
         descriptionProduct?.layer.borderColor = UIColor.magenta.cgColor
+        
+        validateView()
     }
     private func validateView(){
-        if isEdit {
-            
+        if isEditt! {
+            print("is edit")
         }else{
-            
+            print("NO edit")
         }
     }
     
@@ -66,6 +68,14 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
               ]
         ]
     }
+    
+    func savedProductsInAPI() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+    }
+    
     @IBAction func galeryProduct(_ sender: Any){
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
             

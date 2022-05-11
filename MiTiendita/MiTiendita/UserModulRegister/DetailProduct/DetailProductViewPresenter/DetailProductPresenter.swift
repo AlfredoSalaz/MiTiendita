@@ -12,14 +12,14 @@ class DetailProductPresenter: NSObject, DetailProductPresenterProtocol {
     var interactor: DetailProductInteractorProtocol?
     var router: DetailProductRouterProtocol?
     var product: ProductDetail?
-    func recivedProductFromListProduct(){
-        view?.product = product
-    }
-    func openViewCompras(product: ProductDetail?) {
-        router?.openViewComprasRouter(product: product, view: view!)
+    func openViewCompras() {
+        router?.openViewComprasRouter(view: view!)
     }
     func saveCompraUser(compra: ComprasUser){
         interactor?.savedCompraUser(compra: compra)
+    }
+    func openEditProducts(isEdit: Bool?) {
+        router?.openEditProduct(view: view!, isEdit: isEdit)
     }
 }
 extension DetailProductPresenter: DetailProductOutputProtocol{

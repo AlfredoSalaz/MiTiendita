@@ -20,11 +20,11 @@ class UserRegisterProductsPresenter: NSObject, UserRegisterProductsPresenterProt
         interactor?.getListProduct()
     }
     func openRegisterProduct(isEdit: Bool) {
-        let vc = RegisterProductsRouter.createModuleRegisterProduct()
+        let vc = RegisterProductsRouter.createModuleRegisterProduct(isEdit: isEdit)
         view?.present(vc, animated: true)
     }
-    func openDetailProducts(product: ProductDetail) {
-        let vc = DetailProductRouter.createModule(data: product)
+    func openDetailProducts() {
+        let vc = DetailProductRouter.createModule()
         view?.present(vc, animated: true)
         
     }

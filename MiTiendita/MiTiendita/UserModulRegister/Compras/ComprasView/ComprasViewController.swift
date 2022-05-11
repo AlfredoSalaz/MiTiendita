@@ -12,19 +12,21 @@ class ComprasViewController: UIViewController, ComprasViewControllerProtocol {
     var presenter: ComprasPresenterProtocol?
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var alturaTabla: NSLayoutConstraint!
-    
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView?
     var compras: [NSManagedObject]?
     var userSin = User.shared
-    var product: ProductDetail?
+    var product = ProductDetalSingleton.shared
     var pressButton = false
     var cantidadProducto = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicatorView?.isHidden = false
+        indicatorView?.startAnimating()
         tableView?.delegate = self
         tableView?.dataSource = self
-        presenter?.recivedData()
+        
         presenter?.getComprasCD()
-        print("userss \(userSin.name)")
     }
     func recivedCompraFromCoreData(data: [NSManagedObject]){
         var lis: [NSManagedObject] = []
@@ -36,6 +38,10 @@ class ComprasViewController: UIViewController, ComprasViewControllerProtocol {
         }
         compras = lis
         tableView?.reloadData()
+        DispatchQueue.main.async {
+            self.indicatorView?.isHidden = true
+            self.indicatorView?.stopAnimating()
+        }
     }
     @IBAction func backButton(_ sender: Any){
         //let compraUser = ComprasUser(usId: user?.id ?? 0, totalProd: Decimal(product?.price ?? 0), totalCompra: Decimal(product?.price ?? 0), prodId: product?.id ?? 0, priceProducts: Decimal(product?.price ?? 0), numberProducts: 1, imageProd: product?.images.first ?? "", nameProd: product?.title ?? "")
@@ -46,12 +52,20 @@ class ComprasViewController: UIViewController, ComprasViewControllerProtocol {
     func deleteCompra(object: NSManagedObject){
         presenter?.deleteCompraUser(object: object)
     }
-    func updateCompraCD(object: NSManagedObject, data: ComprasUser){
+    func updateCompraCD(object: NSManagedObject, data: ComprasUserCD){
+        indicatorView?.isHidden = false
+        indicatorView?.startAnimating()
         presenter?.updateCompraUserCar(compra: data, object: object)
     }
     func deletedObjectSuccessInCD() {
         DispatchQueue.main.async {
             self.presenter?.getComprasCD()
+        }
+    }
+    func upatedSuccessCD() {
+        DispatchQueue.main.async {
+            self.indicatorView?.isHidden = true
+            self.indicatorView?.stopAnimating()
         }
     }
     
@@ -66,7 +80,7 @@ extension ComprasViewController: UITableViewDelegate, UITableViewDataSource{
         let data = compras?[indexPath.row]
         cell.nameProduct?.text = data?.value(forKey: "nameProduct") as? String
         
-        cell.total?.text = "Total: $\(data?.value(forKey: "priceProduct") ?? 0)MNX"
+        cell.total?.text = "Total: $\(data?.value(forKey: "total") ?? 0)MNX"
         cell.cantidad?.text = "\(data?.value(forKey: "numerProduct") as? Int ?? 0)"
         
         cell.precio?.text = "Precio: $\(data?.value(forKey: "priceProduct") ?? 0) MNX"
@@ -78,7 +92,7 @@ extension ComprasViewController: UITableViewDelegate, UITableViewDataSource{
             let cantidad: Double = Double(cell.cantidad?.text ?? "0.0") ?? 0.0
             cell.total?.text = "Total: $\(price * cantidad)MNX"
             if let data = data{
-                let compraUser = ComprasUser(usId: self.userSin.id ?? 0, totalProd: Decimal(self.product?.price ?? 0), totalCompra: Decimal(price * cantidad), prodId: self.product?.id ?? 0, priceProducts: Decimal(self.product?.price ?? 0), numberProducts: Int(cantidad), imageProd: self.product?.images.first ?? "", nameProd: self.product?.title ?? "")
+                let compraUser = ComprasUserCD(usId: self.userSin.id ?? 0, totalProd: Decimal(price * cantidad), totalCompra: Decimal(price * cantidad), prodId: data.value(forKey: "productId") as! Int, priceProducts: Decimal(price), numberProducts: Int(cantidad), imageProd: data.value(forKey: "imageProduct") as! Data, nameProd: data.value(forKey: "nameProduct") as! String)
                 self.updateCompraCD(object: data, data: compraUser)
             }
         }
@@ -89,7 +103,7 @@ extension ComprasViewController: UITableViewDelegate, UITableViewDataSource{
                 let cantidad: Double = Double(cell.cantidad?.text ?? "0.0") ?? 0.0
                 cell.total?.text = "Total: $\(price * cantidad)MNX"
                 if let data = data{
-                    let compraUser = ComprasUser(usId: self.userSin.id ?? 0, totalProd: Decimal(self.product?.price ?? 0), totalCompra: Decimal(price * cantidad), prodId: self.product?.id ?? 0, priceProducts: Decimal(self.product?.price ?? 0), numberProducts: Int(cantidad), imageProd: self.product?.images.first ?? "", nameProd: self.product?.title ?? "")
+                    let compraUser = ComprasUserCD(usId: self.userSin.id ?? 0, totalProd: Decimal(price * cantidad), totalCompra: Decimal(price * cantidad), prodId: data.value(forKey: "productId") as! Int, priceProducts: Decimal(price), numberProducts: Int(cantidad), imageProd: data.value(forKey: "imageProduct") as! Data, nameProd: data.value(forKey: "nameProduct") as! String)
                     self.updateCompraCD(object: data, data: compraUser)
                 }
             }

@@ -19,6 +19,7 @@ class RegisterProductsInteractor: NSObject, RegisterProductsInteractorProtocol{
 extension RegisterProductsInteractor: RequestManagerDelegate{
     func onResponseSuccess(data: Decodable?, tag: Int) {
         print("Se guardo")
+        output?.savedProductInAPI()
     }
     func onResponseFailure(error: CodeResponse, tag: Int) {
         print("No se guardo")
