@@ -10,32 +10,20 @@ import CoreData
 
 class MainUserRegisterViewController: UIViewController, MainUserRegisterViewControllerProtocol {
     
-    
-    
-    func returnData() {
-        DispatchQueue.main.async {
-            self.tableUsuarios.reloadData()
-        }
-    }
-    
     @IBOutlet weak var tableUsuarios: UITableView!
     
     var presenter: MainUserRegisterPresentProtocol?
-    
     var listUsuarios: [UsuarioCore]?
-    
     var usuarios: [User]?
+    var user = User.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableUsuarios.delegate = self
         tableUsuarios.dataSource = self
-        
         tableUsuarios.reloadData()
-        
         getUsuarios()
-        //datosObtenidosUser(data: usuarios!)
     }
     /*
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +32,11 @@ class MainUserRegisterViewController: UIViewController, MainUserRegisterViewCont
 
     }
     */
+    func returnData() {
+        DispatchQueue.main.async {
+            self.tableUsuarios.reloadData()
+        }
+    }
     
     //Funcion que pide los datos almacenados la api
     func getUsuarios() {
