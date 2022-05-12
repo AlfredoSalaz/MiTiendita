@@ -36,12 +36,10 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     }
     
     func showData() {
-        
         lblTitle.text = product.title
         lblDescripcion.text = product.description
         lblCategory.text = product.category?.name
         lblPrecio.text = String("$ \(product.price ?? 0)")
-        
     }
 
     @IBAction func btnAddCar(_ sender: Any) {
