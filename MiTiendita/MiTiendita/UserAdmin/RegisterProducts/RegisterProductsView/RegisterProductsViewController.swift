@@ -55,7 +55,7 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
     @IBAction func saveData(_ sender: Any){
         loADdATA()
         if isEditt!{
-            presenter?.edithProduct(data: product!)
+            presenter?.edithProduct(data: product!, id: productSin.id!)
         }else{
             loADdATA()
             presenter?.saveNewProduct(data: product!)
@@ -67,7 +67,7 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
         let titulo = nameProduct?.text ?? "vACIO"
         let catId = Int(idCategory?.text ?? "0") ?? 0
        let desc = descriptionProduct?.text ?? "vACIO1"
-        let prices = Int(price?.text ?? "0") ?? 0
+        let prices = Int((price?.text!)!) ?? 0
         let url = "https://api.lorem.space/image/furniture?w=640&h=480&r=3085"
         product = [
             "title": titulo,
