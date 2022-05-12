@@ -55,8 +55,14 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
         guard let isEditiing = isEditiing else {return}
         if isEditiing {
             guard let user = self.user else {return}
+            
+            if let url = URL(string: user.avatar ?? ""){
+                imgUserPerfil.load(url: url)
+            }
             txtNombre.text = user.name
             txtCorreo.text = user.email
+            txtPassword.text = user.password
+            
         }
     }
     

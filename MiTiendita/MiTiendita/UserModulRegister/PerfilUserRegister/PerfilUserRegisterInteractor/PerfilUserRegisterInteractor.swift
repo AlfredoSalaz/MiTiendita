@@ -39,7 +39,7 @@ class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtoc
         
         do{
             try manageContext.save()
-            print("Estos son los usuarios: \(usuario)")
+            print("Estos son los datos de los usuarios: \(usuario)")
             self.users.append(usuario)
             print(usuario)
         }catch(let error as NSError){
