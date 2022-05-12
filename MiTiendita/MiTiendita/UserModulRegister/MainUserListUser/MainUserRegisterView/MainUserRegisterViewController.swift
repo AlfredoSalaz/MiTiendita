@@ -10,12 +10,13 @@ import CoreData
 
 class MainUserRegisterViewController: UIViewController, MainUserRegisterViewControllerProtocol {
     
+    
+    
     func returnData() {
         DispatchQueue.main.async {
             self.tableUsuarios.reloadData()
         }
     }
-    
     
     @IBOutlet weak var tableUsuarios: UITableView!
     
@@ -23,7 +24,7 @@ class MainUserRegisterViewController: UIViewController, MainUserRegisterViewCont
     
     var listUsuarios: [UsuarioCore]?
     
-    var usuarios: [NSManagedObject]?
+    var usuarios: [User]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,24 +35,35 @@ class MainUserRegisterViewController: UIViewController, MainUserRegisterViewCont
         tableUsuarios.reloadData()
         
         getUsuarios()
-        datosObtenidosUser(data: usuarios!)
+        //datosObtenidosUser(data: usuarios!)
     }
-    
+    /*
     override func viewWillAppear(_ animated: Bool) {
         getUsuarios()
         self.tableUsuarios.reloadData()
 
     }
+    */
     
-    //Funcion que pide los datos almacenados en core
+    //Funcion que pide los datos almacenados la api
     func getUsuarios() {
+        print("Pidiendo datos")
         presenter?.getUsuarios()
     }
-    
+    /*
     func datosObtenidosUser(data: [NSManagedObject]) {
         usuarios = data
         print("Datos llegados en el presenter: \(data)")
         tableUsuarios.reloadData()
+    }
+     */
+    
+    func datosObtenidosUser(data: [User]) {
+        usuarios = data
+        print("Datos llegados desde la API: \(data)")
+        DispatchQueue.main.async {
+            self.tableUsuarios.reloadData()
+        }
     }
     
     @IBAction func addUser(_ sender: Any) {
@@ -76,22 +88,20 @@ extension MainUserRegisterViewController: UITableViewDelegate, UITableViewDataSo
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainUserRegisterTableViewCell
         
-        let data = usuarios?[indexPath.row] as! UsuariosCD
+        //let data = usuarios?[indexPath.row] as! UsuariosCD
         
-        cell.nameUser.text = data.nombre
-        cell.apeUser.text = data.apellido
+        let data = usuarios?[indexPath.row]
+        if let url = URL(string: data?.avatar ?? "")  {
+            cell.imgUser.load(url: url)
+        }
+        
+        //cell.imgUser.image =
+        cell.nameUser.text = data?.name
+        cell.apeUser.text = data?.email
+        
         
         return cell
         
     }
-    
-/*
-    //Eliminar el registro
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        
-    }
-     
-    */
 }
 
