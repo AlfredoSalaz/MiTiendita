@@ -32,17 +32,16 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
         
         validateView()
     }
+    
     private func validateView(){
         if isEditt! {
             guard let url = URL(string: productSin.images?.first ?? "") else{return}
             imageProduct?.load(url: url)
             nameProduct?.text = productSin.title
-            price?.text = "\(String(describing: productSin.price))"
+            price?.text = "\(productSin.price ?? 0)"
             descriptionProduct?.text = productSin.description
             idCategory?.text = String(productSin.category?.id ?? 1)
             
-        }else{
-            print("NO edit")
         }
     }
     
@@ -69,6 +68,11 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
        let desc = descriptionProduct?.text ?? "vACIO1"
         let prices = Int((price?.text!)!) ?? 0
         let url = "https://api.lorem.space/image/furniture?w=640&h=480&r=3085"
+        productSin.title = titulo
+        productSin.category?.id = catId
+        productSin.description = desc
+        productSin.price = prices
+        productSin.images = [url]
         product = [
             "title": titulo,
             "price": prices,
