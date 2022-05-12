@@ -29,11 +29,8 @@ class MainUserRegisterPresenter: NSObject, MainUserRegisterPresentProtocol{
 
 
 extension MainUserRegisterPresenter: MainUserRegisterOutputProtocol{
-    func datosObtenidosUser(data: [NSManagedObject]) {
+    func datosObtenidosUser(data: [User]) {
         view?.datosObtenidosUser(data: data)
-        print("Aqui va la info")
-        print(data)
     }
-    
     
 }
