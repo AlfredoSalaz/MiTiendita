@@ -154,6 +154,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnAddProduct" destination="skP-x9-NDy" id="LwP-cJ-EFf"/>
                         <outlet property="tableDatos" destination="Vs9-ig-A5Y" id="ogk-IL-pjy"/>
                         <outlet property="txtBusqueda" destination="ewu-Y2-MVX" id="ZoY-Iy-6O5"/>
                     </connections>

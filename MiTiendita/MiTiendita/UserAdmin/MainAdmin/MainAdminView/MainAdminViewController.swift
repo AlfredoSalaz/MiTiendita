@@ -191,6 +191,8 @@ extension MainAdminViewController {
             stackUsuarios?.isHidden = true
         }
         nameUser?.text = user.name
+        guard let url = URL(string: user.avatar ?? "") else{return}
+        photoUser?.load(url: url)
     }
     
     

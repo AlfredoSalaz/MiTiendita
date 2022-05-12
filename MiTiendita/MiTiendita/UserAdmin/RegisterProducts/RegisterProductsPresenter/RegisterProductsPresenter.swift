@@ -18,6 +18,9 @@ class RegisterProductsPresenter: NSObject, RegisterProductsPresenterProtocol {
     func loadInfo() {
         view?.isEditt = isEditt
     }
+    func edithProduct(data: [String : Any]) {
+        interactor?.editProduct(data: data)
+    }
 }
 
 extension RegisterProductsPresenter: RegisterProductsInteractorOutputProtocol {

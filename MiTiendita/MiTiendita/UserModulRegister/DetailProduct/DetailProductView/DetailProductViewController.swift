@@ -30,6 +30,8 @@ class DetailProductViewController: UIViewController, DetailProductViewController
         collectionView.dataSource = self
         if userSingleton.role == "admin"{
             btnAddCar?.isHidden = true
+        }else{
+            btnEdit?.isHidden = true
         }
     }
     

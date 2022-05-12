@@ -19,12 +19,14 @@ protocol RegisterProductsPresenterProtocol: NSObject {
     var router: RegisterProductsRouterProtocol? {get set}
     var isEditt: Bool?{get set}
     func saveNewProduct(data: [String: Any])
+    func edithProduct(data: [String: Any])
     func loadInfo()
 }
 
 protocol RegisterProductsInteractorProtocol: NSObject {
     var output: RegisterProductsInteractorOutputProtocol? {get set}
     func saveNewProducts(data: [String: Any])
+    func editProduct(data: [String: Any])
 }
 
 protocol RegisterProductsInteractorOutputProtocol{

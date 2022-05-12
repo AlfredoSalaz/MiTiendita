@@ -14,6 +14,9 @@ class RegisterProductsInteractor: NSObject, RegisterProductsInteractorProtocol{
         print("data: \(data)")
         RequestManager.generic(url: ExternalData().urlAddProduct, metodo: "POST", contenido: data, delegate: self)
     }
+    func editProduct(data: [String : Any]) {
+        
+    }
     
 }
 extension RegisterProductsInteractor: RequestManagerDelegate{

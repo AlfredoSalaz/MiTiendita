@@ -17,7 +17,7 @@ class UserRegisterProductsViewController: UIViewController,  UserRegisterProduct
     
     @IBOutlet weak var tableDatos: UITableView!
     @IBOutlet weak var txtBusqueda: UITextField!
-    
+    @IBOutlet weak var btnAddProduct: UIButton?
     var presenter: UserRegisterProductsPresenterProtocol?
     let product = ProductDetalSingleton.shared
     var listProducts = [Product.shared]
@@ -26,6 +26,9 @@ class UserRegisterProductsViewController: UIViewController,  UserRegisterProduct
     override func viewDidLoad() {
         super.viewDidLoad()
         tableDatos.allowsMultipleSelectionDuringEditing = true
+        if user.role != "admin"{
+            btnAddProduct?.isHidden = true
+        }
         
     }
     override func viewWillAppear(_ animated: Bool) {

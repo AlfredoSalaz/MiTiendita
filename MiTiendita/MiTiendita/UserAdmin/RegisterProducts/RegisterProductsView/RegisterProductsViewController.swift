@@ -34,7 +34,13 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
     }
     private func validateView(){
         if isEditt! {
-            print("is edit")
+            guard let url = URL(string: productSin.images?.first ?? "") else{return}
+            imageProduct?.load(url: url)
+            nameProduct?.text = productSin.title
+            price?.text = "\(String(describing: productSin.price))"
+            descriptionProduct?.text = productSin.description
+            idCategory?.text = String(productSin.category?.id ?? 1)
+            
         }else{
             print("NO edit")
         }
@@ -48,8 +54,13 @@ class RegisterProductsViewController: UIViewController, RegisterProductsViewCont
     }
     @IBAction func saveData(_ sender: Any){
         loADdATA()
-        //print("product: \(product?.title)")
-        presenter?.saveNewProduct(data: product!)
+        if isEditt!{
+            presenter?.edithProduct(data: product!)
+        }else{
+            loADdATA()
+            presenter?.saveNewProduct(data: product!)
+        }
+        
     }
     func loADdATA(){
         

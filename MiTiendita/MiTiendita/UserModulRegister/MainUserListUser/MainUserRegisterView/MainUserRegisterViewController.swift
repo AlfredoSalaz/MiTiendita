@@ -31,7 +31,7 @@ class MainUserRegisterViewController: UIViewController, MainUserRegisterViewCont
         tableUsuarios.delegate = self
         tableUsuarios.dataSource = self
         
-        //tableUsuarios.reloadData()
+        tableUsuarios.reloadData()
         
         getUsuarios()
         datosObtenidosUser(data: usuarios!)
@@ -40,7 +40,7 @@ class MainUserRegisterViewController: UIViewController, MainUserRegisterViewCont
     override func viewWillAppear(_ animated: Bool) {
         getUsuarios()
         self.tableUsuarios.reloadData()
-    
+
     }
     
     //Funcion que pide los datos almacenados en core
