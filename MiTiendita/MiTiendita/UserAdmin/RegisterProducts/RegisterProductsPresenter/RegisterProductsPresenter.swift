@@ -18,8 +18,8 @@ class RegisterProductsPresenter: NSObject, RegisterProductsPresenterProtocol {
     func loadInfo() {
         view?.isEditt = isEditt
     }
-    func edithProduct(data: [String : Any]) {
-        interactor?.editProduct(data: data)
+    func edithProduct(data: [String : Any], id: Int) {
+        interactor?.editProduct(data: data, id: id)
     }
 }
 
