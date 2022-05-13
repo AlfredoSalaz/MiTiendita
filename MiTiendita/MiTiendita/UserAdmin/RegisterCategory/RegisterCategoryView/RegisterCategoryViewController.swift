@@ -76,7 +76,8 @@ class RegisterCategoryViewController: UIViewController, RegisterCategoryViewCont
     @IBAction func savedData(_ sender: Any){
         viewIndicator?.isHidden = false
         viewIndicator?.startAnimating()
-        presenter?.saveImage(type: "file", nameFile: nameImage ?? "defaultImg", image: imgCategoria ?? UIImage())
+        let uiimage = UIImage(named: "profile")
+        presenter?.saveImage(type: "file", nameFile: nameImage ?? "defaultImg", image: (imgCategoria ?? uiimage)!)
     }
     func recivedUrl(url: String){
         guard let isEdit = isEdit else{return}
