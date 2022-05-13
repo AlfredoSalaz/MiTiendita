@@ -12,6 +12,8 @@ protocol IndexViewControllerProtocol: UIViewController{
     func recivedUser(data: User)
     func recivedToken(token: UserToken)
     func faillureAuthView()
+    
+    func receivedAllOfUsers(data: [User])
 }
 
 protocol IndexPresenterProtocol: NSObject{
@@ -24,13 +26,14 @@ protocol IndexPresenterProtocol: NSObject{
     func getUserAuthentication(token: String)
     
     func openViewRegisterNewUser()
+    func getAllUserOfApi()
 }
 
 protocol IndexInteractorProtocol: NSObject {
     var output: IndexInteractorOutputProtocol? {get set}
     func authenticatioUser(data: [String: Any])
     func getUserAuthenticatio(token: String)
-    
+    func getAllUserOfApi()
 }
 
 protocol IndexInteractorOutputProtocol {
@@ -38,6 +41,8 @@ protocol IndexInteractorOutputProtocol {
     func onRecivedUser(data: User)
     func onResponseFaillure(error: NSError)
     func faillureAuthPre()
+    
+    func receivedAllOfUsers(data: [User])
 }
 
 protocol IndexRouterProtocol {

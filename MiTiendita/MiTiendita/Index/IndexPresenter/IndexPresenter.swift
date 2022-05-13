@@ -9,7 +9,6 @@ import UIKit
 
 class IndexPresenter: NSObject, IndexPresenterProtocol{
     
-    
     var router: IndexRouterProtocol?
     var interactor: IndexInteractorProtocol?
     var view: IndexViewControllerProtocol?
@@ -31,10 +30,14 @@ class IndexPresenter: NSObject, IndexPresenterProtocol{
     func openViewRegisterNewUser() {
         router?.openViewregisterNewUser(view: view!)
     }
+    func getAllUserOfApi() {
+        interactor?.getAllUserOfApi()
+    }
     
 }
 
 extension IndexPresenter: IndexInteractorOutputProtocol{
+    
     func onRecivedToken(data: UserToken) {
         view?.recivedToken(token: data)
     }
@@ -48,6 +51,10 @@ extension IndexPresenter: IndexInteractorOutputProtocol{
     }
     func faillureAuthPre() {
         view?.faillureAuthView()
+    }
+    
+    func receivedAllOfUsers(data: [User]) {
+        view?.receivedAllOfUsers(data: data)
     }
     
 }

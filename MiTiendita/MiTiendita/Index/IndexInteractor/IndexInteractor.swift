@@ -8,6 +8,8 @@
 import UIKit
 
 class IndexInteractor: NSObject, IndexInteractorProtocol{
+    
+    
     var output: IndexInteractorOutputProtocol?
     ///Funcion que hace la consulta del token del usuario a la API
     /// - Parameter data: Diccionario que contiene el correo y la pass para consultar en la API si existe
@@ -18,6 +20,11 @@ class IndexInteractor: NSObject, IndexInteractorProtocol{
     /// - Parameter token: Se envia el token del usuario para obtener la informacion del perfil
     func getUserAuthenticatio(token: String) {
         ExternalDataUser().getUserWithToken(token: token, url: ExternalData().urlGetPerfile, delegate: self)
+    }
+    
+    func getAllUserOfApi() {
+        print("Obteniendo datos de la API")
+        RequestManager.generic(url: ExternalData().urlGetUser, metodo: "GET", tipoResultado: [User].self, delegate: self, tag: 1)
     }
 }
 //MARK: Delegado del RequestManager
@@ -34,6 +41,10 @@ extension IndexInteractor: RequestManagerDelegate{
                 }else{
                     output?.faillureAuthPre()
                 }
+            }
+        case 1:
+            if let data = data as? [User] {
+                output?.receivedAllOfUsers(data: data)
             }
         default:
             break

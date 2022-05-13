@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +43,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="PkF-jJ-y4T"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="DiwanMishafi" family="Mishafi" pointSize="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -133,10 +134,21 @@
                                                     <action selector="loginGuest:" destination="7uk-Ef-3DY" eventType="touchUpInside" id="RQN-6T-MrO"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7c3-pe-A2c">
+                                                <rect key="frame" x="40" y="725" width="334" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Olvide mi contraseña."/>
+                                                <connections>
+                                                    <action selector="btnGetPassword:" destination="7uk-Ef-3DY" eventType="touchUpInside" id="VS8-Xq-mjb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="TdA-mn-cWQ" firstAttribute="top" secondItem="Kcy-L5-h0y" secondAttribute="bottom" constant="40" id="1AB-Ac-K5W"/>
+                                            <constraint firstAttribute="trailing" secondItem="7c3-pe-A2c" secondAttribute="trailing" constant="40" id="9gc-H7-RXc"/>
                                             <constraint firstAttribute="trailing" secondItem="BKo-NO-uws" secondAttribute="trailing" constant="40" id="DDV-Ke-Axy"/>
                                             <constraint firstItem="egZ-Aa-lD7" firstAttribute="centerX" secondItem="Foq-fd-FZq" secondAttribute="centerX" id="DJc-SM-KxV"/>
                                             <constraint firstItem="BKo-NO-uws" firstAttribute="top" secondItem="Foq-fd-FZq" secondAttribute="top" constant="20" id="FKe-zu-GHc"/>
@@ -145,15 +157,18 @@
                                             <constraint firstItem="7Dr-Fe-4yW" firstAttribute="leading" secondItem="Foq-fd-FZq" secondAttribute="leading" constant="40" id="Ktj-hZ-yTj"/>
                                             <constraint firstItem="BKo-NO-uws" firstAttribute="leading" secondItem="Foq-fd-FZq" secondAttribute="leading" constant="40" id="On9-Ku-07J"/>
                                             <constraint firstItem="egZ-Aa-lD7" firstAttribute="top" secondItem="BKo-NO-uws" secondAttribute="bottom" constant="2" id="QMG-qj-pXd"/>
+                                            <constraint firstAttribute="bottom" secondItem="7c3-pe-A2c" secondAttribute="bottom" id="SRM-k7-vFb"/>
                                             <constraint firstItem="WUC-dz-NDe" firstAttribute="leading" secondItem="Foq-fd-FZq" secondAttribute="leading" constant="40" id="TLg-CA-klp"/>
                                             <constraint firstAttribute="bottom" secondItem="6Uj-pJ-3fS" secondAttribute="bottom" constant="46" id="TN4-bB-Z55"/>
                                             <constraint firstAttribute="trailing" secondItem="WUC-dz-NDe" secondAttribute="trailing" constant="40" id="TR1-Ir-jNP"/>
                                             <constraint firstItem="WUC-dz-NDe" firstAttribute="top" secondItem="TdA-mn-cWQ" secondAttribute="bottom" constant="30" id="Wrr-vA-Phc"/>
                                             <constraint firstItem="Iqc-MW-vb0" firstAttribute="leading" secondItem="Foq-fd-FZq" secondAttribute="leading" constant="40" id="a8D-uv-2CC"/>
+                                            <constraint firstItem="7c3-pe-A2c" firstAttribute="leading" secondItem="Foq-fd-FZq" secondAttribute="leading" constant="40" id="cSZ-59-sk9"/>
                                             <constraint firstAttribute="trailing" secondItem="6Uj-pJ-3fS" secondAttribute="trailing" constant="40" id="cqh-sM-zLJ"/>
                                             <constraint firstAttribute="trailing" secondItem="YA7-dz-4O9" secondAttribute="trailing" constant="40" id="eQl-EM-mu0"/>
                                             <constraint firstAttribute="trailing" secondItem="7Dr-Fe-4yW" secondAttribute="trailing" constant="40" id="egr-JZ-VAM"/>
                                             <constraint firstAttribute="trailing" secondItem="Iqc-MW-vb0" secondAttribute="trailing" constant="40" id="goV-Jh-AYb"/>
+                                            <constraint firstItem="7c3-pe-A2c" firstAttribute="top" secondItem="6Uj-pJ-3fS" secondAttribute="bottom" constant="15" id="hqH-ze-E8C"/>
                                             <constraint firstAttribute="trailing" secondItem="Kcy-L5-h0y" secondAttribute="trailing" constant="40" id="i6H-z3-I3i"/>
                                             <constraint firstItem="6Uj-pJ-3fS" firstAttribute="top" secondItem="WUC-dz-NDe" secondAttribute="bottom" constant="20" id="m1B-Ke-ts3"/>
                                             <constraint firstItem="Kcy-L5-h0y" firstAttribute="leading" secondItem="Foq-fd-FZq" secondAttribute="leading" constant="40" id="n55-GT-2Ix"/>
