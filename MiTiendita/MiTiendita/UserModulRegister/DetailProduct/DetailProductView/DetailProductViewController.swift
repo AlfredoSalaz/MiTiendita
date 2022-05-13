@@ -48,7 +48,7 @@ class DetailProductViewController: UIViewController, DetailProductViewController
 
     @IBAction func btnAddCar(_ sender: Any) {
         //presenter?.openViewCompras(product: product, user: nil)
-        let compraUser = ComprasUser(usId: userSingleton.id ?? 0, totalProd: Decimal(product.price ?? 0), totalCompra: Decimal(product.price ?? 0), prodId: product.id ?? 0, priceProducts: Decimal(product.price ?? 0), numberProducts: 1, imageProd: product.images?.first ?? "", nameProd: product.title ?? "")
+        let compraUser = ComprasUser(usId: userSingleton.id ?? 0, totalProd: Decimal(product.price ?? 0), totalCompra: Decimal(product.price ?? 0), prodId: product.id ?? 0, priceProducts: Decimal(product.price ?? 0), numberProducts: 1, imageProd: product.images?.first ?? "", nameProd: product.title ?? "",status: "pendiente")
         presenter?.saveCompraUser(compra: compraUser)
     }
     

@@ -11,6 +11,7 @@
         <attribute name="numerProduct" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="priceProduct" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="productId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
         <attribute name="total" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="totalProduct" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="userId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -42,9 +43,9 @@
     </entity>
     <elements>
         <element name="Categories" positionX="-9" positionY="81" width="128" height="88"/>
-        <element name="ComprasCD" positionX="-18" positionY="72" width="128" height="163"/>
+        <element name="ComprasCD" positionX="-18" positionY="72" width="128" height="178"/>
         <element name="ProductCD" positionX="-18" positionY="63" width="128" height="133"/>
-        <element name="UsuariosCD" positionX="-45" positionY="0" width="128" height="133"/>
         <element name="TarjetaCD" positionX="-27" positionY="99" width="128" height="148"/>
+        <element name="UsuariosCD" positionX="-45" positionY="0" width="128" height="133"/>
     </elements>
 </model>

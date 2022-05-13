@@ -186,6 +186,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="lbY-fV-XbM"/>
                                                 </constraints>
                                                 <state key="normal" title="Pagar"/>
+                                                <connections>
+                                                    <action selector="pagarCompras:" destination="mkG-vk-9mv" eventType="touchUpInside" id="IsT-qn-L6G"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1z-oA-GkD">
                                                 <rect key="frame" x="20" y="10" width="80" height="40"/>

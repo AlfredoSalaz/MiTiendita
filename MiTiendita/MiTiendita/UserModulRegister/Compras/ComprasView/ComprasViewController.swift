@@ -32,7 +32,7 @@ class ComprasViewController: UIViewController, ComprasViewControllerProtocol {
         var lis: [NSManagedObject] = []
         compras?.removeAll()
         data.forEach{
-            if $0.value(forKey: "userId") as? Int == userSin.id{
+            if $0.value(forKey: "userId") as? Int == userSin.id && $0.value(forKey: "status") as? String == "pendiente"{
                 lis.append($0)
             }
         }
@@ -64,9 +64,18 @@ class ComprasViewController: UIViewController, ComprasViewControllerProtocol {
     }
     func upatedSuccessCD() {
         DispatchQueue.main.async {
+            print("suc")
             self.indicatorView?.isHidden = true
             self.indicatorView?.stopAnimating()
         }
+    }
+    @IBAction func pagarCompras(_ sender: Any){
+        compras?.forEach{
+            print("\($0.value(forKey: "nameProduct"))")
+            let compraUser = ComprasUserCD(usId: ($0.value(forKey: "userId") as? Int)!, totalProd: ($0.value(forKey: "totalProduct") as? Decimal)!, totalCompra: ($0.value(forKey: "total") as? Decimal)!, prodId: $0.value(forKey: "productId") as! Int, priceProducts: ($0.value(forKey: "priceProduct") as? Decimal)!, numberProducts: $0.value(forKey: "numerProduct") as! Int, imageProd: $0.value(forKey: "imageProduct") as! Data, nameProd: $0.value(forKey: "nameProduct") as! String, status: "pagado")
+            self.updateCompraCD(object: $0, data: compraUser)
+        }
+        
     }
     
 }
@@ -92,7 +101,7 @@ extension ComprasViewController: UITableViewDelegate, UITableViewDataSource{
             let cantidad: Double = Double(cell.cantidad?.text ?? "0.0") ?? 0.0
             cell.total?.text = "Total: $\(price * cantidad)MNX"
             if let data = data{
-                let compraUser = ComprasUserCD(usId: self.userSin.id ?? 0, totalProd: Decimal(price * cantidad), totalCompra: Decimal(price * cantidad), prodId: data.value(forKey: "productId") as! Int, priceProducts: Decimal(price), numberProducts: Int(cantidad), imageProd: data.value(forKey: "imageProduct") as! Data, nameProd: data.value(forKey: "nameProduct") as! String)
+                let compraUser = ComprasUserCD(usId: self.userSin.id ?? 0, totalProd: Decimal(price * cantidad), totalCompra: Decimal(price * cantidad), prodId: data.value(forKey: "productId") as! Int, priceProducts: Decimal(price), numberProducts: Int(cantidad), imageProd: data.value(forKey: "imageProduct") as! Data, nameProd: data.value(forKey: "nameProduct") as! String, status: "pendiente")
                 self.updateCompraCD(object: data, data: compraUser)
             }
         }
@@ -103,7 +112,7 @@ extension ComprasViewController: UITableViewDelegate, UITableViewDataSource{
                 let cantidad: Double = Double(cell.cantidad?.text ?? "0.0") ?? 0.0
                 cell.total?.text = "Total: $\(price * cantidad)MNX"
                 if let data = data{
-                    let compraUser = ComprasUserCD(usId: self.userSin.id ?? 0, totalProd: Decimal(price * cantidad), totalCompra: Decimal(price * cantidad), prodId: data.value(forKey: "productId") as! Int, priceProducts: Decimal(price), numberProducts: Int(cantidad), imageProd: data.value(forKey: "imageProduct") as! Data, nameProd: data.value(forKey: "nameProduct") as! String)
+                    let compraUser = ComprasUserCD(usId: self.userSin.id ?? 0, totalProd: Decimal(price * cantidad), totalCompra: Decimal(price * cantidad), prodId: data.value(forKey: "productId") as! Int, priceProducts: Decimal(price), numberProducts: Int(cantidad), imageProd: data.value(forKey: "imageProduct") as! Data, nameProd: data.value(forKey: "nameProduct") as! String, status: "pendiente")
                     self.updateCompraCD(object: data, data: compraUser)
                 }
             }
