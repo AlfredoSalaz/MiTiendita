@@ -48,10 +48,29 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
         }
         
      }
-    
+    private func validateUser(){
+        DispatchQueue.main.async {
+            guard let email = self.txtEmail?.text, let password = self.txtPassword?.text else{
+                self.showAlert()
+                return
+        }
+        if password.count < 4 || !email.isEmail || email == "" || password == "" {
+            let alert = UIAlertController(title: "Error al registrar", message: "*Correo electronico invalido\n*La contraseña debe ser mayor a 4 caracteres", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let data: [String: Any] = [
+                "email": "\(email)",
+                "password": "\(password)"
+            ]
+            //presenter?.saveUserApi(user: user1!)
+        }
+    }
+}
     //Función que se encarga de validar el correo electronico y la longuitud de la contraseña del usuario
     func errorCheckEmail(user: ValidateEmail) {
         alert()
+        validateUser()
         if user.isAvailable == true { //NO existe, si te puedes loguear
             //presenter?.saveUserApi(user: user1!)
             print("Es true")
