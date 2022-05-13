@@ -42,6 +42,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     func getProductCoreData()
     func saveProductsCoreData(data: ProductRegister)
     func openViewComprasRouterfromMainPre()
+    func openListHistoryComprass()
 }
 //INTERACTOR
 protocol MainAdminInteractorProtocol: NSObject {
@@ -78,4 +79,5 @@ protocol MainAdminRouterProtocol {
     func openEditUser(view: MainAdminViewControllerProtocol, isEdit:Bool, user: User?)
     func openViewComprasRouterfromMain(view: MainAdminViewControllerProtocol)
     func openListTarjeta(view: MainAdminViewControllerProtocol)
+    func openListHistoryCompras(view: MainAdminViewControllerProtocol)
 }

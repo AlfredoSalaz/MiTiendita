@@ -17,8 +17,8 @@ class ComprasUser: Encodable {
     var numberProduct: Int
     var imageProduct: String
     var nameProduct: String
-    
-    init(usId: Int, totalProd: Decimal, totalCompra: Decimal, prodId: Int, priceProducts: Decimal, numberProducts: Int, imageProd: String, nameProd: String) {
+    var status: String
+    init(usId: Int, totalProd: Decimal, totalCompra: Decimal, prodId: Int, priceProducts: Decimal, numberProducts: Int, imageProd: String, nameProd: String, status: String) {
         userId = usId
         totalProduct = totalProd
         total = totalCompra
@@ -27,6 +27,7 @@ class ComprasUser: Encodable {
         numberProduct = numberProducts
         imageProduct = imageProd
         nameProduct = nameProd
+        self.status = status
     }
 }
 class ComprasUserCD: Encodable {
@@ -39,8 +40,9 @@ class ComprasUserCD: Encodable {
     var numberProduct: Int
     var imageProduct: Data
     var nameProduct: String
+    var status: String
     
-    init(usId: Int, totalProd: Decimal, totalCompra: Decimal, prodId: Int, priceProducts: Decimal, numberProducts: Int, imageProd: Data, nameProd: String) {
+    init(usId: Int, totalProd: Decimal, totalCompra: Decimal, prodId: Int, priceProducts: Decimal, numberProducts: Int, imageProd: Data, nameProd: String, status: String) {
         userId = usId
         totalProduct = totalProd
         total = totalCompra
@@ -49,5 +51,6 @@ class ComprasUserCD: Encodable {
         numberProduct = numberProducts
         imageProduct = imageProd
         nameProduct = nameProd
+        self.status = status
     }
 }

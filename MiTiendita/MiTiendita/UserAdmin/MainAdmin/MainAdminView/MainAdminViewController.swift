@@ -30,7 +30,7 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     @IBOutlet weak var stackUsuarios: UIStackView?
     @IBOutlet weak var viewStackCarShop: UIView?
     @IBOutlet weak var viewStackaddCategory: UIView?
-
+    @IBOutlet weak var viewStackHistory: UIView?
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView?.isHidden = true
@@ -300,5 +300,8 @@ extension MainAdminViewController{
         indicatorView?.startAnimating()
         presenter?.getCategories()
         presenter?.getProduct()
+    }
+    @IBAction func ladHistory(_ sender: Any){
+        presenter?.openListHistoryComprass()
     }
 }

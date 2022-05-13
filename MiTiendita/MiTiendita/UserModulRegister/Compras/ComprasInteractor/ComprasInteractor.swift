@@ -15,6 +15,7 @@ class ComprasInteractor: NSObject, ComprasInteractorProtocol{
         //InternalData().resetAllRecords(in: "ComprasCD", delegate: self)
     }
     func updateCompraUserCarr(compra: ComprasUserCD, object: NSManagedObject?) {
+        print("mee")
         guard let object = object else{return}
         InternalDataCompras().updateCompraCoreData(object: object, delegate: self, data: compra)
     }
@@ -39,6 +40,7 @@ extension ComprasInteractor: InternalDataComprasDelegate{
         output?.deletedObjectSuccess()
     }
     func updatedCompraSuccess(data: NSManagedObject) {
+        print("success")
         output?.updatedSuccess()
     }
 }

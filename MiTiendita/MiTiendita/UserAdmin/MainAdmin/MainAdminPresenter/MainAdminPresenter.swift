@@ -66,6 +66,9 @@ class MainAdminPresenter: NSObject, MainAdminPresenterProtocol{
     func openListTarjeta() {
         router?.openListTarjeta(view: view!)
     }
+    func openListHistoryComprass() {
+        router?.openListHistoryCompras(view: view!)
+    }
 }
 
 extension MainAdminPresenter: MainAdminInteractorOutputProtocol{

@@ -25,6 +25,7 @@ class InternalDataCompras {
         compra.setValue(data.totalProduct, forKey: "totalProduct")
         compra.setValue(data.nameProduct, forKey: "nameProduct")
         compra.setValue(getImageDataFromUrl(url: data.imageProduct), forKey: "imageProduct")
+        compra.setValue(data.status, forKey: "status")
         do {
             try manageContext.save()
             delegate.saveCompraSuccess(data: compra)
@@ -78,6 +79,7 @@ class InternalDataCompras {
             object.setValue(data.totalProduct, forKey: "totalProduct")
             object.setValue(data.nameProduct, forKey: "nameProduct")
             object.setValue(data.imageProduct, forKey: "imageProduct")
+            object.setValue(data.status, forKey: "status")
             try manageContext.save()
             delegate.updatedCompraSuccess(data: object)
         } catch (let error as NSError) {

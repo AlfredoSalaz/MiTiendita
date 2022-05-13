@@ -58,6 +58,10 @@ class MainAdminRouter: MainAdminRouterProtocol {
         let vc = ListaTarjetasRouter.createModuloListaTarjeta()
         view.present(vc, animated: true)
     }
+    func openListHistoryCompras(view: MainAdminViewControllerProtocol) {
+        let vc = HistoryComprasRouter.createModuleHistoryCompras()
+        view.present(vc, animated: true)
+    }
     
     static var mainstoryboard: UIStoryboard{
         return UIStoryboard(name: "MainAdminStoryboard", bundle: nil)
