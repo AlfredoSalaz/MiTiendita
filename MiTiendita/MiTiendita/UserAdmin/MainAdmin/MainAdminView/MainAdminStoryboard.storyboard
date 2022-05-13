@@ -436,9 +436,6 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OJ-xp-o5W">
                                                                 <rect key="frame" x="60" y="0.0" width="150" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="pOr-sW-M7l"/>
-                                                                </constraints>
                                                                 <state key="normal" title="Categoria"/>
                                                                 <connections>
                                                                     <action selector="categoryProduct:" destination="Zs1-Pz-teS" eventType="touchUpInside" id="pG2-mi-B5K"/>
@@ -455,6 +452,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="0OJ-xp-o5W" secondAttribute="bottom" id="VFQ-3R-hym"/>
+                                                            <constraint firstAttribute="height" constant="50" id="Vzj-eD-LgT"/>
                                                             <constraint firstAttribute="trailing" secondItem="0OJ-xp-o5W" secondAttribute="trailing" constant="40" id="XBH-S1-J52"/>
                                                             <constraint firstItem="0OJ-xp-o5W" firstAttribute="leading" secondItem="J0M-FK-JRl" secondAttribute="trailing" constant="10" id="hfS-Z7-A2o"/>
                                                             <constraint firstItem="J0M-FK-JRl" firstAttribute="top" secondItem="DQc-DL-JlS" secondAttribute="top" constant="10" id="hj5-ic-2Up"/>
@@ -473,9 +471,6 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIc-oO-6m4">
                                                                 <rect key="frame" x="60" y="0.0" width="150" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="j1A-WV-AC4"/>
-                                                                </constraints>
                                                                 <state key="normal" title="Productos"/>
                                                                 <connections>
                                                                     <action selector="productsAdmin:" destination="Zs1-Pz-teS" eventType="touchUpInside" id="jom-Po-RY0"/>
@@ -497,6 +492,7 @@
                                                             <constraint firstItem="9F0-YG-Mun" firstAttribute="top" secondItem="DLl-Ut-xkb" secondAttribute="top" constant="10" id="lRY-ig-es8"/>
                                                             <constraint firstItem="AIc-oO-6m4" firstAttribute="top" secondItem="DLl-Ut-xkb" secondAttribute="top" id="mmZ-as-SpE"/>
                                                             <constraint firstAttribute="trailing" secondItem="AIc-oO-6m4" secondAttribute="trailing" constant="40" id="oaT-c8-qQz"/>
+                                                            <constraint firstAttribute="height" constant="40" id="qRS-g8-D9P"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -510,9 +506,6 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfB-HY-fDR">
                                                                 <rect key="frame" x="60" y="0.0" width="150" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="bNl-e2-L28"/>
-                                                                </constraints>
                                                                 <state key="normal" title="Usuarios"/>
                                                                 <connections>
                                                                     <action selector="registerUserAdmin:" destination="Zs1-Pz-teS" eventType="touchUpInside" id="Yy4-5I-PYn"/>
@@ -530,6 +523,7 @@
                                                         <constraints>
                                                             <constraint firstItem="cfB-HY-fDR" firstAttribute="top" secondItem="FGV-Aj-DXz" secondAttribute="top" id="0oq-7y-GPW"/>
                                                             <constraint firstAttribute="bottom" secondItem="cfB-HY-fDR" secondAttribute="bottom" id="ADL-3c-WUE"/>
+                                                            <constraint firstAttribute="height" constant="50" id="B9h-jC-EaW"/>
                                                             <constraint firstItem="cfB-HY-fDR" firstAttribute="leading" secondItem="cHe-Kf-qa8" secondAttribute="trailing" constant="10" id="gr1-uH-QnX"/>
                                                             <constraint firstAttribute="trailing" secondItem="cfB-HY-fDR" secondAttribute="trailing" constant="40" id="hD3-Ju-aaR"/>
                                                             <constraint firstItem="cHe-Kf-qa8" firstAttribute="top" secondItem="FGV-Aj-DXz" secondAttribute="top" constant="10" id="vm0-EP-FLX"/>
@@ -547,15 +541,12 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0F3-in-nVT">
                                                                 <rect key="frame" x="60" y="0.0" width="150" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="tp7-1a-eBy"/>
-                                                                </constraints>
                                                                 <state key="normal" title="Tarjeta"/>
                                                                 <connections>
                                                                     <action selector="addTarjeta:" destination="Zs1-Pz-teS" eventType="touchUpInside" id="AOG-Vj-nTW"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-Ct-3dR">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit-card" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-Ct-3dR">
                                                                 <rect key="frame" x="20" y="10" width="30" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="JHQ-ls-fjZ"/>
@@ -569,6 +560,7 @@
                                                             <constraint firstItem="0F3-in-nVT" firstAttribute="leading" secondItem="6yh-Ct-3dR" secondAttribute="trailing" constant="10" id="RI0-B4-nE3"/>
                                                             <constraint firstItem="6yh-Ct-3dR" firstAttribute="leading" secondItem="ne5-ZG-6uk" secondAttribute="leading" constant="20" id="ayS-y0-AOn"/>
                                                             <constraint firstItem="0F3-in-nVT" firstAttribute="top" secondItem="ne5-ZG-6uk" secondAttribute="top" id="cQ3-WF-m38"/>
+                                                            <constraint firstAttribute="height" constant="50" id="mt1-B4-pKV"/>
                                                             <constraint firstItem="6yh-Ct-3dR" firstAttribute="top" secondItem="ne5-ZG-6uk" secondAttribute="top" constant="10" id="saS-Bk-CcI"/>
                                                             <constraint firstAttribute="bottom" secondItem="0F3-in-nVT" secondAttribute="bottom" id="ylf-iv-4op"/>
                                                         </constraints>
@@ -647,6 +639,7 @@
     <resources>
         <image name="add" width="512" height="512"/>
         <image name="catalog" width="512" height="512"/>
+        <image name="credit-card" width="512" height="512"/>
         <image name="delivery-box" width="512" height="512"/>
         <image name="editar" width="512" height="512"/>
         <image name="error" width="512" height="512"/>

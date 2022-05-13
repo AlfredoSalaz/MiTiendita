@@ -8,6 +8,10 @@
 import Foundation
 
 class TarjetaModel: Decodable{
+    static let shared = TarjetaModel()
+    init() {
+        
+    }
     var cv: String?
     var nombre: String?
     var numero: String?

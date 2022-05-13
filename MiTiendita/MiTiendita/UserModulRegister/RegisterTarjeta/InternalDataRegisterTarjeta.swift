@@ -43,38 +43,38 @@ class InternalDataRegisterTarjeta {
             delegate.faillureRequest(error: error)
         }
     }
-    /*
-    func deleteTarjetaCoreData(data: NSManagedObject, delegate: InternalDataComprasDelegate){
+    
+    func deleteTarjetaCoreData(data: NSManagedObject, delegate: InternalDataRegisterTarjetaDelegate){
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let manageContext = appdelegate.persistentContainer.viewContext
         
         manageContext.delete(data)
         do{
             try manageContext.save()
-            delegate.deleteCompraSuccess(data: data)
+            delegate.saveTarjetaSuccess(data: data)
         }catch (let error as NSError){
             delegate.faillureRequest(error: error)
         }
     }
-    func updateTarjetaCoreData(object: NSManagedObject, delegate: InternalDataComprasDelegate, data: ComprasUserCD){
+    func updateTarjetaCoreData(object: NSManagedObject, delegate: InternalDataRegisterTarjetaDelegate, data: TarjetaModel?){
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let manageContext = appdelegate.persistentContainer.viewContext
         do {
-            object.setValue(data.userId, forKey: "userId")
-            object.setValue(data.productId, forKey: "productId")
-            object.setValue(data.numberProduct, forKey: "numerProduct")
-            object.setValue(data.priceProduct, forKey: "priceProduct")
-            object.setValue(data.total, forKey: "total")
-            object.setValue(data.totalProduct, forKey: "totalProduct")
-            object.setValue(data.nameProduct, forKey: "nameProduct")
-            object.setValue(data.imageProduct, forKey: "imageProduct")
+            object.setValue(data?.banco, forKey: "banco")
+            object.setValue(data?.cv, forKey: "cv")
+            object.setValue(data?.nombre, forKey: "nombre")
+            object.setValue(data?.numero, forKey: "numero")
+            object.setValue(data?.saldo, forKey: "saldo")
+            object.setValue(data?.userId, forKey: "userId")
+            object.setValue(data?.vencimiento, forKey: "vencimiento")
+            
             try manageContext.save()
-            delegate.updatedCompraSuccess(data: object)
+            delegate.saveTarjetaSuccess(data: object)
         } catch (let error as NSError) {
             print("Failed")
             delegate.faillureRequest(error: error)
         }
-    }*/
+    }
 }
 
 protocol InternalDataRegisterTarjetaDelegate {

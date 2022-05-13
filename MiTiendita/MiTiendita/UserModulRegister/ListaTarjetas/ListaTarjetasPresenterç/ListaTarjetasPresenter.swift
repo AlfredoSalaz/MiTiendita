@@ -17,6 +17,11 @@ class ListaTarjetasPresenter: NSObject, ListaTarjetasPresenterProtocol{
         interactor?.loadCardsData()
     }
     
+    func loadDetailCard(isEditt: Bool?, data: NSManagedObject?) {
+        router?.openDetailCardds(view: view!, isEditt: isEditt, data: data)
+    }
+    
+    
 }
 extension ListaTarjetasPresenter: ListaTarjetasInteractorOutputProtocol{
     func onRecivedListCards(data: [NSManagedObject]) {

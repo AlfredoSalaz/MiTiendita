@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ListaTarjetasRouter: ListaTarjetasRouterProtocol {
     var presenter: ListaTarjetasPresenterProtocol?
@@ -27,6 +28,10 @@ class ListaTarjetasRouter: ListaTarjetasRouterProtocol {
     
     static var story: UIStoryboard{
         return UIStoryboard(name: "ListaTarjetasStoryboard", bundle: nil)
+    }
+    func openDetailCardds(view: ListaTarjetasViewControllerProtocol, isEditt: Bool?, data: NSManagedObject?) {
+        let vc = RegisterTarjetaRouter.createModuleTarjetas(isEditt: isEditt, data: data)
+        view.present(vc, animated: true)
     }
     
 }

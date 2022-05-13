@@ -19,6 +19,7 @@ protocol ListaTarjetasPresenterProtocol: NSObject{
     var router: ListaTarjetasRouterProtocol? {get set}
     
     func loadCards()
+    func loadDetailCard(isEditt: Bool?, data: NSManagedObject?)
 }
 protocol ListaTarjetasInteractorProtocol: NSObject{
     var output: ListaTarjetasInteractorOutputProtocol? {get set}
@@ -32,4 +33,5 @@ protocol ListaTarjetasInteractorOutputProtocol {
 protocol ListaTarjetasRouterProtocol{
     var presenter: ListaTarjetasPresenterProtocol? {get set}
     static func createModuloListaTarjeta() -> UIViewController
+    func openDetailCardds(view:ListaTarjetasViewControllerProtocol, isEditt: Bool?, data: NSManagedObject?)
 }
