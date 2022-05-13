@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import CoreData
 
 protocol PerfilUserRegisterViewControllerProtocol: UIViewController {
     var presenter: PerfilUserRegisterPresenterProtocol? {get set}
     var user: User? {get set}
     var isEditiing: Bool? {get set}
     //func receivedlistProduct(data: [UsuarioCore])
+    func receivedlistUsers(data: [NSManagedObject])
     //func faillureData()
+    
+    func dismiss()
 }
 
 protocol PerfilUserRegisterPresenterProtocol : NSObject {
@@ -25,18 +29,20 @@ protocol PerfilUserRegisterPresenterProtocol : NSObject {
     
     func receicedUser()
     func saveUserInfo(user: UsuarioCore)
-    
+    func getAllUserCore()
 }
 
 protocol PerfilUserRegisterInteractorProtocol : NSObject {
     var output: PerfilUserRegisterInteractorOutPutProtocol? {get set}
     
     func saveUserInfo(user: UsuarioCore)
+    func getAllUserCore()
 }
 
 protocol PerfilUserRegisterInteractorOutPutProtocol : NSObject {
     
-    //func onRecivedproducts(data: [UsuarioCore])
+    func onRecivedUsers(data: [NSManagedObject])
+    func dismiss()
     //func onRecivedFaillureData()
 }
 

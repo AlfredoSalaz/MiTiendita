@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterViewControllerProtocol {
     
@@ -24,9 +25,8 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
     
     var presenter: PerfilUserRegisterPresenterProtocol?
     var user: User?
-    
     var userCore: UsuarioCore?
-    
+    var listUsuarios: [User]?
     var isEditiing: Bool?
     
     override func viewDidLoad() {
@@ -48,10 +48,27 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
         
         pickerView?.isHidden = true
         
-        validateData()
+        //validateData()
+        presenter?.getAllUserCore()
     }
-
+    func receivedlistUsers(data: [NSManagedObject]) {
+        print("los datos son: \(data.count)")
+        data.forEach{
+            if $0.value(forKey: "correo") as! String == user?.email ?? "" {
+                
+                txtNombre.text = $0.value(forKey: "nombre") as? String
+                txtApellido.text = $0.value(forKey: "apellido") as? String
+                txtCorreo.text = $0.value(forKey: "correo") as? String
+                txtPassword.text = $0.value(forKey: "password") as? String
+                txtDireccion.text = $0.value(forKey: "direccion") as? String
+                txtTarjetaCredito.text = $0.value(forKey: "tarjeta") as? String
+            }
+        }
+    }
+    
     func validateData(){
+        
+        print("Voy desde la view")
         guard let isEditiing = isEditiing else {return}
         if isEditiing {
             guard let user = self.user else {return}
@@ -60,22 +77,26 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
                 imgUserPerfil.load(url: url)
             }
             txtNombre.text = user.name
-            txtApellido.text = userCore?.apellido
+            //txtApellido.text = userOfCore.apellido
             txtCorreo.text = user.email
             txtPassword.text = user.password
-            txtDireccion.text = userCore?.direccion
-            //txtTarjetaCredito.text = Int(userCore?.tarjeta ?? 0)
+            //txtDireccion.text = userOfCore.direccion
+            //txtTarjetaCredito.text = String(userOfCore.tarjeta ?? 0)
+            
         }
     }
+
     
     @IBAction func btnGuardarDatos(_ sender: Any) {
+        print("Presme")
         
         let usuario = UsuarioCore(nombre: txtNombre.text ?? "", apellido: txtApellido.text ?? "", correo: txtCorreo.text ?? "", password: txtPassword.text ?? "", direccion: txtDireccion.text ?? "", tarjeta: Int(txtTarjetaCredito.text ?? "") ?? 0)
-            
+          
             presenter?.saveUserInfo(user: usuario)
-        
+         
+    }
+    func dismiss() {
         dismiss(animated: true)
-        
     }
     
     @IBAction func btnBack(_ sender: Any){

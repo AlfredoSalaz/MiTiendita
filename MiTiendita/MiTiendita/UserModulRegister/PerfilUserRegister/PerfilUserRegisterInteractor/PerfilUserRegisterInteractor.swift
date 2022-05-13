@@ -8,11 +8,7 @@
 import UIKit
 import CoreData
 
-protocol usuarioDelegate{
-    func nuevoUsuario(user: User)
-}
-
-class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtocol {
+class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtocol{
 
     var users = [NSManagedObject]()
     
@@ -22,6 +18,8 @@ class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtoc
     var output: PerfilUserRegisterInteractorOutPutProtocol?
     
     func saveUserInfo(user: UsuarioCore) {
+        
+        print("LLegando al interactor")
         
         let manageContext = appDelegate.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "UsuariosCD", in: manageContext) else {return}
@@ -41,12 +39,29 @@ class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtoc
             try manageContext.save()
             print("Estos son los datos de los usuarios: \(usuario)")
             self.users.append(usuario)
-            print(usuario)
+            output?.dismiss()
+            
         }catch(let error as NSError){
             print(error)
         }
-         
+    }
+    
+    func getAllUserCore() {
+        print("Consultando a core data ")
+        InternalDataUser().getUsuarios(delegate: self)
     }
         
+}
+
+extension PerfilUserRegisterInteractor: InternalDataUserDelegate, RequestManagerDelegate{
+    
+    func onRecivedProductSuccess(data: [NSManagedObject]) {
+        print("Datos obtenidos de la api\(data.count)")
+        output?.onRecivedUsers(data: data)
+    }
+    
+    func onResponseFailure(error: CodeResponse, tag: Int) {
+        print("Fallo en core")
+    }
 }
 

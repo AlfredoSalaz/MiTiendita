@@ -6,17 +6,16 @@
 //
 
 import UIKit
+import CoreData
 
 class PerfilUserRegisterPresenter: NSObject, PerfilUserRegisterPresenterProtocol{
-
     var view: PerfilUserRegisterViewControllerProtocol?
-
     var interactor: PerfilUserRegisterInteractorProtocol?
-
     var router: PerfilUserRegisterRouterProtocol?
-    
+
     var isEdit: Bool?
     var user: User?
+    
     func saveUserInfo(user: UsuarioCore) {
         interactor?.saveUserInfo(user: user)
     }
@@ -24,10 +23,18 @@ class PerfilUserRegisterPresenter: NSObject, PerfilUserRegisterPresenterProtocol
         view?.isEditiing = isEdit
         view?.user = user
     }
+    
+    func getAllUserCore() {
+        interactor?.getAllUserCore()
+    }
 }
 
-
 extension  PerfilUserRegisterPresenter: PerfilUserRegisterInteractorOutPutProtocol{
+    func dismiss() {
+        view?.dismiss()
+    }
     
-    
+    func onRecivedUsers(data: [NSManagedObject]) {
+        view?.receivedlistUsers(data: data)
+    }
 }

@@ -50,7 +50,7 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
                     self.stackEmail.isHidden = true
                 }
             }
-            //presenter?.saveUserApi(user: user1!)
+            presenter?.saveUserApi(user: user1!)
             
         } else { //Usuario ya existente, no te puedes loguear
             DispatchQueue.main.async {
