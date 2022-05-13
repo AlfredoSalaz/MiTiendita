@@ -10,6 +10,7 @@ import UIKit
 class IndexViewController: UIViewController, IndexViewControllerProtocol {
     
     var presenter: IndexPresenterProtocol?
+    var user: User?
     
     @IBOutlet weak var email: UITextField?
     @IBOutlet weak var password: UITextField?
@@ -31,24 +32,26 @@ class IndexViewController: UIViewController, IndexViewControllerProtocol {
     func receivedAllOfUsers(data: [User]) {
         //listUsers = data
         print("Datos obtenidos: \(data.count)")
-        for user in data{
-            if mail == user.email {
-                print("Si existe")
+        var isEncontrado: Bool = false
+        for user in data {
+            if mail == user.email  {
                 print("La contra es \(user.password)")
                 DispatchQueue.main.async {
-                    self.email?.text = user.email
-                    self.password?.text = user.password
+                    print("Entro 1")
+                    let alert = UIAlertController(title: "Resultados", message: "Su contraseña es la siguiente: \n \((user.password)!)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    isEncontrado = true
                 }
-                
-            }else{
-                print("No existe")
-                print("Valor ingresado: \(mail)")
-                let alert = UIAlertController(title: "Sin resultados", message: "El correo electronico no esta registrado, intente con otro", preferredStyle: .alert)
-                self.present(alert, animated: true)
             }
         }
-        
-        
+        if !isEncontrado {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Sin resultados", message: "El correo electronico no esta registrado, intente con otro correo", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     ///Se valida la longitud del password y que el correo sea correo antes de enviar a autenticacion
     private func validateUser(){

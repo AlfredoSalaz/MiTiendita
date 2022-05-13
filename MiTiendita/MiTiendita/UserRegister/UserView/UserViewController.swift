@@ -37,6 +37,11 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
         stackEmail.isHidden = true
         stackPassword.isHidden = true
     }
+    /*
+    guard let email = txtEmail?.text, let password = txtPassword?.text else{
+        showAlert()
+        return
+    }*/
     //Función que se encarga de validar el correo electronico y la longuitud de la contraseña del usuario
     func errorCheckEmail(user: ValidateEmail) {
         if user.isAvailable == true { //NO existe, si te puedes loguear
@@ -52,14 +57,14 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
             }
             presenter?.saveUserApi(user: user1!)
             
-        } else { //Usuario ya existente, no te puedes loguear
-            DispatchQueue.main.async {
-                self.stackEmail.isHidden = false
-                if self.txtPassword.text!.count < 4{
-                    self.stackPassword.isHidden = false
-                }else if user.isAvailable == true && self.txtPassword.text!.count > 5 {
-                    self.stackPassword.isHidden = true
-                    self.stackEmail.isHidden = true
+    }else { //Usuario ya existente, no te puedes loguear
+        DispatchQueue.main.async {
+            self.stackEmail.isHidden = false
+            if self.txtPassword.text!.count < 4{
+                self.stackPassword.isHidden = false
+            }else if user.isAvailable == true && self.txtPassword.text!.count > 5 {
+                self.stackPassword.isHidden = true
+                self.stackEmail.isHidden = true
                 }
             }
         }
@@ -110,3 +115,4 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
     }
 
 }
+
