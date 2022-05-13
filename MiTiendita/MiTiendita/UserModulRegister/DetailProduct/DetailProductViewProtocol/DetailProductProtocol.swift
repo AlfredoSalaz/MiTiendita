@@ -11,12 +11,14 @@ import UIKit
 protocol DetailProductViewControllerProtocol: UIViewController {
     var presenter: DetailProductPresenterProtocol? {get set}
     func saveCompraCoreData()
+    func deleteSuccessProduct()
 }
 
 //Interactor
 protocol DetailProductInteractorProtocol: NSObject {
     var output: DetailProductOutputProtocol? {get set}
     func savedCompraUser(compra: ComprasUser)
+    func deleteProducts(id: Int)
 }
 
 //Presenter
@@ -28,11 +30,13 @@ protocol DetailProductPresenterProtocol: NSObject {
     func openViewCompras()
     func openEditProducts(isEdit: Bool?)
     func saveCompraUser(compra: ComprasUser)
+    func deleteProduct(id: Int)
 }
 
 //Output
 protocol DetailProductOutputProtocol: NSObject {
     func savedCompraCD()
+    func deleteSuccessProd()
 }
 
 //Router

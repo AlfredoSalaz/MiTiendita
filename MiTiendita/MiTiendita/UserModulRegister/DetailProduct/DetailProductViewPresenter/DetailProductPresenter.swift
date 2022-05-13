@@ -21,9 +21,15 @@ class DetailProductPresenter: NSObject, DetailProductPresenterProtocol {
     func openEditProducts(isEdit: Bool?) {
         router?.openEditProduct(view: view!, isEdit: isEdit)
     }
+    func deleteProduct(id: Int) {
+        interactor?.deleteProducts(id: id)
+    }
 }
 extension DetailProductPresenter: DetailProductOutputProtocol{
     func savedCompraCD(){
         view?.saveCompraCoreData()
+    }
+    func deleteSuccessProd() {
+        view?.deleteSuccessProduct()
     }
 }

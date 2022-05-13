@@ -35,8 +35,8 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         super.viewDidLoad()
         indicatorView?.isHidden = true
         presenter?.recivedDataFromIndex()
-        presenter?.getCategoryCoreD()
-        //presenter?.resetEntityCoreData(name: "Categories")
+        //presenter?.getCategoryCoreD()
+        //presenter?.resetEntityCoreData(name: "CategoriesCD")
         
         tableView.delegate = self
         
@@ -198,6 +198,9 @@ extension MainAdminViewController {
     
     @IBAction func editUser(_ sender: Any) {
         presenter?.openEditUser(user: user, isEdditing: true)
+    }
+    @IBAction func addTarjeta(_ sender: Any){
+        presenter?.openListTarjeta()
     }
     
     @IBAction func categoryProduct(_ sender: Any) {

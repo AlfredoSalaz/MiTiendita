@@ -14,9 +14,9 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     @IBOutlet weak var lblPrecio: UILabel!
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var btnAddCar: UIButton?
-    @IBOutlet weak var imgProduct: UIImageView!
     @IBOutlet weak var btnEdit: UIButton?
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var btnDelete: UIButton?
     
     var presenter: DetailProductPresenterProtocol?
     
@@ -25,16 +25,20 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showData()
+        //showData()
         collectionView.delegate = self
         collectionView.dataSource = self
         if userSingleton.role == "admin"{
             btnAddCar?.isHidden = true
         }else{
             btnEdit?.isHidden = true
+            btnDelete?.isHidden = true
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        showData()
+    }
     func showData() {
         lblTitle.text = product.title
         lblDescripcion.text = product.description
@@ -56,6 +60,14 @@ class DetailProductViewController: UIViewController, DetailProductViewController
     }
     @IBAction func editProduct(_ sender: Any){
         presenter?.openEditProducts(isEdit: true)
+    }
+    @IBAction func actionDelete(_ sender: Any){
+        presenter?.deleteProduct(id: product.id!)
+    }
+    func deleteSuccessProduct() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
