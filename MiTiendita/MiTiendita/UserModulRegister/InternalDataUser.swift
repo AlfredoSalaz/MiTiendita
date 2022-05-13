@@ -42,6 +42,10 @@ class InternalDataUser {
         do{
             
             let resultados = try manageContext.fetch(fetchRequest)
+            print(resultados.count)
+            for res in resultados{
+                print("name \(res.value(forKey: "nombre"))")
+            }
             
             delegate.getUser(data: resultados)
              

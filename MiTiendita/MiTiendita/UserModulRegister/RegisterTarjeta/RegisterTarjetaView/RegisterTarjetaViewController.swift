@@ -23,8 +23,25 @@ class RegisterTarjetaViewController: UIViewController, RegisterTarjetaViewContro
     
     @IBOutlet weak var btnGuardar: UIButton?
     
+    let myColor : UIColor = UIColor.magenta
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtBanco?.layer.borderWidth = 2
+        txtBanco?.layer.borderColor = myColor.cgColor
+        txtUser?.layer.borderWidth = 2
+        txtUser?.layer.borderColor = myColor.cgColor
+        txtNumeroTarjeta?.layer.borderWidth = 2
+        txtNumeroTarjeta?.layer.borderColor = myColor.cgColor
+        txtVencimiento?.layer.borderWidth = 2
+        txtVencimiento?.layer.borderColor = myColor.cgColor
+        txtCV?.layer.borderWidth = 2
+        txtCV?.layer.borderColor = myColor.cgColor
+        
+        btnGuardar?.layer.borderWidth = 2
+        btnGuardar?.layer.borderColor = myColor.cgColor
+        
+        
         loadDelegate()
         // Do any additional setup after loading the view.
     }
@@ -48,6 +65,9 @@ class RegisterTarjetaViewController: UIViewController, RegisterTarjetaViewContro
         }
     }
 
+    @IBAction func btnBack(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
 
 extension RegisterTarjetaViewController: UITextFieldDelegate{

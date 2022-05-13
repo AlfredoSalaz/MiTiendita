@@ -48,7 +48,7 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
         
         pickerView?.isHidden = true
         
-        //validateData()
+        validateData()
         presenter?.getAllUserCore()
     }
     func receivedlistUsers(data: [NSManagedObject]) {
