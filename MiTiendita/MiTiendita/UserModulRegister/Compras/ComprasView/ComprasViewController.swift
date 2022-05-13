@@ -18,7 +18,7 @@ class ComprasViewController: UIViewController, ComprasViewControllerProtocol {
     var product = ProductDetalSingleton.shared
     var pressButton = false
     var cantidadProducto = 0
-    
+    var isPagar = false
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView?.isHidden = false
@@ -63,13 +63,20 @@ class ComprasViewController: UIViewController, ComprasViewControllerProtocol {
         }
     }
     func upatedSuccessCD() {
-        DispatchQueue.main.async {
+        if isPagar{
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }else{
+            DispatchQueue.main.async {
             print("suc")
             self.indicatorView?.isHidden = true
             self.indicatorView?.stopAnimating()
+            }
         }
     }
     @IBAction func pagarCompras(_ sender: Any){
+        isPagar = true
         compras?.forEach{
             print("\($0.value(forKey: "nameProduct"))")
             let compraUser = ComprasUserCD(usId: ($0.value(forKey: "userId") as? Int)!, totalProd: ($0.value(forKey: "totalProduct") as? Decimal)!, totalCompra: ($0.value(forKey: "total") as? Decimal)!, prodId: $0.value(forKey: "productId") as! Int, priceProducts: ($0.value(forKey: "priceProduct") as? Decimal)!, numberProducts: $0.value(forKey: "numerProduct") as! Int, imageProd: $0.value(forKey: "imageProduct") as! Data, nameProd: $0.value(forKey: "nameProduct") as! String, status: "pagado")

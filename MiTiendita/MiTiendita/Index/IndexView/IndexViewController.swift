@@ -77,8 +77,7 @@ class IndexViewController: UIViewController, IndexViewControllerProtocol {
         presenter?.openViewRegister()
     }
     @IBAction func loginGuest(_ sender: Any){
-        //presenter?.openMainTienda(tipeUser: "Admin")
-        //presenter?.openViewRegisterNewUser()
+        presenter?.openMainTienda(user: User(id: 0, email: "invitado@mail.com", password: "password", name: "Invitado", role: "invitado", avatar: ""))
     }
     
     @IBAction func btnGetPassword(_ sender: Any) {
