@@ -37,13 +37,21 @@ class UserViewController: UIViewController, UserViewControllerProtocol {
         stackEmail.isHidden = true
         stackPassword.isHidden = true
     }
-    /*
-    guard let email = txtEmail?.text, let password = txtPassword?.text else{
-        showAlert()
-        return
-    }*/
+    
+    func alert(){
+        DispatchQueue.main.async {
+            if self.txtNombre.text == "" || self.txtApellido.text == ""{
+                if self.txtEmail.text == "" || self.txtPassword.text == ""{
+                    self.showAlert()
+                }
+            }
+        }
+        
+     }
+    
     //Función que se encarga de validar el correo electronico y la longuitud de la contraseña del usuario
     func errorCheckEmail(user: ValidateEmail) {
+        alert()
         if user.isAvailable == true { //NO existe, si te puedes loguear
             //presenter?.saveUserApi(user: user1!)
             print("Es true")
