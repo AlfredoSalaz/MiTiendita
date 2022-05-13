@@ -82,6 +82,23 @@ class RequestManager {
                 }
             }
             urlSession.resume()
+        }else if metodo == "DELETE"{
+            
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = metodo
+            let urlSession = URLSession.shared.dataTask(with: urlRequest){
+                data, response, error in
+                guard let data = data else {return}
+                do{
+                    let respuesta = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                    print("respuesta \(respuesta)")
+                    delegate.onResponseSuccess(data: nil, tag: tag)
+                }catch(let error as NSError){
+                    print(error)
+                    delegate.onResponseFailure(error:.BAD_DECODABLE, tag: tag)
+                }
+            }
+            urlSession.resume()
         }
     }
     

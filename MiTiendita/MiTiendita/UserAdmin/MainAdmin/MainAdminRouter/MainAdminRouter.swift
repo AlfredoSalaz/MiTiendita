@@ -54,6 +54,10 @@ class MainAdminRouter: MainAdminRouterProtocol {
         let vc = ComprasRouter.createModuleCompras()
         view.present(vc, animated: true)
     }
+    func openListTarjeta(view: MainAdminViewControllerProtocol){
+        let vc = RegisterTarjetaRouter.createModuleTarjetas()
+        view.present(vc, animated: true)
+    }
     
     static var mainstoryboard: UIStoryboard{
         return UIStoryboard(name: "MainAdminStoryboard", bundle: nil)

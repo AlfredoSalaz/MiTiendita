@@ -25,7 +25,7 @@ protocol MainAdminPresenterProtocol: NSObject{
     var router: MainAdminRouterProtocol? {get set}
     
     func openEditUser(user: User?, isEdditing: Bool)
-    
+    func openListTarjeta()
     func openRegisterCategory()
     func editCategory(data: CategoryProduct, isEdit: Bool, objectCoreData: NSManagedObject)
     func openListProduct()
@@ -77,4 +77,5 @@ protocol MainAdminRouterProtocol {
     
     func openEditUser(view: MainAdminViewControllerProtocol, isEdit:Bool, user: User?)
     func openViewComprasRouterfromMain(view: MainAdminViewControllerProtocol)
+    func openListTarjeta(view: MainAdminViewControllerProtocol)
 }
