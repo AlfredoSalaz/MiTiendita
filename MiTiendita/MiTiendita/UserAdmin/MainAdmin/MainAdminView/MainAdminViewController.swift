@@ -31,6 +31,8 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
     @IBOutlet weak var viewStackCarShop: UIView?
     @IBOutlet weak var viewStackaddCategory: UIView?
     @IBOutlet weak var viewStackHistory: UIView?
+    @IBOutlet weak var stackAddTarjeta: UIView?
+    @IBOutlet weak var btnEditarPerfil: UIButton?
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView?.isHidden = true
@@ -58,9 +60,16 @@ class MainAdminViewController: UIViewController, MainAdminViewControllerProtocol
         if user.role == "admin"{
             viewStackaddCategory?.isHidden = false
             viewStackCarShop?.isHidden = true
-        }else {
+            viewStackHistory?.isHidden = true
+        }else if user.role == "customer"{
             viewStackaddCategory?.isHidden = true
             viewStackCarShop?.isHidden = false
+        }else{
+            viewStackaddCategory?.isHidden = true
+            viewStackHistory?.isHidden = true
+            viewStackCarShop?.isHidden = false
+            stackAddTarjeta?.isHidden = true
+            btnEditarPerfil?.isHidden = true
         }
     }
     @IBAction func reloadDataInViewAndCoreData(_ sender: Any){

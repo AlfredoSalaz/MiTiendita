@@ -18,6 +18,14 @@ class User: Decodable{
     var name: String?
     var role: String?
     var avatar: String?
+    init(id: Int, email: String, password: String, name: String, role: String, avatar:String) {
+        self.id = id
+        self.email = email
+        self.password = password
+        self.name = name
+        self.role = role
+        self.avatar = avatar
+    }
 }
 
 struct UserToken: Decodable{

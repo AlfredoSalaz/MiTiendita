@@ -11,7 +11,7 @@
         <!--History Compras View Controller-->
         <scene sceneID="xSr-O7-SzA">
             <objects>
-                <viewController id="WSB-Uq-Mme" customClass="HistoryComprasViewController" customModule="MiTiendita" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="history" id="WSB-Uq-Mme" customClass="HistoryComprasViewController" customModule="MiTiendita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7H3-fQ-tin">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +94,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WSB-Uq-Mme" id="HxS-yO-dpg"/>
+                                    <outlet property="delegate" destination="WSB-Uq-Mme" id="HyS-rY-8y1"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-rC-Ydh">
                                 <rect key="frame" x="20" y="64" width="60" height="30"/>
