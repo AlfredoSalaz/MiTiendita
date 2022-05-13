@@ -41,7 +41,9 @@
                                                     <constraint firstAttribute="width" constant="50" id="6n9-bB-dBC"/>
                                                     <constraint firstAttribute="height" constant="30" id="ckD-kb-7tE"/>
                                                 </constraints>
-                                                <state key="normal" title="Back"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="backView:" destination="SFG-Ku-k3p" eventType="touchUpInside" id="7Yc-Oo-8O1"/>
                                                 </connections>
@@ -282,6 +284,9 @@
     <resources>
         <image name="fondo" width="1400" height="2100"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

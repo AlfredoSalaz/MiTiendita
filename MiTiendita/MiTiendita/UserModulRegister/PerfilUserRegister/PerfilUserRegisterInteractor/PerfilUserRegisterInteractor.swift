@@ -53,15 +53,10 @@ class PerfilUserRegisterInteractor: NSObject, PerfilUserRegisterInteractorProtoc
         
 }
 
-extension PerfilUserRegisterInteractor: InternalDataUserDelegate, RequestManagerDelegate{
-    
-    func onRecivedProductSuccess(data: [NSManagedObject]) {
-        print("Datos obtenidos de la api\(data.count)")
+extension PerfilUserRegisterInteractor: InternalDataUserDelegate{
+    func getUser(data: [NSManagedObject]) {
+        print("estoy aca")
         output?.onRecivedUsers(data: data)
     }
     
-    func onResponseFailure(error: CodeResponse, tag: Int) {
-        print("Fallo en core")
-    }
 }
-
