@@ -16,7 +16,7 @@ import UIKit
 class UserRegisterProductsViewController: UIViewController,  UserRegisterProductsViewControllerProtocol {
     
     @IBOutlet weak var tableDatos: UITableView!
-    @IBOutlet weak var txtBusqueda: UITextField!
+    
     @IBOutlet weak var btnAddProduct: UIButton?
     var presenter: UserRegisterProductsPresenterProtocol?
     let product = ProductDetalSingleton.shared

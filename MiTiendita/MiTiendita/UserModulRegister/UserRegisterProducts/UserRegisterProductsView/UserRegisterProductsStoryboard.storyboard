@@ -141,7 +141,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="barraBusqueda" destination="LVk-ee-v1i" id="UP0-Zj-AMi"/>
                         <outlet property="btnAddProduct" destination="skP-x9-NDy" id="LwP-cJ-EFf"/>
                         <outlet property="tableDatos" destination="Vs9-ig-A5Y" id="ogk-IL-pjy"/>
                     </connections>
