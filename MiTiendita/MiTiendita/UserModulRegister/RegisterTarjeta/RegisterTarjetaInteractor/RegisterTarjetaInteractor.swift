@@ -12,16 +12,15 @@ class RegisterTarjetaInteractor: NSObject, RegisterTarjetaInteractorProtocol{
     var output: RegisterTarjetaInteractorOutputProtocol?
     
     func saveTarjetas(data: TarjetaModel?) {
-        print("tarjeta \(data?.banco) ")
         InternalDataRegisterTarjeta().saveTarjetaInCoreData(data: data, delegate: self)
     }
     
-    func updateTrajetas() {
-        
+    func updateTrajetas(data: TarjetaModel?, object: NSManagedObject?) {
+        InternalDataRegisterTarjeta().updateTarjetaCoreData(object: object!, delegate: self, data: data)
     }
     
-    func deleteTarjetas() {
-        
+    func deleteTarjetas(object: NSManagedObject?) {
+        InternalDataRegisterTarjeta().deleteTarjetaCoreData(data: object!, delegate: self)
     }
     
     func getTarjeta() {
@@ -31,8 +30,7 @@ class RegisterTarjetaInteractor: NSObject, RegisterTarjetaInteractorProtocol{
 }
 extension RegisterTarjetaInteractor: InternalDataRegisterTarjetaDelegate{
     func saveTarjetaSuccess(data: NSManagedObject?) {
-        //print("data\(data?.value(forKey: "usuario"))")
-        //print("\(data.)")
+        print("save")
         output?.savedTarjetaInCD()
     }
 }

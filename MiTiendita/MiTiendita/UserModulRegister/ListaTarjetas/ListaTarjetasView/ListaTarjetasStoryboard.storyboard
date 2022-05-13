@@ -12,7 +12,7 @@
         <!--Lista Tarjetas View Controller-->
         <scene sceneID="BWa-DJ-6AU">
             <objects>
-                <viewController storyboardIdentifier="listaTarjetas" id="G5f-e4-IIS" customClass="ListaTarjetasViewController" customModule="MiTiendita" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="listaTarjetas" modalPresentationStyle="fullScreen" id="G5f-e4-IIS" customClass="ListaTarjetasViewController" customModule="MiTiendita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Wc-M5-lwq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,18 +142,44 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bei-GG-SIK">
+                                                <rect key="frame" x="364" y="20" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="wx1-9j-zKr"/>
+                                                    <constraint firstAttribute="width" constant="30" id="ydP-h1-SmF"/>
+                                                </constraints>
+                                                <state key="normal" image="add"/>
+                                                <connections>
+                                                    <action selector="addNewTarjeta:" destination="G5f-e4-IIS" eventType="touchUpInside" id="Sdp-03-hPt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtl-DB-IQz">
+                                                <rect key="frame" x="20" y="20" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="gN0-NL-929"/>
+                                                    <constraint firstAttribute="width" constant="60" id="omi-Qz-IJ4"/>
+                                                </constraints>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backAction:" destination="G5f-e4-IIS" eventType="touchUpInside" id="NRO-2B-Qt4"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="eNg-MB-oaC" firstAttribute="leading" secondItem="2PG-Db-Eps" secondAttribute="leading" constant="40" id="4RL-9l-XZ6"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bei-GG-SIK" secondAttribute="trailing" constant="20" id="7pk-3B-GwI"/>
+                                            <constraint firstItem="rtl-DB-IQz" firstAttribute="top" secondItem="2PG-Db-Eps" secondAttribute="top" constant="20" id="Bqk-3l-JJf"/>
                                             <constraint firstAttribute="trailing" secondItem="wk9-mz-Ei8" secondAttribute="trailing" constant="40" id="HSx-B1-BHZ"/>
                                             <constraint firstItem="SVE-eO-wAz" firstAttribute="leading" secondItem="2PG-Db-Eps" secondAttribute="leading" constant="5" id="JHP-UE-bZb"/>
                                             <constraint firstItem="wk9-mz-Ei8" firstAttribute="top" secondItem="2PG-Db-Eps" secondAttribute="top" constant="50" id="LJS-qU-P7c"/>
                                             <constraint firstItem="wk9-mz-Ei8" firstAttribute="leading" secondItem="2PG-Db-Eps" secondAttribute="leading" constant="40" id="SYA-XQ-ncP"/>
                                             <constraint firstAttribute="trailing" secondItem="SVE-eO-wAz" secondAttribute="trailing" constant="5" id="Un4-0N-Ue4"/>
+                                            <constraint firstItem="Bei-GG-SIK" firstAttribute="top" secondItem="2PG-Db-Eps" secondAttribute="top" constant="20" id="WCu-Iy-i2h"/>
                                             <constraint firstItem="SVE-eO-wAz" firstAttribute="top" secondItem="wk9-mz-Ei8" secondAttribute="bottom" constant="50" id="dPU-QT-4Ja"/>
                                             <constraint firstAttribute="trailing" secondItem="eNg-MB-oaC" secondAttribute="trailing" constant="40" id="kp3-Jz-9My"/>
                                             <constraint firstItem="eNg-MB-oaC" firstAttribute="top" secondItem="SVE-eO-wAz" secondAttribute="bottom" constant="50" id="nh0-lN-E82"/>
+                                            <constraint firstItem="rtl-DB-IQz" firstAttribute="leading" secondItem="2PG-Db-Eps" secondAttribute="leading" constant="20" id="vhd-IB-mKE"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -177,6 +203,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnAddTarjeta" destination="Bei-GG-SIK" id="Sg8-9n-RUV"/>
                         <outlet property="collectionView" destination="SVE-eO-wAz" id="x2s-Dg-nzR"/>
                     </connections>
                 </viewController>
@@ -186,6 +213,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

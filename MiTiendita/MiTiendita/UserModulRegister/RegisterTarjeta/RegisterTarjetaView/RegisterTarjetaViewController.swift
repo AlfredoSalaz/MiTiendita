@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterTarjetaViewController: UIViewController, RegisterTarjetaViewControllerProtocol {
     var presenter: RegisterTarjetaPresenterProtocol?
     var user = User.shared
+    var isEditt: Bool?
+    var data: NSManagedObject?
+    let tarjeta = TarjetaModel.shared
     @IBOutlet weak var lblBanco: UILabel?
     @IBOutlet weak var lblUser: UILabel?
     @IBOutlet weak var lblNumeroTarjeta: UILabel?
@@ -20,7 +24,7 @@ class RegisterTarjetaViewController: UIViewController, RegisterTarjetaViewContro
     @IBOutlet weak var txtNumeroTarjeta: UITextField?
     @IBOutlet weak var txtVencimiento: UITextField?
     @IBOutlet weak var txtCV: UITextField?
-    
+    @IBOutlet weak var btnDelete: UIButton?
     @IBOutlet weak var btnGuardar: UIButton?
     
     let myColor : UIColor = UIColor.magenta
@@ -41,9 +45,14 @@ class RegisterTarjetaViewController: UIViewController, RegisterTarjetaViewContro
         btnGuardar?.layer.borderWidth = 2
         btnGuardar?.layer.borderColor = myColor.cgColor
         
-        
+        presenter?.loadDataInView()
         loadDelegate()
         // Do any additional setup after loading the view.
+        if isEditt!{
+            loadWhenIsEdit()
+        }else {
+            btnDelete?.isHidden = true
+        }
     }
     func loadDelegate(){
         txtBanco?.delegate = self
@@ -52,12 +61,29 @@ class RegisterTarjetaViewController: UIViewController, RegisterTarjetaViewContro
         txtVencimiento?.delegate = self
         txtCV?.delegate = self
     }
+    func loadWhenIsEdit(){
+        txtBanco?.text = tarjeta.banco
+        txtUser?.text = tarjeta.nombre
+        txtNumeroTarjeta?.text = tarjeta.numero
+        txtVencimiento?.text = tarjeta.vencimiento
+        txtCV?.text = tarjeta.cv
+        
+        lblBanco?.text = tarjeta.banco
+        lblUser?.text = tarjeta.nombre
+        lblNumeroTarjeta?.text = tarjeta.numero
+        lblVencimiento?.text = tarjeta.vencimiento
+        lblCV?.text = tarjeta.cv
+    }
     
     @IBAction func saveTarjeta(_ sender: Any){
-        //let users =  UserCD(id: user.id, nombre: user.name, apellido: "Default", correo: user.email, direccion: "default", password: user.password, tarjeta: "default")
-        print("usuario \(user.id)")
-        let data = TarjetaModel(cv: txtCV?.text ?? "", nombre: txtUser?.text ?? "", numero: txtNumeroTarjeta?.text ?? "", saldo: 100000.0 , vencimiento: txtVencimiento?.text ?? "", userId: user.id ?? 0, banco: txtBanco?.text ?? "")
-        presenter?.saveTarjeta(data: data)
+        
+        let datas = TarjetaModel(cv: txtCV?.text ?? "", nombre: txtUser?.text ?? "", numero: txtNumeroTarjeta?.text ?? "", saldo: 100000.0 , vencimiento: txtVencimiento?.text ?? "", userId: user.id ?? 0, banco: txtBanco?.text ?? "")
+        if isEditt!{
+            print("update")
+            presenter?.updateTrajeta(data: datas, object: data!)
+        }else{
+            presenter?.saveTarjeta(data: datas)
+        }
     }
     func savedTarjetaInCoreData(){
         DispatchQueue.main.async {
@@ -67,6 +93,9 @@ class RegisterTarjetaViewController: UIViewController, RegisterTarjetaViewContro
 
     @IBAction func btnBack(_ sender: Any) {
         dismiss(animated: true)
+    }
+    @IBAction func actionDelete(_ sender: Any){
+        presenter?.deleteTarjeta(object: data)
     }
 }
 

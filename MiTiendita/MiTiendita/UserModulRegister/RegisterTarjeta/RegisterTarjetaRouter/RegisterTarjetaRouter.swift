@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterTarjetaRouter: RegisterTarjetaRouterProtocol {
     var presenter: RegisterTarjetaPresenterProtocol?
-    static func createModuleTarjetas() -> UIViewController {
+    static func createModuleTarjetas(isEditt: Bool?, data: NSManagedObject?) -> UIViewController {
         let view = story.instantiateViewController(withIdentifier: "tarjeta") as! RegisterTarjetaViewController
         let presenter: RegisterTarjetaPresenterProtocol & RegisterTarjetaInteractorOutputProtocol = RegisterTarjetaPresenter()
         let interactor: RegisterTarjetaInteractorProtocol = RegisterTarjetaInteractor()
@@ -21,6 +22,8 @@ class RegisterTarjetaRouter: RegisterTarjetaRouterProtocol {
         presenter.router = router
         interactor.output = presenter
         router.presenter = presenter
+        presenter.isEditt = isEditt
+        presenter.object = data
         return view
     }
     

@@ -10,20 +10,41 @@ import CoreData
 
 class ListaTarjetasViewController: UIViewController, ListaTarjetasViewControllerProtocol {
     var presenter: ListaTarjetasPresenterProtocol?
-    
+    var tarjeta = TarjetaModel.shared
+    var user = User.shared
     var listCards: [NSManagedObject]?
+    
     @IBOutlet weak var collectionView: UICollectionView?
+    @IBOutlet weak var btnAddTarjeta: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.delegate = self
+        //presenter?.loadCards()
+    }
+    override func viewWillAppear(_ animated: Bool) {
         presenter?.loadCards()
     }
     func onReciveListCards(data: [NSManagedObject]){
         print(data.count)
-        listCards = data
+        var lis: [NSManagedObject] = []
+        data.forEach{
+            print("id: \($0.value(forKey: "userId") as? Int) \(user.id)")
+            if $0.value(forKey: "userId") as? Int == user.id{
+                lis.append($0)
+            }
+        }
+        listCards = lis
+        print("lista\(listCards?.count)")
         collectionView?.reloadData()
+    }
+    @IBAction func addNewTarjeta(_ sender: Any){
+        
+        presenter?.loadDetailCard(isEditt: false, data: nil)
+    }
+    @IBAction func backAction(_ sender: Any){
+        dismiss(animated: true, completion: nil)
     }
     
 }
@@ -46,5 +67,15 @@ extension ListaTarjetasViewController: UICollectionViewDelegate, UICollectionVie
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = listCards?[indexPath.row]
+        tarjeta.banco = data?.value(forKey: "banco") as? String
+        tarjeta.cv = data?.value(forKey: "cv") as? String
+        tarjeta.nombre = data?.value(forKey: "nombre") as? String
+        tarjeta.numero = data?.value(forKey: "numero") as? String
+        tarjeta.saldo = data?.value(forKey: "saldo") as? Decimal
+        tarjeta.userId = data?.value(forKey: "userId") as? Int
+        tarjeta.vencimiento = data?.value(forKey: "vencimiento") as? String
+        presenter?.loadDetailCard(isEditt: true, data: data!)
+    }
 }
