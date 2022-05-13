@@ -60,9 +60,11 @@ class PerfilUserRegisterViewController: UIViewController, PerfilUserRegisterView
                 imgUserPerfil.load(url: url)
             }
             txtNombre.text = user.name
+            txtApellido.text = userCore?.apellido
             txtCorreo.text = user.email
             txtPassword.text = user.password
-            
+            txtDireccion.text = userCore?.direccion
+            //txtTarjetaCredito.text = Int(userCore?.tarjeta ?? 0)
         }
     }
     
