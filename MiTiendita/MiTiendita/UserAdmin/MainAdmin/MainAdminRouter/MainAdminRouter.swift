@@ -55,7 +55,7 @@ class MainAdminRouter: MainAdminRouterProtocol {
         view.present(vc, animated: true)
     }
     func openListTarjeta(view: MainAdminViewControllerProtocol){
-        let vc = RegisterTarjetaRouter.createModuleTarjetas()
+        let vc = ListaTarjetasRouter.createModuloListaTarjeta()
         view.present(vc, animated: true)
     }
     

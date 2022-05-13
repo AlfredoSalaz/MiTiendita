@@ -31,8 +31,8 @@ class RegisterTarjetaInteractor: NSObject, RegisterTarjetaInteractorProtocol{
 }
 extension RegisterTarjetaInteractor: InternalDataRegisterTarjetaDelegate{
     func saveTarjetaSuccess(data: NSManagedObject?) {
-        print("data\(data?.value(forKey: "usuario"))")
+        //print("data\(data?.value(forKey: "usuario"))")
         //print("\(data.)")
-        //output?.savedTarjetaInCD()
+        output?.savedTarjetaInCD()
     }
 }

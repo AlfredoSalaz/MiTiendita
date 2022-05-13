@@ -55,6 +55,14 @@
 		5068980B282082F300566000 /* RegisterProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068980A282082F300566000 /* RegisterProductEntity.swift */; };
 		50793D972824284800547845 /* InternalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50793D962824284800547845 /* InternalData.swift */; };
 		50793D9C28246E5A00547845 /* MainUserRegisterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50793D9B28246E5A00547845 /* MainUserRegisterTableViewCell.swift */; };
+		50CC395A282DF6BA00660FD1 /* ListaTarjetasStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CC3959282DF6BA00660FD1 /* ListaTarjetasStoryboard.storyboard */; };
+		50CC395F282DF6CF00660FD1 /* ListaTarjetasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC395E282DF6CF00660FD1 /* ListaTarjetasViewController.swift */; };
+		50CC3964282DF74B00660FD1 /* ListaTarjetasInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC3963282DF74B00660FD1 /* ListaTarjetasInteractor.swift */; };
+		50CC3969282DF75B00660FD1 /* ListaTarjetasPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC3968282DF75B00660FD1 /* ListaTarjetasPresenter.swift */; };
+		50CC396E282DF76E00660FD1 /* ListaTarjetasEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC396D282DF76E00660FD1 /* ListaTarjetasEntity.swift */; };
+		50CC3973282DF77D00660FD1 /* ListaTarjetasRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC3972282DF77D00660FD1 /* ListaTarjetasRouter.swift */; };
+		50CC3978282DF78F00660FD1 /* ListaTarjetasProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC3977282DF78F00660FD1 /* ListaTarjetasProtocol.swift */; };
+		50CC397D282E071100660FD1 /* ListaTarjetaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CC397C282E071100660FD1 /* ListaTarjetaCollectionViewCell.swift */; };
 		50DE38702825B6E30091E14E /* InternalDataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE386F2825B6E30091E14E /* InternalDataUser.swift */; };
 		50DE38752825B9000091E14E /* ExternalDataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DE38742825B9000091E14E /* ExternalDataUser.swift */; };
 		50E7103F282D9ABB00906FE6 /* RegisterTarjetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E7103E282D9ABB00906FE6 /* RegisterTarjetaViewController.swift */; };
@@ -186,6 +194,14 @@
 		5068980A282082F300566000 /* RegisterProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProductEntity.swift; sourceTree = "<group>"; };
 		50793D962824284800547845 /* InternalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalData.swift; sourceTree = "<group>"; };
 		50793D9B28246E5A00547845 /* MainUserRegisterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserRegisterTableViewCell.swift; sourceTree = "<group>"; };
+		50CC3959282DF6BA00660FD1 /* ListaTarjetasStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListaTarjetasStoryboard.storyboard; sourceTree = "<group>"; };
+		50CC395E282DF6CF00660FD1 /* ListaTarjetasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasViewController.swift; sourceTree = "<group>"; };
+		50CC3963282DF74B00660FD1 /* ListaTarjetasInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasInteractor.swift; sourceTree = "<group>"; };
+		50CC3968282DF75B00660FD1 /* ListaTarjetasPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasPresenter.swift; sourceTree = "<group>"; };
+		50CC396D282DF76E00660FD1 /* ListaTarjetasEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasEntity.swift; sourceTree = "<group>"; };
+		50CC3972282DF77D00660FD1 /* ListaTarjetasRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasRouter.swift; sourceTree = "<group>"; };
+		50CC3977282DF78F00660FD1 /* ListaTarjetasProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasProtocol.swift; sourceTree = "<group>"; };
+		50CC397C282E071100660FD1 /* ListaTarjetaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetaCollectionViewCell.swift; sourceTree = "<group>"; };
 		50DE386F2825B6E30091E14E /* InternalDataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalDataUser.swift; sourceTree = "<group>"; };
 		50DE38742825B9000091E14E /* ExternalDataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDataUser.swift; sourceTree = "<group>"; };
 		50E7103E282D9ABB00906FE6 /* RegisterTarjetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTarjetaViewController.swift; sourceTree = "<group>"; };
@@ -694,6 +710,70 @@
 			path = DetailProductView;
 			sourceTree = "<group>";
 		};
+		50CC3952282DF2C400660FD1 /* ListaTarjetas */ = {
+			isa = PBXGroup;
+			children = (
+				50CC3958282DF69000660FD1 /* ListaTarjetasView */,
+				50CC3957282DF68400660FD1 /* ListaTarjetasInteractor */,
+				50CC3956282DF5BF00660FD1 /* ListaTarjetasPresenter */,
+				50CC3955282DF36100660FD1 /* ListaTarjetasEntity */,
+				50CC3954282DF30500660FD1 /* ListaTarjetasRouter */,
+				50CC3953282DF2D300660FD1 /* ListaTarjetasProtocol */,
+			);
+			path = ListaTarjetas;
+			sourceTree = "<group>";
+		};
+		50CC3953282DF2D300660FD1 /* ListaTarjetasProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				50CC3977282DF78F00660FD1 /* ListaTarjetasProtocol.swift */,
+			);
+			path = ListaTarjetasProtocol;
+			sourceTree = "<group>";
+		};
+		50CC3954282DF30500660FD1 /* ListaTarjetasRouter */ = {
+			isa = PBXGroup;
+			children = (
+				50CC3972282DF77D00660FD1 /* ListaTarjetasRouter.swift */,
+			);
+			path = ListaTarjetasRouter;
+			sourceTree = "<group>";
+		};
+		50CC3955282DF36100660FD1 /* ListaTarjetasEntity */ = {
+			isa = PBXGroup;
+			children = (
+				50CC396D282DF76E00660FD1 /* ListaTarjetasEntity.swift */,
+			);
+			path = ListaTarjetasEntity;
+			sourceTree = "<group>";
+		};
+		50CC3956282DF5BF00660FD1 /* ListaTarjetasPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				50CC3968282DF75B00660FD1 /* ListaTarjetasPresenter.swift */,
+			);
+			name = ListaTarjetasPresenter;
+			path = "ListaTarjetasPresenterç";
+			sourceTree = "<group>";
+		};
+		50CC3957282DF68400660FD1 /* ListaTarjetasInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				50CC3963282DF74B00660FD1 /* ListaTarjetasInteractor.swift */,
+			);
+			path = ListaTarjetasInteractor;
+			sourceTree = "<group>";
+		};
+		50CC3958282DF69000660FD1 /* ListaTarjetasView */ = {
+			isa = PBXGroup;
+			children = (
+				50CC3959282DF6BA00660FD1 /* ListaTarjetasStoryboard.storyboard */,
+				50CC395E282DF6CF00660FD1 /* ListaTarjetasViewController.swift */,
+				50CC397C282E071100660FD1 /* ListaTarjetaCollectionViewCell.swift */,
+			);
+			path = ListaTarjetasView;
+			sourceTree = "<group>";
+		};
 		50E71037282D9A5B00906FE6 /* RegisterTarjeta */ = {
 			isa = PBXGroup;
 			children = (
@@ -913,6 +993,7 @@
 		50FFA047281C96F9009A0528 /* UserModulRegister */ = {
 			isa = PBXGroup;
 			children = (
+				50CC3952282DF2C400660FD1 /* ListaTarjetas */,
 				50E71037282D9A5B00906FE6 /* RegisterTarjeta */,
 				501622E6282ACAA300F03AC1 /* Compras */,
 				50F1C70A2822D48200E6B85C /* DetailProduct */,
@@ -1214,6 +1295,7 @@
 				50E71047282D9ACC00906FE6 /* RegisterTarjetaStoryboard.storyboard in Resources */,
 				50FFA087281C9E5E009A0528 /* RegisterCategoryStoryboard.storyboard in Resources */,
 				50F1C7152822D48200E6B85C /* DetailProductStoryboard.storyboard in Resources */,
+				50CC395A282DF6BA00660FD1 /* ListaTarjetasStoryboard.storyboard in Resources */,
 				5011ED492817626100831C83 /* Assets.xcassets in Resources */,
 				50577C4228186DDC00EEC7B7 /* UserStoryboard.storyboard in Resources */,
 				50FFA065281C96FA009A0528 /* PerfilUserRegisterStoryboard.storyboard in Resources */,
@@ -1351,12 +1433,15 @@
 				50E7104C282D9AFF00906FE6 /* RegisterTarjetaInteractor.swift in Sources */,
 				50E7103F282D9ABB00906FE6 /* RegisterTarjetaViewController.swift in Sources */,
 				50FFA068281C96FA009A0528 /* PerfilUserRegisterPresenter.swift in Sources */,
+				50CC395F282DF6CF00660FD1 /* ListaTarjetasViewController.swift in Sources */,
 				50F1C740282339B200E6B85C /* MainUserRegisterPresenter.swift in Sources */,
 				50577C4328186DDC00EEC7B7 /* UserViewController.swift in Sources */,
 				50F349C42819DF750065D37E /* MainAdminPresenter.swift in Sources */,
 				50793D9C28246E5A00547845 /* MainUserRegisterTableViewCell.swift in Sources */,
 				50F1C71A2822D48200E6B85C /* DetailProductInteractor.swift in Sources */,
+				50CC397D282E071100660FD1 /* ListaTarjetaCollectionViewCell.swift in Sources */,
 				50162305282ACBEB00F03AC1 /* ComprasEntity.swift in Sources */,
+				50CC3973282DF77D00660FD1 /* ListaTarjetasRouter.swift in Sources */,
 				506897F72820771800566000 /* UserRegisterProductsProtocol.swift in Sources */,
 				50F1C71C2822D48200E6B85C /* DetailProductViewController.swift in Sources */,
 				50577BE12818402700EEC7B7 /* IndexPresenter.swift in Sources */,
@@ -1372,6 +1457,8 @@
 				50162314282AE79000F03AC1 /* ComprasViewCell.swift in Sources */,
 				50577C4628186DDC00EEC7B7 /* UserRouter.swift in Sources */,
 				50F1C7142822D48200E6B85C /* DetailProductRouter.swift in Sources */,
+				50CC396E282DF76E00660FD1 /* ListaTarjetasEntity.swift in Sources */,
+				50CC3964282DF74B00660FD1 /* ListaTarjetasInteractor.swift in Sources */,
 				50F349FF2819FB810065D37E /* MainAdminEntity.swift in Sources */,
 				50F1C745282339C300E6B85C /* MainUserRegisterEntity.swift in Sources */,
 				506897F32820771800566000 /* UserRegisterProductsViewController.swift in Sources */,
@@ -1388,6 +1475,7 @@
 				50FFA096281C9EC4009A0528 /* RegisterCategoryEntity.swift in Sources */,
 				50FFA09B281C9ED4009A0528 /* RegisterCategoryRouter.swift in Sources */,
 				506897FA2820771800566000 /* UserRegisterProductsInteractor.swift in Sources */,
+				50CC3978282DF78F00660FD1 /* ListaTarjetasProtocol.swift in Sources */,
 				50FFA06B281C96FA009A0528 /* PerfilUserRegisterProtocol.swift in Sources */,
 				50793D972824284800547845 /* InternalData.swift in Sources */,
 				50F1C738282339A100E6B85C /* MainUserRegisterInteractor.swift in Sources */,
@@ -1408,6 +1496,7 @@
 				50FFA067281C96FA009A0528 /* PerfilUserRegisterRouter.swift in Sources */,
 				50FFA06A281C96FA009A0528 /* PerfilUserRegisterInteractor.swift in Sources */,
 				50FFA0A0281C9EFA009A0528 /* RegisterCategoryProtocols.swift in Sources */,
+				50CC3969282DF75B00660FD1 /* ListaTarjetasPresenter.swift in Sources */,
 				5011ED472817625D00831C83 /* MiTiendita.xcdatamodeld in Sources */,
 				50577BC828183FDE00EEC7B7 /* IndexViewController.swift in Sources */,
 				50E71066282DAA6900906FE6 /* InternalDataRegisterTarjeta.swift in Sources */,

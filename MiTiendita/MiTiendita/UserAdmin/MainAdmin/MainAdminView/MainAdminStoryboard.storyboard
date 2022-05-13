@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo" translatesAutoresizingMaskIntoConstraints="NO" id="szh-qG-gEh">
-                                <rect key="frame" x="250" y="0.0" width="164" height="896"/>
+                                <rect key="frame" x="-50" y="0.0" width="464" height="896"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xH-8A-h61">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
@@ -361,7 +361,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xK9-dc-rdl">
-                                <rect key="frame" x="0.0" y="140" width="250" height="756"/>
+                                <rect key="frame" x="-300" y="140" width="250" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1J-Cu-5Ue">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="260"/>
@@ -620,7 +620,7 @@
                             <constraint firstAttribute="bottom" secondItem="xK9-dc-rdl" secondAttribute="bottom" id="HzL-sS-gHs"/>
                             <constraint firstItem="szh-qG-gEh" firstAttribute="top" secondItem="TV1-cs-HeX" secondAttribute="top" id="KNe-ba-cuy"/>
                             <constraint firstAttribute="bottom" secondItem="szh-qG-gEh" secondAttribute="bottom" id="RdC-5q-oZ0"/>
-                            <constraint firstItem="xK9-dc-rdl" firstAttribute="leading" secondItem="TV1-cs-HeX" secondAttribute="leading" id="WBq-ig-5n3"/>
+                            <constraint firstItem="xK9-dc-rdl" firstAttribute="leading" secondItem="TV1-cs-HeX" secondAttribute="leading" constant="-300" id="WBq-ig-5n3"/>
                             <constraint firstItem="mhW-Ql-tc6" firstAttribute="bottom" secondItem="0xH-8A-h61" secondAttribute="bottom" id="ZSv-DO-Vph"/>
                             <constraint firstItem="0xH-8A-h61" firstAttribute="trailing" secondItem="mhW-Ql-tc6" secondAttribute="trailing" id="cTw-kl-EqM"/>
                             <constraint firstItem="0xH-8A-h61" firstAttribute="top" secondItem="mhW-Ql-tc6" secondAttribute="top" id="eOS-Cu-w03"/>

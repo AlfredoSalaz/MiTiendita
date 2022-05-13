@@ -30,29 +30,20 @@ class InternalDataRegisterTarjeta {
         }catch (let error as NSError) {
             delegate.faillureRequest(error: error)
         }
-    }/*
-    func getTarjetaCoreDataa( delegate: InternalDataComprasDelegate) {
+    }
+    func getTarjetaCoreDataa( delegate: InternalDataRegisterTarjetaDelegate) {
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appdelegate.persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest <ComprasCD> = ComprasCD.fetchRequest()
+        let fetchRequest: NSFetchRequest <TarjetaCD> = TarjetaCD.fetchRequest()
         do{
             let resultado = try managedContext.fetch(fetchRequest)
             let data = resultado as [NSManagedObject]
-            delegate.recivedSucessCompra(data: data)
+            delegate.recivedSucessTarjeta(data: data)
         }catch(let error as NSError){
             delegate.faillureRequest(error: error)
         }
     }
-    func getTarjetaDataFromUrl(url: String) -> Data{
-        guard  let url = URL(string: url) else {
-            return Data()
-        }
-        var dataImage = Data()
-        if let data = try? Data(contentsOf: url){
-            dataImage = data
-        }
-        return dataImage
-    }
+    /*
     func deleteTarjetaCoreData(data: NSManagedObject, delegate: InternalDataComprasDelegate){
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let manageContext = appdelegate.persistentContainer.viewContext
